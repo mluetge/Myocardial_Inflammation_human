@@ -1,0 +1,6 @@
+Sample	technique	batch	location	origin	isolation
+1_20210811_Hu_nucleoi_seq_ECMO_Heart01_Myocardium_NextGEM	nucleoi	Heart01	Myocardium	ECMO	fresh
+2_20210811_Hu_nucleoi_seq_ECMO_Heart01_Septum_NextGEM	nucleoi	Heart01	Septum	ECMO	fresh
+3_20210811_Hu_cells_seq_ECMO_Heart01_Myocardium_NextGEM	cells	Heart01	Myocardium	ECMO	fresh
+4_20210811_Hu_cell_seq_ECMO_Heart01_Septum_NextGEM	cells	Heart01	Septum	ECMO	fresh
+10_20210817_Hu_nucleoi_seq_ECMO_Heart04_Myocardium_NextGEM	nucleoi	Heart04	Myocardium	ECMO	fresh
