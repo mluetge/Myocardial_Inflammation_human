@@ -51,7 +51,7 @@ metaDat <- read_tsv(paste0(basedir, "/metadata.txt"), col_names = T)
 ```{r load plus assign samples}
 
 assignSamples <- function(smpNam, basedirSmp, smpTec, smpBatch, smpLoc, smpOri,
-                          smpIso){
+                          smpIso, smpCol){
   smpNamFull <- list.files(path = paste0(basedirSmp, "/data/humanFibroblast/"),
 				 pattern = paste0(smpNam, ".*_seurat.rds"))
   seuratSmp <- readRDS(paste0(basedirSmp, "/data/humanFibroblast/", smpNamFull))
@@ -60,6 +60,7 @@ assignSamples <- function(smpNam, basedirSmp, smpTec, smpBatch, smpLoc, smpOri,
   seuratSmp$location <- smpLoc
   seuratSmp$origin <- smpOri
   seuratSmp$isolation <- smpIso
+  seuratSmp$collagenase <- smpCol
   return(seuratSmp)
 }
 
@@ -72,7 +73,8 @@ for(i in 1:length(metaDat$Sample)){
                            smpBatch = metaDat$batch[i],
                            smpLoc = metaDat$location[i],
                            smpOri = metaDat$origin[i],
-                           smpIso = metaDat$isolation[i])
+                           smpIso = metaDat$isolation[i],
+                           smpCol = metaDat$collagenase[i])
   if(exists("seurat")){
     seurat <- merge(x = seurat, y = seuratX, project = "humanCardiacFibro")
   }else{
@@ -111,6 +113,7 @@ colLoc <- pal_npg()(length(unique(seurat$location)))
 colBatch <- pal_jco()(length(unique(seurat$batch)))
 colOrig <- pal_futurama()(length(unique(seurat$origin)))
 colIso <- pal_nejm()(length(unique(seurat$isolation)))
+colColl <- pal_aaas()(length(unique(seurat$collagenase)))
 
 names(colPal) <- levels(seurat)
 names(colTec) <- unique(seurat$technique)
@@ -119,7 +122,7 @@ names(colLoc) <- unique(seurat$location)
 names(colBatch) <- unique(seurat$batch)
 names(colOrig) <- unique(seurat$origin)
 names(colIso) <- unique(seurat$isolation)
-
+names(colColl) <- unique(seurat$collagenase)
 
 ```
 
@@ -209,6 +212,19 @@ DimPlot(seurat, reduction = "umap", group.by = "isolation", cols=colIso)+
 ```{r vis location}
 
 DimPlot(seurat, reduction = "umap", group.by = "location", cols=colLoc)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### collagenase
+```{r vis collagenase}
+
+DimPlot(seurat, reduction = "umap", group.by = "collagenase", cols=colColl)+
   theme_bw() +
   theme(axis.text = element_blank(), axis.ticks = element_blank(), 
         panel.grid.minor = element_blank()) +
