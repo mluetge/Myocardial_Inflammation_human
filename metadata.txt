@@ -9,3 +9,5 @@ Sample	technique	batch	location	origin	isolation	collagenase
 11_20210819_Hu_nucleoi_seq_ECMO_Heart01_Myocardium_Frozen_NG	nucleoi	Heart01	Myocardium	ECMO	frozen	no
 12_20210819_Hu_nucleoi_seq_ECMO_Heart03_Myocardium_Frozen_NG	nucleoi	Heart03	Myocardium	ECMO	frozen	no
 13_20210819_Hu_nucleoi_seq_ECMO_Heart04_Myocardium_Frozen_NG	nucleoi	Heart04	Myocardium	ECMO	frozen	no
+9_20210907_Hu_nucseq_HTrans_Heart21_GEM	nucleoi	Heart21	HTrans	unknown	unknown	no
+10_20210907_Hu_nucseq_iDCM_Heart01_GEM	nucleoi	Heart01	iDCM	unknown	unknown	no
