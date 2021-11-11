@@ -1,0 +1,231 @@
+---
+title: "DE genes iDCM"
+author: "Mechthild Lütge"
+date: "14 May 2020"
+output:
+  html_document:
+    self_contained: no
+    code_folding: show
+    number_sections: no
+    toc: yes
+    toc_depth: 3
+    toc_float: true
+    collapsed: no
+    smooth_scroll: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, dev = c("png", "pdf"))
+set.seed(1000)
+```
+
+## load packages
+```{r libs}
+suppressPackageStartupMessages({
+  library(SingleCellExperiment)
+  library(tidyverse)
+  library(Seurat)
+  library(magrittr)
+  library(dplyr)
+  library(purrr)
+  library(ggplot2)
+  library(here)
+  library(runSeurat3)
+  library(ggsci)
+  library(ggpubr)
+  library(pheatmap)
+})
+
+```
+
+## set dir
+```{r set dir}
+basedir <- here()
+seurat <- readRDS(file = paste0(basedir, 
+                              "/data/humanHearts_merged_seurat.rds"))
+
+```
+
+
+## color vectors
+```{r colVec}
+
+colPal <- pal_igv()(length(levels(seurat)))
+colTec <- pal_jama()(length(unique(seurat$technique)))
+colSmp <- c(pal_uchicago()(8), pal_npg()(8))[1:length(unique(seurat$dataset))]
+colLoc <- pal_npg()(length(unique(seurat$location)))
+colBatch <- pal_jco()(length(unique(seurat$batch)))
+colOrig <- pal_futurama()(length(unique(seurat$origin)))
+colIso <- pal_nejm()(length(unique(seurat$isolation)))
+colColl <- pal_aaas()(length(unique(seurat$collagenase)))
+
+names(colPal) <- levels(seurat)
+names(colTec) <- unique(seurat$technique)
+names(colSmp) <- unique(seurat$dataset)
+names(colLoc) <- unique(seurat$location)
+names(colBatch) <- unique(seurat$batch)
+names(colOrig) <- unique(seurat$origin)
+names(colIso) <- unique(seurat$isolation)
+names(colColl) <- unique(seurat$collagenase)
+
+```
+
+
+## vis data {.tabset}
+### clusters
+```{r vis cluster}
+DimPlot(seurat, reduction = "umap", cols=colPal)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### technique
+```{r vis tecnique}
+
+DimPlot(seurat, reduction = "umap", group.by = "technique", cols=colTec)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+```
+
+
+### Sample
+```{r vis sample}
+
+DimPlot(seurat, reduction = "umap", group.by = "dataset", cols=colSmp)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### batch
+```{r vis batch}
+
+DimPlot(seurat, reduction = "umap", group.by = "batch", cols=colBatch)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+
+### Origin
+```{r vis origin}
+
+DimPlot(seurat, reduction = "umap", group.by = "origin", cols=colOrig)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+
+### isolation
+```{r vis isolation}
+
+DimPlot(seurat, reduction = "umap", group.by = "isolation", cols=colIso)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+
+### location
+```{r vis location}
+
+DimPlot(seurat, reduction = "umap", group.by = "location", cols=colLoc)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### collagenase
+```{r vis collagenase}
+
+DimPlot(seurat, reduction = "umap", group.by = "collagenase", cols=colColl)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+
+
+## cwDE genes iDCM
+```{r marker genes}
+
+seurat <- subset(seurat, technique=="nucleoi")
+seurat$iDCM <- "other"
+seurat$iDCM[which(seurat$location == "iDCM")] <- "iDCM"
+Idents(seurat) <- seurat$iDCM 
+grpVec <- unique(seurat$seurat_clusters)
+
+clustDE <- lapply(grpVec, function(grp){
+  grpSub <- unique(seurat$seurat_clusters)[which(
+    unique(seurat$seurat_clusters)==grp)]
+  seuratSub <- subset(seurat, seurat_clusters == grpSub)
+  DEgenes <-FindAllMarkers(seuratSub, only.pos=T, logfc.threshold = 0.25,
+                           min.pct = 0.1)
+  if(nrow(DEgenes)>1){
+    DEgenes <- DEgenes %>% filter(p_val_adj<0.01) %>%
+      mutate(group=paste0(grp, "_", cluster))
+    }
+})
+
+names(clustDE) <- grpVec
+
+clustDE_Dat <- data.frame(do.call("rbind", clustDE))
+
+```
+
+
+## save objects
+```{r save}
+
+write.table(clustDE_Dat,
+            file=paste0(basedir, "/data/humanHearts_merged_cwDEgenes_iDCM.txt"),
+            row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
+
+
+```
+
+
+## session info
+```{r session info}
+sessionInfo()
+date()
+```
+
+
+
+
