@@ -13,7 +13,7 @@
 
 <title>Home</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -33,7 +33,7 @@
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
 <style type="text/css">
 div.section {
@@ -70,6 +70,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -90,6 +91,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -242,7 +246,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -297,7 +301,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-11-11
+<strong>Last updated:</strong> 2022-04-29
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -306,8 +310,8 @@ $(document).ready(function () {
 <strong>Knit directory:</strong> <code>humanCardiacFibroblasts/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
 <p>
-This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -328,16 +332,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststreec967df31dfe95d7b4ce0945ef0f7d66770dd0167targetblankc967df3a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/c967df31dfe95d7b4ce0945ef0f7d66770dd0167" target="_blank">c967df3</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststreea7c3bada681115e45f557b203dfdde4616310acdtargetblanka7c3bada"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/a7c3bada681115e45f557b203dfdde4616310acd" target="_blank">a7c3bad</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststreec967df31dfe95d7b4ce0945ef0f7d66770dd0167targetblankc967df3a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststreea7c3bada681115e45f557b203dfdde4616310acdtargetblanka7c3bada" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/c967df31dfe95d7b4ce0945ef0f7d66770dd0167" target="_blank">c967df3</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/a7c3bada681115e45f557b203dfdde4616310acd" target="_blank">a7c3bad</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -350,7 +354,8 @@ Ignored files:
     Ignored:    data/humanFibroblast/
 
 Untracked files:
-    Untracked:  analysis/DEgenes_iDCM.Rmd
+    Untracked:  analysis/Vis_plus_analyse_humanHeart.Rmd
+    Untracked:  figure/Vis_plus_analyse_humanHeart.Rmd/
 
 Unstaged changes:
     Modified:   analysis/index.Rmd
@@ -392,6 +397,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/affdfcb07165df0330df9351d243ceb43abe37e0/analysis/index.Rmd" target="_blank">affdfcb</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2021-11-11
+</td>
+<td>
+add cw DE henes idcm
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mluetge/humanCardiacFibroblasts/affdfcb07165df0330df9351d243ceb43abe37e0/docs/index.html" target="_blank">affdfcb</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2021-11-11
+</td>
+<td>
+add cw DE henes idcm
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -487,13 +526,14 @@ Start workflowr project.
 <div id="human-cardiac-fibroblasts---optimize-protocols" class="section level3">
 <h3>Human Cardiac Fibroblasts - optimize protocols:</h3>
 <p>merge fibroblast data from different isolation protocols etc: <a href="mergeHumanSamples.html">link</a><br />
-cw DE genes iDCM versus other: <a href="DEgenes_iDCM.html">link</a></p>
+cw DE genes iDCM versus other: <a href="DEgenes_iDCM.html">link</a><br />
+visualize data for grand application: <a href="Vis_plus_analyse_humanHeart.html">link</a></p>
 </div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
-http://docs.mathjax.org/en/latest/configuration.html.  This will make
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
 the presentation more consistent at the cost of the webpage sometimes
 taking slightly longer to load. Note that this only works because the
 footer is added to webpages before the MathJax javascript. -->
