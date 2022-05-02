@@ -11,5 +11,6 @@ editor_options:
 ### Human Cardiac Fibroblasts - optimize protocols:  
 merge fibroblast data from different isolation protocols etc: [link](mergeHumanSamples.html)  
 cw DE genes iDCM versus other: [link](DEgenes_iDCM.html)  
-visualize data for grand application: [link](Vis_plus_analyse_humanHeart.html)  
+visualize data for grand application with ECMO4: [link](Vis_plus_analyse_NormlaHFMyo.html)  
+visualize data for grand application without ECMO4: [link](Vis_plus_analyse_NormlaHFMyo_woECMO4.html)  
 
