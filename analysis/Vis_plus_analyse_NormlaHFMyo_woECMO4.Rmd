@@ -179,13 +179,13 @@ seurat <- readRDS(file = paste0(basedir,
 seurat$ID[which(seurat$ID == "ID23_25")] <- "ID2325"
 
 ## subset on sel patients
-selPat <- c("ID2325", "ID28", "ID30", "ID31", "ID21", "ID26")
+selPat <- c("ID2325", "ID28", "ID30", "ID31", "ID21", "ID26", "ID29")
 seurat <- subset(seurat, ID %in% selPat)
 seurat <- rerunSeurat3(seurat)
 
 seurat$grp <- "normal"
 seurat$grp[which(seurat$ID %in% c("ID21", "ID26"))] <- "HF"
-seurat$grp[which(seurat$ID %in% c("ID30", "ID31"))] <- "Myocarditis"
+seurat$grp[which(seurat$ID %in% c("ID30", "ID31", "ID29"))] <- "Myocarditis"
 
 Idents(seurat) <- seurat$RNA_snn_res.0.25
 

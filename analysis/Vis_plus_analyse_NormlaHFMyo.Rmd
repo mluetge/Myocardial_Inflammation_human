@@ -36,6 +36,7 @@ suppressPackageStartupMessages({
   library(ggpubr)
   library(pheatmap)
   library(viridis)
+  library(sctransform)
 })
 
 ```
@@ -179,16 +180,49 @@ seurat <- readRDS(file = paste0(basedir,
 seurat$ID[which(seurat$ID == "ID23_25")] <- "ID2325"
 
 ## subset on sel patients
-selPat <- c("ID2325", "ID28", "ID30", "ID31", "ID21", "ID26", "ECMO4")
+selPat <- c("ID2325", "ID28", "ID30", "ID31", "ID21", "ID26", "ECMO4", "ID29")
 seurat <- subset(seurat, ID %in% selPat)
-seurat <- rerunSeurat3(seurat)
+#seurat <- rerunSeurat3(seurat)
 
 seurat$grp <- "normal"
 seurat$grp[which(seurat$ID %in% c("ID21", "ID26"))] <- "HF"
-seurat$grp[which(seurat$ID %in% c("ID30", "ID31"))] <- "Myocarditis"
+seurat$grp[which(seurat$ID %in% c("ID30", "ID31", "ID29"))] <- "Myocarditis"
 
-Idents(seurat) <- seurat$RNA_snn_res.0.25
+#Idents(seurat) <- seurat$RNA_snn_res.0.25
 
+## integrate data across patients
+Idents(seurat) <- seurat$ID
+
+seurat.list <- SplitObject(object = seurat, split.by = "ID")
+for (i in 1:length(x = seurat.list)) {
+    seurat.list[[i]] <- NormalizeData(object = seurat.list[[i]],
+                                      verbose = FALSE)
+    seurat.list[[i]] <- FindVariableFeatures(object = seurat.list[[i]], 
+        selection.method = "vst", nfeatures = 2000, verbose = FALSE)
+}
+
+seurat.anchors <- FindIntegrationAnchors(object.list = seurat.list, dims = 1:15)
+seurat.int <- IntegrateData(anchorset = seurat.anchors, dims = 1:15)
+DefaultAssay(object = seurat.int) <- "integrated"
+
+# rerun seurat
+seurat.int <- ScaleData(object = seurat.int, verbose = FALSE,
+                        features = rownames(seurat.int))
+seurat.int <- RunPCA(object = seurat.int, npcs = 20, verbose = FALSE)
+seurat.int <- RunTSNE(object = seurat.int, reduction = "pca", dims = 1:20)
+seurat.int <- RunUMAP(object = seurat.int, reduction = "pca", dims = 1:20)
+
+seurat.int <- FindNeighbors(object = seurat.int, reduction = "pca", dims = 1:20)
+res <- c(0.6,0.8,0.4,0.25)
+for(i in 1:length(res)){
+  seurat.int <- FindClusters(object = seurat.int, resolution = res[i],
+                             random.seed = 1234)
+}
+
+
+DefaultAssay(object = seurat.int) <- "RNA"
+seurat <- seurat.int
+remove(seurat.int)
 ```
 
 
@@ -421,7 +455,15 @@ genes <- data.frame(geneID=rownames(seurat)) %>%
 signDat <- signDat %>% left_join(.,genes, by="gene")
 allSign <- unique(signDat$signature)
 
+DefaultAssay(object = seurat) <- "integrated"
+sce2 <- as.SingleCellExperiment(seurat)
+
+DefaultAssay(object = seurat) <- "RNA"
 sce <- as.SingleCellExperiment(seurat)
+reducedDims(sce) <- list(PCA=reducedDim(sce2, "PCA"),
+                         TSNE=reducedDim(sce2, "TSNE"),
+                         UMAP=reducedDim(sce2, "UMAP"))
+
 treatGrps <- unique(sce$grp)
 
 cutOff <- 1.5
@@ -450,13 +492,15 @@ lapply(unique(signDat$signature), function(sign){
 })
 
 
+
+
 ```
 
 ### across all
 ```{r signature cut 1.5 across all}
 
 
-sce <- as.SingleCellExperiment(seurat)
+#sce <- as.SingleCellExperiment(seurat)
 
 cutOff <- 1.5
 pal = viridis(100)
@@ -489,19 +533,19 @@ lapply(unique(signDat$signature), function(sign){
 
 ## save objects
 ```{r save}
-Idents(seurat) <- Idents(seurat) <- seurat$RNA_snn_res.0.25
+Idents(seurat) <- Idents(seurat) <- seurat$integrated_snn_res.0.25
 saveRDS(seurat, file = paste0(basedir, 
-                              "/data/humanHearts_merged_Normal_HF_Myocarditis.rds"))
+                              "/data/humanHearts_intAcrossPat_Normal_HF_Myocarditis.rds"))
 
 saveRDS(seuratSub, file = paste0(basedir, 
-                              "/data/humanHearts_merged_Normal_Myocarditis.rds"))
+                              "/data/humanHearts_intAcrossPat_Normal_Myocarditis.rds"))
 
 saveRDS(seuratSub2, file = paste0(basedir, 
-                              "/data/humanHearts_merged_Normal_HF.rds"))
+                              "/data/humanHearts_intAcrossPat_Normal_HF.rds"))
 
 write.table(DEgenes,
             file=paste0(basedir,
-                        "/data/humanHearts_NORMALvsHFvsMYO_overallDEGenes.txt"),
+                        "/data/humanHearts_intAcrossPat_NORMALvsHFvsMYO_overallDEGenes.txt"),
             row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
 
 
