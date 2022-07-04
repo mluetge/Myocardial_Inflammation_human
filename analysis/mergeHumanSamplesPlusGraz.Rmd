@@ -111,7 +111,7 @@ colTec <- pal_jama()(length(unique(seurat$technique)))
 colSmp <- c(pal_uchicago()(8), pal_npg()(8), pal_aaas()(10))[1:length(unique(seurat$dataset))]
 colCond <- pal_npg()(length(unique(seurat$cond)))
 colID <- c(pal_jco()(10), pal_npg()(10))[1:length(unique(seurat$ID))]
-colOrig <- pal_futurama()(length(unique(seurat$origin)))
+colOrig <- pal_aaas()(length(unique(seurat$origin)))
 colIso <- pal_nejm()(length(unique(seurat$isolation)))
 colProc <- pal_aaas()(length(unique(seurat$processing)))
 

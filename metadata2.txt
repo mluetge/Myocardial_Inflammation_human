@@ -19,7 +19,6 @@ o28576_1_06-6_20220525_Hu_nucseq_Graz_6_EMB_GEM	nucleoi	GZ6	Myocarditis	biopsy	f
 o28576_1_07-7_20220525_Hu_nucseq_Graz_7_EMB_GEM	nucleoi	GZ7	Myocarditis	biopsy	frozen	GZ
 o28576_1_13-13_20220525_Hu_nucseq_EMB32_GEM	nucleoi	SG32	InfCardiomyopathy	biopsy	frozen	SG
 o28576_1_08-8_20220525_Hu_nucseq_Graz_8_HH_GEM	nucleoi	GZ8	HH	explant	frozen	GZ
-o28576_1_09-9_20220525_Hu_nucseq_Graz_9_HH_GEM	nucleoi	GZ9	HH	explant	frozen	GZ
 o28576_1_10-10_20220525_Hu_nucseq_Graz_10_HH_GEM	nucleoi	GZ10	HH	explant	frozen	GZ
 o28576_1_11-11_20220525_Hu_nucseq_Graz_11_HH_GEM	nucleoi	GZ11	HH	explant	frozen	GZ
 o28576_1_12-12_20220525_Hu_nucseq_Graz_12_HH_GEM	nucleoi	GZ12	HH	explant	frozen	GZ
