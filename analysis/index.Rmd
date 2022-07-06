@@ -9,9 +9,10 @@ editor_options:
 ---
 
 ### Human Cardiac Fibroblasts - optimize protocols:  
-merge fibroblast data from different isolation protocols etc: [link](mergeHumanSamples.html)  
-merge fibroblast data including samples from Graz: [link](mergeHumanSamplesPlusGraz.html)  
-integrate fibroblast data including samples from Graz: [link](integrateAcrossPatientsGZplusSG.html)  
+merge cardiac cells from different isolation protocols etc: [link](mergeHumanSamples.html)  
+merge cardiac cells including samples from Graz: [link](mergeHumanSamplesPlusGraz.html)  
+integrate  cardiac cells including samples from Graz: [link](integrateAcrossPatientsGZplusSG.html)  
+assign labels to integrated data: [link](assignLabelshumanHeartsPlusGrazInt.html)  
 cw DE genes iDCM versus other: [link](DEgenes_iDCM.html)  
 visualize data for grand application with ECMO4: [link](Vis_plus_analyse_NormlaHFMyo.html)  
 visualize data for grand application without ECMO4: [link](Vis_plus_analyse_NormlaHFMyo_woECMO4.html)  
