@@ -56,11 +56,11 @@ for (i in 1:length(x = seurat.list)) {
     seurat.list[[i]] <- NormalizeData(object = seurat.list[[i]],
                                       verbose = FALSE)
     seurat.list[[i]] <- FindVariableFeatures(object = seurat.list[[i]], 
-        selection.method = "vst", nfeatures = 2000, verbose = FALSE)
+        selection.method = "vst", nfeatures = 1000, verbose = FALSE)
 }
 
-seurat.anchors <- FindIntegrationAnchors(object.list = seurat.list, dims = 1:15)
-seurat.int <- IntegrateData(anchorset = seurat.anchors, dims = 1:15)
+seurat.anchors <- FindIntegrationAnchors(object.list = seurat.list, dims = 1:10)
+seurat.int <- IntegrateData(anchorset = seurat.anchors, dims = 1:10)
 DefaultAssay(object = seurat.int) <- "integrated"
 
 # rerun seurat
