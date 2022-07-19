@@ -56,11 +56,11 @@ for (i in 1:length(x = seurat.list)) {
     seurat.list[[i]] <- NormalizeData(object = seurat.list[[i]],
                                       verbose = FALSE)
     seurat.list[[i]] <- FindVariableFeatures(object = seurat.list[[i]], 
-        selection.method = "vst", nfeatures = 1000, verbose = FALSE)
+        selection.method = "vst", nfeatures = 500, verbose = FALSE)
 }
 
-seurat.anchors <- FindIntegrationAnchors(object.list = seurat.list, dims = 1:10)
-seurat.int <- IntegrateData(anchorset = seurat.anchors, dims = 1:10)
+seurat.anchors <- FindIntegrationAnchors(object.list = seurat.list, dims = 1:20)
+seurat.int <- IntegrateData(anchorset = seurat.anchors, dims = 1:20)
 DefaultAssay(object = seurat.int) <- "integrated"
 
 # rerun seurat
@@ -70,7 +70,8 @@ seurat.int <- RunPCA(object = seurat.int, npcs = 20, verbose = FALSE)
 seurat.int <- RunTSNE(object = seurat.int, reduction = "pca", dims = 1:20)
 seurat.int <- RunUMAP(object = seurat.int, reduction = "pca", dims = 1:20)
 
-seurat.int <- FindNeighbors(object = seurat.int, reduction = "pca", dims = 1:20)
+seurat.int <- FindNeighbors(object = seurat.int, reduction = "pca", dims = 1:20,
+                            k.param = 50)
 res <- c(0.6,0.8,0.4,0.25)
 for(i in 1:length(res)){
   seurat.int <- FindClusters(object = seurat.int, resolution = res[i],
