@@ -15,6 +15,7 @@ integrate  cardiac cells including samples from Graz: [link](integrateAcrossPati
 assign labels to integrated data: [link](assignLabelshumanHeartsPlusGrazInt.html)  
 integrate  cardiac cells including samples from Graz only subset with high Tcell fraction: [link](integrateAcrossPatientsGZplusSG_Subset.html)  
 cw DE genes samples GRAZ and SG grouped by Tcell fraction: [link](DEgenesGZplusSG_Groups.html)  
+vis sel DE genes samples GRAZ and SG grouped by Tcell fraction: [link](visHumanCardiacDEgenesGroups.html)  
 cw DE genes samples GRAZ and SG subset on low Tcell fraction: [link](DEgenesGZplusSG_SubsetLT.html)  
 cw DE genes samples GRAZ and SG subset on high Tcell fraction: [link](DEgenesGZplusSG_SubsetHT.html)  
 cw DE genes iDCM versus other: [link](DEgenes_iDCM.html)  

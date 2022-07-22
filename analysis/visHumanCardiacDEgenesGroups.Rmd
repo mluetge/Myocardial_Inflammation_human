@@ -189,17 +189,7 @@ visGroup_adapt <- function (sce,group,dim_red = "TSNE",col_group=pal_nejm()(8))
 basedir <- here()
 seurat <- readRDS(file = paste0(basedir, 
                               "/data/humanHeartsPlusGraz_intPatients_merged", 
-                              "labeled_seurat.rds"))
-myoGrp <- c("GZ1","GZ4","GZ6","SG29","SG32")
-myoLTGrp <- c("GZ2","GZ3","GZ5","GZ7","SG31")
-CtrlGrp <- c("GZ8","GZ10","GZ11","GZ12")
-
-seurat$cond2 <- "HH"
-seurat$cond2[which(seurat$ID %in% myoGrp)] <- "MyocarditisHT"
-seurat$cond2[which(seurat$ID %in% myoLTGrp)] <- "MyocarditisLT"
-
-saveRDS(seurat, paste0(basedir, "/data/humanHeartsPlusGraz_intPatients_merged",
-                       "labeled_groups_seurat.rds"))
+                              "labeled_groups_seurat.rds"))
 ```
 
 
@@ -350,6 +340,37 @@ DimPlot(seurat, reduction = "umap", group.by = "processing", cols=colProc)+
 
 ```
 
+
+## vis sel genes
+
+```{r vis sel genes, fig.height=8, fig.width=10}
+
+genes <- data.frame(gene=rownames(seurat)) %>%
+  mutate(geneID = gsub(".*\\.", "", gene))
+selGenes <- read_tsv(paste0(basedir, "/data/selDEgenesGroups.txt")) %>% 
+  left_join(., genes, by = "geneID")
+
+seurat$label_plus_cond2 <- paste0(seurat$label, "_", seurat$cond2)
+seurat$label_plus_cond2 <- as.factor(seurat$label_plus_cond2)
+Idents(seurat) <- seurat$label_plus_cond2
+
+gapVecCol <- seq(3, length(levels(seurat$label_plus_cond2)), by=3)
+
+## keep gene order
+pOut <- avgHeatmap(seurat = seurat, selGenes = selGenes,
+                    colVecIdent = colLab, colVecCond=colCond,
+                    ordVec=levels(seurat$label_plus_cond2),
+                    gapVecR=NULL, gapVecC=gapVecCol,cc=FALSE,
+                    cr=F, condCol=T)
+
+## cluster genes
+pOut <- avgHeatmap(seurat = seurat, selGenes = selGenes,
+                    colVecIdent = colLab, colVecCond=colCond,
+                    ordVec=levels(seurat$label_plus_cond2),
+                    gapVecR=NULL, gapVecC=gapVecCol,cc=FALSE,
+                    cr=T, condCol=T)
+
+```
 ## overall DE genes
 ```{r overall DE genes}
 Idents(seurat) <- seurat$cond2
@@ -379,128 +400,11 @@ names(GOcons) <- clVec
 ## table to select pathways
 GOconsDat <- do.call("rbind", GOcons)
 
-write.table(GOconsDat, quote=F, row.names = T, col.names = T, sep= "\t",
-            file = paste0(basedir,"/data/humanHeartsPlusGraz_intPatients_", 
-                              "merged_Groups_overallDEGO.txt"))
-
-
-```
-
-
-## cw DE genes
-
-```{r cw DE genes}
-
-Idents(seurat) <- seurat$cond2
-grpVec <- unique(seurat$label)
-
-clustDE <- lapply(grpVec, function(grp){
-  grpSub <- unique(seurat$label)[which(
-    unique(seurat$label)==grp)]
-  seuratSub <- subset(seurat, label == grpSub)
-  DEgenes <-FindAllMarkers(seuratSub, only.pos=T, logfc.threshold = 0.1,
-                           min.pct = 0.01)
-  if(nrow(DEgenes)>1){
-    DEgenes <- DEgenes %>% filter(p_val_adj<0.01) %>%
-      mutate(group=paste0(grp, "_", cluster)) %>% 
-      mutate(geneID=gsub(".*\\.", "",  gene)) %>% 
-      filter(nchar(geneID)>1)
-    }
-})
-
-names(clustDE) <- grpVec
-
-clustDE_Dat <- data.frame(do.call("rbind", clustDE))
-
-write.table(clustDE_Dat,
-            file=paste0(basedir, 
-                              "/data/humanHeartsPlusGraz_intPatients_", 
-                              "merged_Groups_cwDEGenes.txt"),
-            row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
-
-```
-
-
-
-### avg Heatmap top cwDE genes {.tabset}
-```{r avgHeat cwDE, warning=FALSE, echo = FALSE}
-
-## only cluster with > 1 DE genes
-deCnt <- lapply(clustDE, nrow)
-deCnt <- data.frame(cnt=do.call("rbind", deCnt)) %>%
-  rownames_to_column(var = "cluster") %>% filter(cnt>1)
-
-grpVec <- as.character(deCnt$cluster)
-seurat$label_plus_cond2 <- paste0(seurat$label, "_", seurat$cond2)
-seurat$label_plus_cond2 <- as.factor(seurat$label_plus_cond2)
-Idents(seurat) <- seurat$label_plus_cond2
-
-template_ah <- c(
-    "#### {{grp}}\n",
-    "```{r avgHeat cwDE {{grp}},echo = FALSE,fig.height=10,fig.width=10}\n",
-    "DeSub <- clustDE[[as.character('{{grp}}')]]",
-    "DeSel <- DeSub %>% top_n(., 30, avg_log2FC)",
-    "gapVecCol <- seq(3, length(levels(seurat$label_plus_cond2)), by=3)",
-    "pOut <- avgHeatmap(seurat = seurat, selGenes = DeSel,
-                     colVecIdent = colLab, colVecCond=colCond,
-                     ordVec=levels(seurat$label_plus_cond2),
-                     gapVecR=NULL, gapVecC=gapVecCol,cc=FALSE,
-                     cr=T, condCol=T)\n",
-    "```\n",
-    "\n"
-)
-    
-plots_ah <- lapply(grpVec, 
-  function(grp) knitr::knit_expand(text = template_ah)
-)
-
-```
-
-`r knitr::knit(text = unlist(plots_ah))`
-
-
-### GSEA clusterProfiler cw DEgenes 
-
-```{r GSEA clusterprofiler, fig.height=6, fig.width=12}
-
-clVec <- levels(seurat$label_plus_cond2)
-GOcons <- lapply(clVec, function(cl){
-  clustDE_DatSub <- clustDE_Dat[which(clustDE_Dat$group == cl),] %>% 
-    mutate(ENS=gsub("\\..*$", "", gene)) #%>% 
-    #slice_min(., max_pval, n=200)
-  egoSS <- enrichGO(gene      = unique(clustDE_DatSub$ENS),
-                OrgDb         = org.Hs.eg.db,
-                keyType       = 'ENSEMBL',
-                ont           = "BP",
-                pAdjustMethod = "BH",
-                pvalueCutoff  = 0.05,
-                qvalueCutoff  = 0.05)
-  egoSS <- setReadable(egoSS, OrgDb = org.Hs.eg.db)
-  egoSSres <- egoSS@result %>% filter(p.adjust < 0.05) %>% 
-    mutate(subset=cl)
-})
-
-names(GOcons) <- clVec
-
-## table to select pathways
-GOconsDat <- do.call("rbind", GOcons)
-
-write.table(GOconsDat, quote=F, row.names = T, col.names = T, sep= "\t",
-            file = paste0(basedir,"/data/humanHeartsPlusGraz_intPatients_", 
-                              "merged_Groups_cwDEGO.txt"))
-	
-
-
-```
-
-### vis sel GO Fibroblasts
-```{r vis sel GO Fibroblasts}
-
-selGO <- read_tsv(paste0(basedir,"/data/GSEA/selGO_Fibroblasts.txt"))
-GOconsDatSel <- GOconsDat %>% filter(ID %in% selGO$GOterm) %>% 
-  mutate(cond2 = gsub(".*_", "", subset)) %>% 
-  mutate(label= gsub("_.*", "", subset)) %>% 
-  filter(label == "Fibroblast")
+selGO <- read_tsv(paste0(basedir,"/data/GSEA/selGO_overall.txt")) %>% 
+  mutate(GO_cond = paste0(GOterm, "_", cond2))
+GOconsDatSel <- GOconsDat %>% mutate(GO_cond = paste0(ID, "_", subset)) %>% 
+  filter(GO_cond %in% selGO$GO_cond) %>% 
+  mutate(cond2 = gsub(".*_", "", subset)) 
 
 grpVec <- unique(selGO$cond2)
 lapply(grpVec, function(grp){
@@ -518,34 +422,6 @@ lapply(grpVec, function(grp){
 p
 })
 
-
-```
-
-
-### vis sel GO T cells
-```{r vis sel GO Tcell}
-
-selGO <- read_tsv(paste0(basedir,"/data/GSEA/selGO_Tcell.txt"))
-GOconsDatSel <- GOconsDat %>% filter(ID %in% selGO$GOterm) %>% 
-  mutate(cond2 = gsub(".*_", "", subset)) %>% 
-  mutate(label= gsub("_.*", "", subset)) %>% 
-  filter(label == "Tcell")
-
-grpVec <- unique(selGO$cond2)
-lapply(grpVec, function(grp){
-  selGODat <- GOconsDatSel %>% filter(cond2 == grp)
-  selGODat <- selGODat %>% mutate(qscore=-log(p.adjust, base=10)) 
-  p <- ggbarplot(selGODat, x = "Description", y = "qscore",
-          fill = "cond2",               
-          color = "cond2",            
-          palette = colCond,            
-          sort.val = "asc",           
-          sort.by.groups = TRUE      
-          #x.text.angle = 90           
-          ) + 
-  rotate()
-p
-})
 
 
 ```
@@ -554,7 +430,7 @@ p
 
 ## signatures viridis
 ### split by grp
-```{r signature cut 1.5, fig.height=3.5, fig.width=5}
+```{r signature cut 1.5, fig.height=4, fig.width=6}
 
 signDat <- read_delim(file = paste0(basedir,
                     "/data/SelSignaturesTreat2.txt"),
@@ -626,7 +502,7 @@ lapply(unique(signDat$signature), function(sign){
   })
 })
 
-cutOff <- 1.5
+cutOff <- 1
 pal = viridis(100)
 sc <- scale_colour_gradientn(colours = pal, limits=c(0, cutOff))
 
@@ -655,7 +531,7 @@ lapply(unique(signDat$signature), function(sign){
 
 ## signatures red blue
 ### split by grp
-```{r signature rdbl, fig.height=3.5, fig.width=5}
+```{r signature rdbl, fig.height=4, fig.width=6}
 
 
 cutOff <- 3
@@ -709,7 +585,7 @@ lapply(unique(signDat$signature), function(sign){
   })
 })
 
-cutOff <- 1.5
+cutOff <- 1
 pal = colorRampPalette(c("#053061", "#f7f7f7","#85122d"))(100)
 sc <- scale_colour_gradientn(colours = pal, limits=c(0, cutOff))
 
@@ -746,6 +622,7 @@ selGenes <- data.frame(gene=c("BMP2", "BMP4", "BMPR1A", "BMPR2")) %>%
   left_join(., genesDat, by="gene")
 
 ## subsample to equal number
+Idents(seurat) <- seurat$cond2
 seuratSub <- subset(seurat, downsample = min(table(seurat$cond2)))
 
 pList <- sapply(selGenes$EnsID, function(x){
@@ -757,26 +634,6 @@ pList <- sapply(selGenes$EnsID, function(x){
 })
 
 ```
-
-
-## vis sel genes violin Fibroblasts
-```{r vis sel genes violin Fibroblasts}
-
-seuratSub <- subset(seurat, label == "Fibroblast")
-
-## subsample to equal number
-seuratSub <- subset(seuratSub, downsample = min(table(seuratSub$cond2)))
-
-pList <- sapply(selGenes$EnsID, function(x){
-  p <- VlnPlot(object = seuratSub, features = x,
-               group.by = "cond2",
-               cols = colCond, pt.size = 0.2
-               )
-  plot(p)
-})
-
-```
-
 
 
 ## session info
