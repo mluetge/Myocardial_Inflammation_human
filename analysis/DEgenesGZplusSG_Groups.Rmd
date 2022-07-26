@@ -494,13 +494,16 @@ write.table(GOconsDat, quote=F, row.names = T, col.names = T, sep= "\t",
 ```
 
 ### vis sel GO Fibroblasts
-```{r vis sel GO Fibroblasts}
+```{r vis sel GO Fibroblasts, fig.height=4, fig.width=7}
 
-selGO <- read_tsv(paste0(basedir,"/data/GSEA/selGO_Fibroblasts.txt"))
-GOconsDatSel <- GOconsDat %>% filter(ID %in% selGO$GOterm) %>% 
+selGO <- read_tsv(paste0(basedir,"/data/GSEA/selGO_Fibroblasts.txt"))%>% 
+  mutate(GO_cond = paste0(GOterm, "_", cond2))
+GOconsDatSel <- GOconsDat %>% 
   mutate(cond2 = gsub(".*_", "", subset)) %>% 
   mutate(label= gsub("_.*", "", subset)) %>% 
-  filter(label == "Fibroblast")
+  filter(label == "Fibroblast") %>% 
+  mutate(GO_cond = paste0(ID, "_", cond2)) %>% 
+  filter(GO_cond %in% selGO$GO_cond)
 
 grpVec <- unique(selGO$cond2)
 lapply(grpVec, function(grp){
@@ -520,36 +523,6 @@ p
 
 
 ```
-
-
-### vis sel GO T cells
-```{r vis sel GO Tcell}
-
-selGO <- read_tsv(paste0(basedir,"/data/GSEA/selGO_Tcell.txt"))
-GOconsDatSel <- GOconsDat %>% filter(ID %in% selGO$GOterm) %>% 
-  mutate(cond2 = gsub(".*_", "", subset)) %>% 
-  mutate(label= gsub("_.*", "", subset)) %>% 
-  filter(label == "Tcell")
-
-grpVec <- unique(selGO$cond2)
-lapply(grpVec, function(grp){
-  selGODat <- GOconsDatSel %>% filter(cond2 == grp)
-  selGODat <- selGODat %>% mutate(qscore=-log(p.adjust, base=10)) 
-  p <- ggbarplot(selGODat, x = "Description", y = "qscore",
-          fill = "cond2",               
-          color = "cond2",            
-          palette = colCond,            
-          sort.val = "asc",           
-          sort.by.groups = TRUE      
-          #x.text.angle = 90           
-          ) + 
-  rotate()
-p
-})
-
-
-```
-
 
 
 ## signatures viridis
@@ -746,6 +719,7 @@ selGenes <- data.frame(gene=c("BMP2", "BMP4", "BMPR1A", "BMPR2")) %>%
   left_join(., genesDat, by="gene")
 
 ## subsample to equal number
+Idents(seurat) <- seurat$cond2
 seuratSub <- subset(seurat, downsample = min(table(seurat$cond2)))
 
 pList <- sapply(selGenes$EnsID, function(x){
