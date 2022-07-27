@@ -364,7 +364,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -375,8 +375,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -389,9 +389,9 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>humanCardiacFibroblasts/</code>
@@ -414,18 +414,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -516,15 +519,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststreed46e9ee380dc24f9ac39ebd360477385651a3b70targetblankd46e9eea">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree92501743339ef9eabb8885833847ffbc4f7a5e7dtargetblank9250174a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/d46e9ee380dc24f9ac39ebd360477385651a3b70" target="_blank">d46e9ee</a>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/92501743339ef9eabb8885833847ffbc4f7a5e7d" target="_blank">9250174</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststreed46e9ee380dc24f9ac39ebd360477385651a3b70targetblankd46e9eea"
+id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree92501743339ef9eabb8885833847ffbc4f7a5e7dtargetblank9250174a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -534,7 +537,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/d46e9ee380dc24f9ac39ebd360477385651a3b70" target="_blank">d46e9ee</a>.
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/92501743339ef9eabb8885833847ffbc4f7a5e7d" target="_blank">9250174</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -555,6 +558,9 @@ Ignored files:
     Ignored:    data/GSEA/
     Ignored:    data/humanFibroblast/
     Ignored:    figure/DEgenesGZplusSG_Groups.Rmd/.DS_Store
+
+Unstaged changes:
+    Modified:   analysis/DEgenesGZplusSG_Groups.Rmd
 
 </code></pre>
 <p>
@@ -601,6 +607,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mluetge/humanCardiacFibroblasts/92501743339ef9eabb8885833847ffbc4f7a5e7d/docs/DEgenesGZplusSG_Groups.html" target="_blank">9250174</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-07-27
+</td>
+<td>
+pdate pathway plots
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1605,10 +1628,10 @@ GOcons &lt;- lapply(clVec, function(cl){
                 keyType       = &#39;ENSEMBL&#39;,
                 ont           = &quot;BP&quot;,
                 pAdjustMethod = &quot;BH&quot;,
-                pvalueCutoff  = 0.05,
-                qvalueCutoff  = 0.05)
+                pvalueCutoff  = 0.1,
+                qvalueCutoff  = 0.1)
   egoSS &lt;- setReadable(egoSS, OrgDb = org.Hs.eg.db)
-  egoSSres &lt;- egoSS@result %&gt;% filter(p.adjust &lt; 0.05) %&gt;% 
+  egoSSres &lt;- egoSS@result %&gt;% filter(p.adjust &lt; 0.1) %&gt;% 
     mutate(subset=cl)
 })
 
@@ -1673,6 +1696,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/92501743339ef9eabb8885833847ffbc4f7a5e7d/docs/figure/DEgenesGZplusSG_Groups.Rmd/vis sel GO Fibroblasts-1.png" target="_blank">9250174</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-07-27
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/c67d13010c9a1704ab71273b6f392de902fa1bdb/docs/figure/DEgenesGZplusSG_Groups.Rmd/vis sel GO Fibroblasts-1.png" target="_blank">c67d130</a>
 </td>
 <td>
@@ -1724,6 +1758,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/92501743339ef9eabb8885833847ffbc4f7a5e7d/docs/figure/DEgenesGZplusSG_Groups.Rmd/vis sel GO Fibroblasts-2.png" target="_blank">9250174</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-07-27
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/c67d13010c9a1704ab71273b6f392de902fa1bdb/docs/figure/DEgenesGZplusSG_Groups.Rmd/vis sel GO Fibroblasts-2.png" target="_blank">c67d130</a>
 </td>
 <td>
@@ -1773,6 +1818,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/92501743339ef9eabb8885833847ffbc4f7a5e7d/docs/figure/DEgenesGZplusSG_Groups.Rmd/vis sel GO Fibroblasts-3.png" target="_blank">9250174</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-07-27
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/c67d13010c9a1704ab71273b6f392de902fa1bdb/docs/figure/DEgenesGZplusSG_Groups.Rmd/vis sel GO Fibroblasts-3.png" target="_blank">c67d130</a>
@@ -6593,7 +6649,7 @@ loaded via a namespace (and not attached):
 [166] GenomeInfoDbData_1.2.8 haven_2.5.0            reshape2_1.4.4        
 [169] gtable_0.3.0           spatstat.core_2.4-4   </code></pre>
 <pre class="r"><code>date()</code></pre>
-<pre><code>[1] &quot;Wed Jul 27 11:31:40 2022&quot;</code></pre>
+<pre><code>[1] &quot;Wed Jul 27 13:17:31 2022&quot;</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

@@ -473,10 +473,10 @@ GOcons <- lapply(clVec, function(cl){
                 keyType       = 'ENSEMBL',
                 ont           = "BP",
                 pAdjustMethod = "BH",
-                pvalueCutoff  = 0.05,
-                qvalueCutoff  = 0.05)
+                pvalueCutoff  = 0.1,
+                qvalueCutoff  = 0.1)
   egoSS <- setReadable(egoSS, OrgDb = org.Hs.eg.db)
-  egoSSres <- egoSS@result %>% filter(p.adjust < 0.05) %>% 
+  egoSSres <- egoSS@result %>% filter(p.adjust < 0.1) %>% 
     mutate(subset=cl)
 })
 
