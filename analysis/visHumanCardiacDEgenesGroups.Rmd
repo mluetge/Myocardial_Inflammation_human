@@ -633,7 +633,71 @@ pList <- sapply(selGenes$EnsID, function(x){
   plot(p)
 })
 
+
+pList <- sapply(selGenes$EnsID, function(x){
+  p <- VlnPlot(object = seurat, features = x,
+               group.by = "label", split.by = "cond2",
+               cols = colCond, pt.size = 0.1
+               )
+  plot(p)
+})
+
 ```
+
+
+## vis sel genes avg heatmap
+```{r vis sel genes avg heatmap, fig.height=6, fig.width=8}
+selGenesHM <- selGenes %>% mutate(gene = EnsID)
+Idents(seurat) <- seurat$label_plus_cond2
+pOut <- avgHeatmap(seurat = seurat, selGenes = selGenesHM,
+                    colVecIdent = colLab, colVecCond=colCond,
+                    ordVec=levels(seurat$label_plus_cond2),
+                    gapVecR=NULL, gapVecC=gapVecCol,cc=FALSE,
+                    cr=T, condCol=T)
+
+Idents(seurat) <- seurat$cond2
+pOut <- avgHeatmap(seurat = seurat, selGenes = selGenesHM,
+                    colVecIdent = colCond, 
+                    ordVec=levels(seurat),
+                    gapVecR=NULL, gapVecC=NULL,cc=FALSE,
+                    cr=T, condCol=F)
+
+```
+
+
+## vis sel genes dotplot across label
+```{r vis sel genes Dotplot across label, fig.height=5, fig.width=7}
+
+Idents(seurat) <- seurat$label_plus_cond2
+DotPlot(seurat, assay="RNA", features = selGenes$EnsID, scale =T,
+        cluster.idents = T, dot.min = 0, dot.scale = 3, scale.by = "size") +
+  scale_color_viridis_c() +
+  coord_flip() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  scale_x_discrete(breaks=selGenes$EnsID, labels=selGenes$gene) +
+  xlab("") + ylab("")
+
+
+
+```
+
+## vis sel genes dotplot total
+```{r vis sel genes Dotplot total, fig.height=4, fig.width=4}
+
+Idents(seurat) <- seurat$cond2
+DotPlot(seurat, assay="RNA", features = selGenes$EnsID, scale =T,
+        cluster.idents = T, dot.min = 0, dot.scale = 3, scale.by = "size") +
+  scale_color_viridis_c() +
+  coord_flip() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  scale_x_discrete(breaks=selGenes$EnsID, labels=selGenes$gene) +
+  xlab("") + ylab("")
+
+
+
+```
+
+
 
 
 ## session info
