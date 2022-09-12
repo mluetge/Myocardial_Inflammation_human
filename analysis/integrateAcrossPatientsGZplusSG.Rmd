@@ -64,8 +64,7 @@ seurat.int <- IntegrateData(anchorset = seurat.anchors, dims = 1:20)
 DefaultAssay(object = seurat.int) <- "integrated"
 
 # rerun seurat
-seurat.int <- ScaleData(object = seurat.int, verbose = FALSE,
-                        features = rownames(seurat.int))
+seurat.int <- ScaleData(object = seurat.int, verbose = FALSE)
 seurat.int <- RunPCA(object = seurat.int, npcs = 20, verbose = FALSE)
 seurat.int <- RunTSNE(object = seurat.int, reduction = "pca", dims = 1:20)
 seurat.int <- RunUMAP(object = seurat.int, reduction = "pca", dims = 1:20)
