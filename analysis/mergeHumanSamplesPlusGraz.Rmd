@@ -106,11 +106,14 @@ knitr::kable(dat)
 ## color vectors
 ```{r colVec}
 
-colPal <- pal_igv()(length(levels(seurat)))
+colPal <- c(pal_igv()(12),
+            pal_aaas()(10))[1:length(levels(seurat))]
 colTec <- pal_jama()(length(unique(seurat$technique)))
-colSmp <- c(pal_uchicago()(8), pal_npg()(8), pal_aaas()(10))[1:length(unique(seurat$dataset))]
+colSmp <- c(pal_uchicago()(9), pal_npg()(10), pal_aaas()(10), 
+            pal_jama()(7))[1:length(unique(seurat$dataset))]
 colCond <- pal_npg()(length(unique(seurat$cond)))
-colID <- c(pal_jco()(10), pal_npg()(10))[1:length(unique(seurat$ID))]
+colID <- c(pal_jco()(10), pal_npg()(10), pal_futurama()(10),
+           pal_d3()(10))[1:length(unique(seurat$ID))]
 colOrig <- pal_aaas()(length(unique(seurat$origin)))
 colIso <- pal_nejm()(length(unique(seurat$isolation)))
 colProc <- pal_aaas()(length(unique(seurat$processing)))
