@@ -190,13 +190,17 @@ basedir <- here()
 seurat <- readRDS(file = paste0(basedir, 
                               "/data/humanHeartsPlusGraz_intPatients_merged", 
                               "labeled_seurat.rds"))
-myoGrp <- c("GZ1","GZ4","GZ6","SG29","SG32")
-myoLTGrp <- c("GZ2","GZ3","GZ5","GZ7","SG31")
-CtrlGrp <- c("GZ8","GZ10","GZ11","GZ12")
 
-seurat$cond2 <- "HH"
-seurat$cond2[which(seurat$ID %in% myoGrp)] <- "MyocarditisHT"
-seurat$cond2[which(seurat$ID %in% myoLTGrp)] <- "MyocarditisLT"
+myoGrp <- unique(seurat$ID[seurat$TcellGrp == "TcellHigh"])
+myoGrp <- myoGrp[-which(is.na(myoGrp))]
+myoLTGrp <- unique(seurat$ID[seurat$TcellGrp == "TcellLow"])
+myoLTGrp <- myoLTGrp[-which(is.na(myoLTGrp))]
+CtrlGrp <- unique(seurat$ID[seurat$TcellGrp == "Ctrl"])
+CtrlGrp <- CtrlGrp[-which(is.na(CtrlGrp))]
+
+seurat$cond2 <- seurat$TcellGrp
+seurat$cond2[which(seurat$ID %in% myoGrp)] <- "TcellHigh"
+seurat$cond2[which(seurat$ID %in% myoLTGrp)] <- "TcellLow"
 
 ```
 

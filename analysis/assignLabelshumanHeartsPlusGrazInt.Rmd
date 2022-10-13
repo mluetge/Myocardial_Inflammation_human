@@ -56,12 +56,13 @@ Idents(seurat) <- seurat$seurat_clusters
 ```{r assign labels}
 
 seurat$label <- "other"
-seurat$label[which(seurat$seurat_clusters %in% c("2","6","7"))] <- "Endothelial"
-seurat$label[which(seurat$seurat_clusters %in% c("5"))] <- "Tcell"
-seurat$label[which(seurat$seurat_clusters %in% c("4"))] <- "Cardiomyocyte"
-seurat$label[which(seurat$seurat_clusters %in% c("0"))] <- "Fibroblast"
-seurat$label[which(seurat$seurat_clusters %in% c("1","8"))] <- "Perivascular"
-seurat$label[which(seurat$seurat_clusters %in% c("3"))] <- "MonocyteMacrophage"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("2","9","7","10","12"))] <- "Endothelial"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("4"))] <- "Tcell"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("3"))] <- "Cardiomyocyte"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("0"))] <- "Fibroblast"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("1","8"))] <- "Perivascular"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("5"))] <- "resMacrophage"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("6"))] <- "infMacrophage"
 
 ```
 
@@ -267,6 +268,16 @@ ggbarplot(datFrac, x="cond", y="percentage",
 
 ```
 
+## assign groups based on T cell fraction
+```{r assign groups}
+
+TcellGrp <- read_tsv(paste0(basedir, "/data/assignTcellGrp.txt"))
+IDtoTcell <- data.frame(ID=seurat$ID) %>% left_join(., TcellGrp, by="ID")
+seurat$TcellGrp <- IDtoTcell$TcellGrp
+table(seurat$TcellGrp)
+table(seurat$TcellGrp, seurat$ID)
+```
+
 
 ## vis marker for celltype assignment
 
@@ -389,6 +400,18 @@ DotPlot(seurat, assay="RNA", features = selGenesAll$gene, scale =T,
   xlab("") + ylab("")
 
 ```
+
+## exclude two patients with very low nuclei
+```{r exclude two patients}
+
+## two patients with <250 nuclei --> exclude from downstream analysis
+table(seurat$ID)
+seurat <- subset(seurat, ID %in% c("GZ19", "SG30"), invert=T)
+table(seurat$ID)
+
+
+```
+
 
 ## save seurat object
 ```{r save}

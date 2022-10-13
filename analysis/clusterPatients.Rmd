@@ -1,0 +1,396 @@
+---
+title: "cluster samples"
+author: "Mechthild Lütge"
+date: "14 May 2020"
+output:
+  html_document:
+    self_contained: no
+    code_folding: show
+    number_sections: no
+    toc: yes
+    toc_depth: 3
+    toc_float: true
+    collapsed: no
+    smooth_scroll: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, dev = c("png", "pdf"))
+set.seed(1000)
+```
+
+## load packages
+```{r libs}
+suppressPackageStartupMessages({
+  library(SingleCellExperiment)
+  library(tidyverse)
+  library(Seurat)
+  library(magrittr)
+  library(dplyr)
+  library(purrr)
+  library(ggplot2)
+  library(here)
+  library(runSeurat3)
+  library(ggsci)
+  library(ggpubr)
+  library(pheatmap)
+  library(viridis)
+  library(scran)
+  library(edgeR)
+  library(muscat)
+})
+
+```
+
+
+## load data 
+```{r set dir}
+basedir <- here()
+seurat <- readRDS(file = paste0(basedir, 
+                              "/data/humanHeartsPlusGraz_intPatients_merged", 
+                              "labeled_seurat.rds"))
+Idents(seurat) <- seurat$ID
+```
+
+
+## color vectors
+```{r colVec}
+
+colPal <- c(pal_igv()(12),
+            pal_aaas()(10))[1:length(levels(seurat))]
+colTec <- pal_jama()(length(unique(seurat$technique)))
+colSmp <- c(pal_uchicago()(9), pal_npg()(10), pal_aaas()(10), 
+            pal_jama()(7))[1:length(unique(seurat$dataset))]
+colCond <- pal_npg()(length(unique(seurat$cond)))
+colID <- c(pal_jco()(10), pal_npg()(10), pal_futurama()(10),
+           pal_d3()(10))[1:length(unique(seurat$ID))]
+colOrig <- pal_aaas()(length(unique(seurat$origin)))
+colIso <- pal_nejm()(length(unique(seurat$isolation)))
+colTG <- pal_aaas()(length(unique(seurat$TcellGrp)))
+colLab <- pal_futurama()(length(unique(seurat$label)))
+
+names(colPal) <- levels(seurat)
+names(colTec) <- unique(seurat$technique)
+names(colSmp) <- unique(seurat$dataset)
+names(colCond) <- unique(seurat$cond)
+names(colID) <- unique(seurat$ID)
+names(colOrig) <- unique(seurat$origin)
+names(colIso) <- unique(seurat$isolation)
+names(colTG) <- unique(seurat$TcellGrp)
+names(colLab) <- unique(seurat$label)
+
+```
+
+
+## vis data {.tabset}
+
+### label
+```{r vis label}
+DimPlot(seurat, reduction = "umap",  group.by = "label", cols=colLab)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+
+### technique
+```{r vis tecnique}
+
+DimPlot(seurat, reduction = "umap", group.by = "technique", cols=colTec)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+```
+
+
+### Sample
+```{r vis sample, fig.height=4, fig.width=12}
+
+DimPlot(seurat, reduction = "umap", group.by = "dataset", cols=colSmp)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### ID
+```{r vis ID}
+
+DimPlot(seurat, reduction = "umap", group.by = "ID", cols=colID)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+
+### Origin
+```{r vis origin}
+
+DimPlot(seurat, reduction = "umap", group.by = "origin", cols=colOrig)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### cond
+```{r vis cond, fig.height=4, fig.width=5}
+
+DimPlot(seurat, reduction = "umap", group.by = "cond", cols=colCond)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### T cell grp
+```{r vis Tcell grp}
+
+DimPlot(seurat, reduction = "umap", group.by = "TcellGrp", cols=colTG)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+## cluster patients without downsampling{.tabset}
+### vis and cluster based on celltype abundance
+```{r vis patient celltype abundance in heatmap}
+## remove "other" cells
+seurat <- subset(seurat, label=="other", invert=T)
+
+## prepare seurat object
+DefaultAssay(seurat) <- "RNA"
+seurat <- FindVariableFeatures(seurat)
+seurat <- ScaleData(seurat)
+seurat <- RunPCA(seurat)
+
+sce <- as.SingleCellExperiment(seurat)
+by.label <- table(colLabels(sce), sce$ID)
+patGrp <- data.frame(unique(cbind(sce$ID, sce$TcellGrp)))
+colnames(patGrp) <- c("ID", "TcellGrp")
+patGrpCol <- patGrp %>% dplyr::select(TcellGrp)
+rownames(patGrpCol) <- patGrp$ID
+pheatmap::pheatmap(log2(by.label+1), color=viridis::viridis(101),
+                   annotation_col = patGrpCol,
+                   annotation_colors = list(TcellGrp=colTG))
+```
+
+### perform pseudo-bulking
+```{r pseudobulking}
+
+altExp(sce) <- NULL
+summed <- aggregateAcrossCells(sce,
+    id=colData(sce)[,c("ID")])
+summed$ncells
+
+y <- DGEList(counts(summed), samples=colData(summed))
+keep <- filterByExpr(y, group=summed$TcellGrp)
+y <- y[keep,]
+summary(keep)
+y <- calcNormFactors(y)
+
+for (i in seq_len(ncol(y))) {
+    plotMD(y, column=i)
+}
+
+plotMDS(cpm(y, log=TRUE), 
+    col=ifelse(y$samples$TcellGrp == "Ctrl", colTG["Ctrl"],
+               ifelse(y$samples$TcellGrp == "TcellLow",
+                      colTG["TcellLow"], colTG["TcellHigh"])))
+
+```
+
+### muscat
+```{r muscat}
+sce <- prepSCE(sce, 
+    kid = "TcellGrp", 
+    gid = "TcellGrp",  
+    sid = "ID",   
+    drop = TRUE)
+
+nk <- length(kids <- levels(sce$cluster_id))
+ns <- length(sids <- levels(sce$sample_id))
+names(kids) <- kids; names(sids) <- sids
+
+pb <- aggregateData(sce,
+    assay = "counts", fun = "sum",
+    by = c("cluster_id", "sample_id"))
+# one sheet per subpopulation
+assayNames(pb)
+
+pbMDS(pb)
+
+```
+
+
+## cluster patients after downsampling{.tabset}
+### vis and cluster based on celltype abundance
+```{r vis patient celltype abundance in heatmap ds}
+
+table(seurat$ID)
+min(table(seurat$ID))
+max(table(seurat$ID))
+Idents(seurat) <- seurat$ID
+seuratSub <- subset(seurat, downsample = 500)
+
+
+sce <- as.SingleCellExperiment(seuratSub)
+by.label <- table(colLabels(sce), sce$ID)
+patGrp <- data.frame(unique(cbind(sce$ID, sce$TcellGrp)))
+colnames(patGrp) <- c("ID", "TcellGrp")
+patGrpCol <- patGrp %>% dplyr::select(TcellGrp)
+rownames(patGrpCol) <- patGrp$ID
+pheatmap::pheatmap(log2(by.label+1), color=viridis::viridis(101),
+                   annotation_col = patGrpCol,
+                   annotation_colors = list(TcellGrp=colTG))
+```
+
+
+### perform pseudo-bulking
+```{r pseudobulking ds}
+
+altExp(sce) <- NULL
+summed <- aggregateAcrossCells(sce,
+    id=colData(sce)[,c("ID")])
+summed$ncells
+
+y <- DGEList(counts(summed), samples=colData(summed))
+keep <- filterByExpr(y, group=summed$TcellGrp)
+y <- y[keep,]
+summary(keep)
+y <- calcNormFactors(y)
+
+for (i in seq_len(ncol(y))) {
+    plotMD(y, column=i)
+}
+
+plotMDS(cpm(y, log=TRUE), 
+    col=ifelse(y$samples$TcellGrp == "Ctrl", colTG["Ctrl"],
+               ifelse(y$samples$TcellGrp == "TcellLow",
+                      colTG["TcellLow"], colTG["TcellHigh"])))
+
+```
+
+### muscat
+```{r muscat ds}
+sce <- prepSCE(sce, 
+    kid = "TcellGrp", 
+    gid = "TcellGrp",  
+    sid = "ID",   
+    drop = TRUE)
+
+nk <- length(kids <- levels(sce$cluster_id))
+ns <- length(sids <- levels(sce$sample_id))
+names(kids) <- kids; names(sids) <- sids
+
+pb <- aggregateData(sce,
+    assay = "counts", fun = "sum",
+    by = c("cluster_id", "sample_id"))
+# one sheet per subpopulation
+assayNames(pb)
+
+pbMDS(pb)
+
+```
+
+
+## cluster patients after downsampling withoout highly active pat{.tabset}
+### vis and cluster based on celltype abundance
+```{r vis patient celltype abundance in heatmap ds wo hiAct pat}
+
+seuratSub <- subset(seuratSub, ID %in% c("SG29", "SG33"), invert=T)
+
+sce <- as.SingleCellExperiment(seuratSub)
+by.label <- table(colLabels(sce), sce$ID)
+patGrp <- data.frame(unique(cbind(sce$ID, sce$TcellGrp)))
+colnames(patGrp) <- c("ID", "TcellGrp")
+patGrpCol <- patGrp %>% dplyr::select(TcellGrp)
+rownames(patGrpCol) <- patGrp$ID
+pheatmap::pheatmap(log2(by.label+1), color=viridis::viridis(101),
+                   annotation_col = patGrpCol,
+                   annotation_colors = list(TcellGrp=colTG))
+```
+
+
+### perform pseudo-bulking
+```{r pseudobulking ds wo hiAct pat}
+
+altExp(sce) <- NULL
+summed <- aggregateAcrossCells(sce,
+    id=colData(sce)[,c("ID")])
+summed$ncells
+
+y <- DGEList(counts(summed), samples=colData(summed))
+keep <- filterByExpr(y, group=summed$TcellGrp)
+y <- y[keep,]
+summary(keep)
+y <- calcNormFactors(y)
+
+for (i in seq_len(ncol(y))) {
+    plotMD(y, column=i)
+}
+
+plotMDS(cpm(y, log=TRUE), 
+    col=ifelse(y$samples$TcellGrp == "Ctrl", colTG["Ctrl"],
+               ifelse(y$samples$TcellGrp == "TcellLow",
+                      colTG["TcellLow"], colTG["TcellHigh"])))
+
+```
+
+### muscat
+```{r muscat ds wo hiAct pat}
+sce <- prepSCE(sce, 
+    kid = "TcellGrp", 
+    gid = "TcellGrp",  
+    sid = "ID",   
+    drop = TRUE)
+
+nk <- length(kids <- levels(sce$cluster_id))
+ns <- length(sids <- levels(sce$sample_id))
+names(kids) <- kids; names(sids) <- sids
+
+pb <- aggregateData(sce,
+    assay = "counts", fun = "sum",
+    by = c("cluster_id", "sample_id"))
+# one sheet per subpopulation
+assayNames(pb)
+
+pbMDS(pb)
+
+```
+
+
+
+## session info
+```{r session info}
+sessionInfo()
+date()
+```
+
+
+
