@@ -51,6 +51,17 @@ seurat <- readRDS(file = paste0(basedir,
 Idents(seurat) <- seurat$seurat_clusters
 ```
 
+## exclude two patients with very low nuclei
+```{r exclude two patients}
+
+## two patients with <250 nuclei --> exclude from downstream analysis
+table(seurat$ID)
+seurat <- subset(seurat, ID %in% c("GZ19", "SG30"), invert=T)
+table(seurat$ID)
+
+
+```
+
 
 ## assign labels
 ```{r assign labels}
@@ -236,9 +247,13 @@ datFrac <- datLab %>% left_join(., datPat, by="ID") %>%
   mutate(percentage = cnt*100/total)
 knitr::kable(datFrac)
 
+ordVec <- datFrac %>% dplyr::filter(label=="Tcell") %>% 
+  arrange(., percentage)
+
 ggbarplot(datFrac, x="ID", y="percentage",
           fill = "label",
-          palette = colLab) +
+          palette = colLab,
+          order= ordVec$ID) +
   rotate_x_text(angle = 90)
 
 ```
@@ -398,17 +413,6 @@ DotPlot(seurat, assay="RNA", features = selGenesAll$gene, scale =T,
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   scale_x_discrete(breaks=selGenesAll$gene, labels=selGenesAll$geneID) +
   xlab("") + ylab("")
-
-```
-
-## exclude two patients with very low nuclei
-```{r exclude two patients}
-
-## two patients with <250 nuclei --> exclude from downstream analysis
-table(seurat$ID)
-seurat <- subset(seurat, ID %in% c("GZ19", "SG30"), invert=T)
-table(seurat$ID)
-
 
 ```
 

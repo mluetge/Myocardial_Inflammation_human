@@ -516,15 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree85044907f44de90dbd008f524fbf08b061bf779atargetblank8504490a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststreebe40cdd231403d5c93dfdc29577c3c842e1b5e8btargetblankbe40cdda">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/85044907f44de90dbd008f524fbf08b061bf779a" target="_blank">8504490</a>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/be40cdd231403d5c93dfdc29577c3c842e1b5e8b" target="_blank">be40cdd</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree85044907f44de90dbd008f524fbf08b061bf779atargetblank8504490a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststreebe40cdd231403d5c93dfdc29577c3c842e1b5e8btargetblankbe40cdda"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -534,7 +534,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/85044907f44de90dbd008f524fbf08b061bf779a" target="_blank">8504490</a>.
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/be40cdd231403d5c93dfdc29577c3c842e1b5e8b" target="_blank">be40cdd</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -556,11 +556,7 @@ Ignored files:
     Ignored:    data/humanFibroblast/
     Ignored:    figure/DEgenesGZplusSG_Groups.Rmd/.DS_Store
 
-Untracked files:
-    Untracked:  analysis/clusterPatients.Rmd
-
 Unstaged changes:
-    Modified:   analysis/DEgenesGZplusSG_SubsetHT.Rmd
     Modified:   analysis/assignLabelshumanHeartsPlusGrazInt.Rmd
 
 </code></pre>
@@ -608,6 +604,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/8f79da03c6aee3465d4e298bcfb10305a2cc47bb/analysis/assignLabelshumanHeartsPlusGrazInt.Rmd" target="_blank">8f79da0</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-13
+</td>
+<td>
+update label
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mluetge/humanCardiacFibroblasts/8f79da03c6aee3465d4e298bcfb10305a2cc47bb/docs/assignLabelshumanHeartsPlusGrazInt.html" target="_blank">8f79da0</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-13
+</td>
+<td>
+update label
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -743,6 +773,24 @@ seurat &lt;- readRDS(file = paste0(basedir,
                               &quot;/data/humanHeartsPlusGraz_intPatients_merged&quot;, 
                               &quot;_seurat.rds&quot;))
 Idents(seurat) &lt;- seurat$seurat_clusters</code></pre>
+</div>
+<div id="exclude-two-patients-with-very-low-nuclei"
+class="section level2">
+<h2>exclude two patients with very low nuclei</h2>
+<pre class="r"><code>## two patients with &lt;250 nuclei --&gt; exclude from downstream analysis
+table(seurat$ID)</code></pre>
+<pre><code>
+ GZ1 GZ10 GZ11 GZ12 GZ13 GZ14 GZ15 GZ16 GZ17 GZ18 GZ19  GZ2 GZ20 GZ21 GZ22 GZ23 
+2740 3731 3991 3818 9882 1268 4439  436 1370 2280  111 1684 2706 1442 1998  841 
+GZ24  GZ3  GZ4  GZ5  GZ6  GZ7  GZ8  GZ9 SG29 SG30 SG31 SG32 SG33 SG34 SG35 
+1480 2396  545  781  491  653 3921 4908 1242  236 1192 1428 6286  620 2363 </code></pre>
+<pre class="r"><code>seurat &lt;- subset(seurat, ID %in% c(&quot;GZ19&quot;, &quot;SG30&quot;), invert=T)
+table(seurat$ID)</code></pre>
+<pre><code>
+ GZ1 GZ10 GZ11 GZ12 GZ13 GZ14 GZ15 GZ16 GZ17 GZ18  GZ2 GZ20 GZ21 GZ22 GZ23 GZ24 
+2740 3731 3991 3818 9882 1268 4439  436 1370 2280 1684 2706 1442 1998  841 1480 
+ GZ3  GZ4  GZ5  GZ6  GZ7  GZ8  GZ9 SG29 SG31 SG32 SG33 SG34 SG35 
+2396  545  781  491  653 3921 4908 1242 1192 1428 6286  620 2363 </code></pre>
 </div>
 <div id="assign-labels" class="section level2">
 <h2>assign labels</h2>
@@ -882,6 +930,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/8f79da03c6aee3465d4e298bcfb10305a2cc47bb/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis label-1.png" target="_blank">8f79da0</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-13
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/e6d0c3cd120b043677f4e27895a57f1652da7e2a/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis label-1.png" target="_blank">e6d0c3c</a>
@@ -1459,68 +1518,60 @@ knitr::kable(table(seurat$ID))</code></pre>
 <td align="right">2280</td>
 </tr>
 <tr class="odd">
-<td align="left">GZ19</td>
-<td align="right">111</td>
-</tr>
-<tr class="even">
 <td align="left">GZ2</td>
 <td align="right">1684</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GZ20</td>
 <td align="right">2706</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">GZ21</td>
 <td align="right">1442</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GZ22</td>
 <td align="right">1998</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">GZ23</td>
 <td align="right">841</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GZ24</td>
 <td align="right">1480</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">GZ3</td>
 <td align="right">2396</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GZ4</td>
 <td align="right">545</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">GZ5</td>
 <td align="right">781</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GZ6</td>
 <td align="right">491</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">GZ7</td>
 <td align="right">653</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GZ8</td>
 <td align="right">3921</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">GZ9</td>
 <td align="right">4908</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SG29</td>
 <td align="right">1242</td>
-</tr>
-<tr class="even">
-<td align="left">SG30</td>
-<td align="right">236</td>
 </tr>
 <tr class="odd">
 <td align="left">SG31</td>
@@ -1546,9 +1597,9 @@ knitr::kable(table(seurat$ID))</code></pre>
 </table>
 <pre class="r"><code>## celltype per patient counts
 knitr::kable(table(seurat$label, seurat$ID))</code></pre>
-<table style="width:100%;">
+<table>
 <colgroup>
-<col width="8%" />
+<col width="9%" />
 <col width="2%" />
 <col width="3%" />
 <col width="3%" />
@@ -1559,7 +1610,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <col width="3%" />
 <col width="3%" />
 <col width="3%" />
-<col width="3%" />
 <col width="2%" />
 <col width="3%" />
 <col width="3%" />
@@ -1571,7 +1621,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <col width="2%" />
 <col width="2%" />
 <col width="2%" />
-<col width="3%" />
 <col width="3%" />
 <col width="3%" />
 <col width="3%" />
@@ -1594,7 +1643,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <th align="right">GZ16</th>
 <th align="right">GZ17</th>
 <th align="right">GZ18</th>
-<th align="right">GZ19</th>
 <th align="right">GZ2</th>
 <th align="right">GZ20</th>
 <th align="right">GZ21</th>
@@ -1609,7 +1657,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <th align="right">GZ8</th>
 <th align="right">GZ9</th>
 <th align="right">SG29</th>
-<th align="right">SG30</th>
 <th align="right">SG31</th>
 <th align="right">SG32</th>
 <th align="right">SG33</th>
@@ -1630,7 +1677,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">25</td>
 <td align="right">71</td>
 <td align="right">328</td>
-<td align="right">1</td>
 <td align="right">108</td>
 <td align="right">46</td>
 <td align="right">58</td>
@@ -1645,7 +1691,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">714</td>
 <td align="right">650</td>
 <td align="right">109</td>
-<td align="right">47</td>
 <td align="right">178</td>
 <td align="right">40</td>
 <td align="right">212</td>
@@ -1664,7 +1709,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">73</td>
 <td align="right">195</td>
 <td align="right">650</td>
-<td align="right">30</td>
 <td align="right">456</td>
 <td align="right">1256</td>
 <td align="right">258</td>
@@ -1679,7 +1723,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">795</td>
 <td align="right">1037</td>
 <td align="right">168</td>
-<td align="right">74</td>
 <td align="right">259</td>
 <td align="right">593</td>
 <td align="right">257</td>
@@ -1698,7 +1741,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">88</td>
 <td align="right">368</td>
 <td align="right">623</td>
-<td align="right">16</td>
 <td align="right">638</td>
 <td align="right">622</td>
 <td align="right">99</td>
@@ -1713,7 +1755,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">1144</td>
 <td align="right">1466</td>
 <td align="right">140</td>
-<td align="right">41</td>
 <td align="right">347</td>
 <td align="right">306</td>
 <td align="right">401</td>
@@ -1732,7 +1773,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">32</td>
 <td align="right">106</td>
 <td align="right">18</td>
-<td align="right">7</td>
 <td align="right">29</td>
 <td align="right">36</td>
 <td align="right">38</td>
@@ -1747,7 +1787,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">120</td>
 <td align="right">228</td>
 <td align="right">187</td>
-<td align="right">5</td>
 <td align="right">36</td>
 <td align="right">19</td>
 <td align="right">1270</td>
@@ -1766,7 +1805,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">11</td>
 <td align="right">28</td>
 <td align="right">29</td>
-<td align="right">1</td>
 <td align="right">30</td>
 <td align="right">20</td>
 <td align="right">15</td>
@@ -1781,7 +1819,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">69</td>
 <td align="right">34</td>
 <td align="right">15</td>
-<td align="right">0</td>
 <td align="right">23</td>
 <td align="right">33</td>
 <td align="right">32</td>
@@ -1800,7 +1837,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">82</td>
 <td align="right">190</td>
 <td align="right">518</td>
-<td align="right">33</td>
 <td align="right">323</td>
 <td align="right">499</td>
 <td align="right">803</td>
@@ -1815,7 +1851,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">744</td>
 <td align="right">1000</td>
 <td align="right">104</td>
-<td align="right">56</td>
 <td align="right">234</td>
 <td align="right">321</td>
 <td align="right">171</td>
@@ -1834,7 +1869,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">24</td>
 <td align="right">225</td>
 <td align="right">75</td>
-<td align="right">10</td>
 <td align="right">56</td>
 <td align="right">101</td>
 <td align="right">143</td>
@@ -1849,7 +1883,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">240</td>
 <td align="right">409</td>
 <td align="right">136</td>
-<td align="right">9</td>
 <td align="right">88</td>
 <td align="right">46</td>
 <td align="right">898</td>
@@ -1868,7 +1901,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">101</td>
 <td align="right">187</td>
 <td align="right">39</td>
-<td align="right">13</td>
 <td align="right">44</td>
 <td align="right">126</td>
 <td align="right">28</td>
@@ -1883,7 +1915,6 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <td align="right">95</td>
 <td align="right">84</td>
 <td align="right">383</td>
-<td align="right">4</td>
 <td align="right">27</td>
 <td align="right">70</td>
 <td align="right">3045</td>
@@ -2470,62 +2501,6 @@ knitr::kable(datFrac)</code></pre>
 <td align="right">39</td>
 <td align="right">2280</td>
 <td align="right">1.7105263</td>
-</tr>
-<tr class="odd">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ19</td>
-<td align="right">1</td>
-<td align="right">111</td>
-<td align="right">0.9009009</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ19</td>
-<td align="right">30</td>
-<td align="right">111</td>
-<td align="right">27.0270270</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ19</td>
-<td align="right">16</td>
-<td align="right">111</td>
-<td align="right">14.4144144</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ19</td>
-<td align="right">7</td>
-<td align="right">111</td>
-<td align="right">6.3063063</td>
-</tr>
-<tr class="odd">
-<td align="left">other</td>
-<td align="left">GZ19</td>
-<td align="right">1</td>
-<td align="right">111</td>
-<td align="right">0.9009009</td>
-</tr>
-<tr class="even">
-<td align="left">Perivascular</td>
-<td align="left">GZ19</td>
-<td align="right">33</td>
-<td align="right">111</td>
-<td align="right">29.7297297</td>
-</tr>
-<tr class="odd">
-<td align="left">resMacrophage</td>
-<td align="left">GZ19</td>
-<td align="right">10</td>
-<td align="right">111</td>
-<td align="right">9.0090090</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ19</td>
-<td align="right">13</td>
-<td align="right">111</td>
-<td align="right">11.7117117</td>
 </tr>
 <tr class="odd">
 <td align="left">Cardiomyocyte</td>
@@ -3313,62 +3288,6 @@ knitr::kable(datFrac)</code></pre>
 </tr>
 <tr class="odd">
 <td align="left">Cardiomyocyte</td>
-<td align="left">SG30</td>
-<td align="right">47</td>
-<td align="right">236</td>
-<td align="right">19.9152542</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">SG30</td>
-<td align="right">74</td>
-<td align="right">236</td>
-<td align="right">31.3559322</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">SG30</td>
-<td align="right">41</td>
-<td align="right">236</td>
-<td align="right">17.3728814</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">SG30</td>
-<td align="right">5</td>
-<td align="right">236</td>
-<td align="right">2.1186441</td>
-</tr>
-<tr class="odd">
-<td align="left">other</td>
-<td align="left">SG30</td>
-<td align="right">0</td>
-<td align="right">236</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
-<td align="left">Perivascular</td>
-<td align="left">SG30</td>
-<td align="right">56</td>
-<td align="right">236</td>
-<td align="right">23.7288136</td>
-</tr>
-<tr class="odd">
-<td align="left">resMacrophage</td>
-<td align="left">SG30</td>
-<td align="right">9</td>
-<td align="right">236</td>
-<td align="right">3.8135593</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">SG30</td>
-<td align="right">4</td>
-<td align="right">236</td>
-<td align="right">1.6949153</td>
-</tr>
-<tr class="odd">
-<td align="left">Cardiomyocyte</td>
 <td align="left">SG31</td>
 <td align="right">178</td>
 <td align="right">1192</td>
@@ -3649,9 +3568,13 @@ knitr::kable(datFrac)</code></pre>
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>ggbarplot(datFrac, x=&quot;ID&quot;, y=&quot;percentage&quot;,
+<pre class="r"><code>ordVec &lt;- datFrac %&gt;% dplyr::filter(label==&quot;Tcell&quot;) %&gt;% 
+  arrange(., percentage)
+
+ggbarplot(datFrac, x=&quot;ID&quot;, y=&quot;percentage&quot;,
           fill = &quot;label&quot;,
-          palette = colLab) +
+          palette = colLab,
+          order= ordVec$ID) +
   rotate_x_text(angle = 90)</code></pre>
 <p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/cnt%20tables%20per%20pat-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>
@@ -3676,6 +3599,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/8f79da03c6aee3465d4e298bcfb10305a2cc47bb/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/cnt tables per pat-1.png" target="_blank">8f79da0</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-13
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/e6d0c3cd120b043677f4e27895a57f1652da7e2a/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/cnt tables per pat-1.png" target="_blank">e6d0c3c</a>
@@ -3735,14 +3669,10 @@ knitr::kable(table(seurat$cond))</code></pre>
 <td align="right">1428</td>
 </tr>
 <tr class="odd">
-<td align="left">inflamation</td>
-<td align="right">236</td>
+<td align="left">Myocarditis</td>
+<td align="right">32300</td>
 </tr>
 <tr class="even">
-<td align="left">Myocarditis</td>
-<td align="right">32411</td>
-</tr>
-<tr class="odd">
 <td align="left">Perimyocarditis</td>
 <td align="right">1192</td>
 </tr>
@@ -3751,20 +3681,11 @@ knitr::kable(table(seurat$cond))</code></pre>
 <pre class="r"><code>## celltype per cond counts
 knitr::kable(table(seurat$label, seurat$cond))</code></pre>
 <table>
-<colgroup>
-<col width="18%" />
-<col width="6%" />
-<col width="23%" />
-<col width="15%" />
-<col width="15%" />
-<col width="20%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left"></th>
 <th align="right">HH</th>
 <th align="right">InfCardiomyopathy</th>
-<th align="right">inflamation</th>
 <th align="right">Myocarditis</th>
 <th align="right">Perimyocarditis</th>
 </tr>
@@ -3774,64 +3695,56 @@ knitr::kable(table(seurat$label, seurat$cond))</code></pre>
 <td align="left">Cardiomyocyte</td>
 <td align="right">5473</td>
 <td align="right">40</td>
-<td align="right">47</td>
-<td align="right">2170</td>
+<td align="right">2169</td>
 <td align="right">178</td>
 </tr>
 <tr class="even">
 <td align="left">Endothelial</td>
 <td align="right">7661</td>
 <td align="right">593</td>
-<td align="right">74</td>
-<td align="right">7022</td>
+<td align="right">6992</td>
 <td align="right">259</td>
 </tr>
 <tr class="odd">
 <td align="left">Fibroblast</td>
 <td align="right">8510</td>
 <td align="right">306</td>
-<td align="right">41</td>
-<td align="right">7474</td>
+<td align="right">7458</td>
 <td align="right">347</td>
 </tr>
 <tr class="even">
 <td align="left">infMacrophage</td>
 <td align="right">1295</td>
 <td align="right">19</td>
-<td align="right">5</td>
-<td align="right">2161</td>
+<td align="right">2154</td>
 <td align="right">36</td>
 </tr>
 <tr class="odd">
 <td align="left">other</td>
 <td align="right">513</td>
 <td align="right">33</td>
-<td align="right">0</td>
-<td align="right">475</td>
+<td align="right">474</td>
 <td align="right">23</td>
 </tr>
 <tr class="even">
 <td align="left">Perivascular</td>
 <td align="right">8905</td>
 <td align="right">321</td>
-<td align="right">56</td>
-<td align="right">6151</td>
+<td align="right">6118</td>
 <td align="right">234</td>
 </tr>
 <tr class="odd">
 <td align="left">resMacrophage</td>
 <td align="right">2820</td>
 <td align="right">46</td>
-<td align="right">9</td>
-<td align="right">2312</td>
+<td align="right">2302</td>
 <td align="right">88</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="right">835</td>
 <td align="right">70</td>
-<td align="right">4</td>
-<td align="right">4646</td>
+<td align="right">4633</td>
 <td align="right">27</td>
 </tr>
 </tbody>
@@ -3969,115 +3882,59 @@ knitr::kable(datFrac)</code></pre>
 </tr>
 <tr class="odd">
 <td align="left">Cardiomyocyte</td>
-<td align="left">inflamation</td>
-<td align="right">47</td>
-<td align="right">236</td>
-<td align="right">19.915254</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">inflamation</td>
-<td align="right">74</td>
-<td align="right">236</td>
-<td align="right">31.355932</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">inflamation</td>
-<td align="right">41</td>
-<td align="right">236</td>
-<td align="right">17.372881</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">inflamation</td>
-<td align="right">5</td>
-<td align="right">236</td>
-<td align="right">2.118644</td>
-</tr>
-<tr class="odd">
-<td align="left">other</td>
-<td align="left">inflamation</td>
-<td align="right">0</td>
-<td align="right">236</td>
-<td align="right">0.000000</td>
-</tr>
-<tr class="even">
-<td align="left">Perivascular</td>
-<td align="left">inflamation</td>
-<td align="right">56</td>
-<td align="right">236</td>
-<td align="right">23.728814</td>
-</tr>
-<tr class="odd">
-<td align="left">resMacrophage</td>
-<td align="left">inflamation</td>
-<td align="right">9</td>
-<td align="right">236</td>
-<td align="right">3.813559</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">inflamation</td>
-<td align="right">4</td>
-<td align="right">236</td>
-<td align="right">1.694915</td>
-</tr>
-<tr class="odd">
-<td align="left">Cardiomyocyte</td>
 <td align="left">Myocarditis</td>
-<td align="right">2170</td>
-<td align="right">32411</td>
-<td align="right">6.695258</td>
+<td align="right">2169</td>
+<td align="right">32300</td>
+<td align="right">6.715170</td>
 </tr>
 <tr class="even">
 <td align="left">Endothelial</td>
 <td align="left">Myocarditis</td>
-<td align="right">7022</td>
-<td align="right">32411</td>
-<td align="right">21.665484</td>
+<td align="right">6992</td>
+<td align="right">32300</td>
+<td align="right">21.647059</td>
 </tr>
 <tr class="odd">
 <td align="left">Fibroblast</td>
 <td align="left">Myocarditis</td>
-<td align="right">7474</td>
-<td align="right">32411</td>
-<td align="right">23.060072</td>
+<td align="right">7458</td>
+<td align="right">32300</td>
+<td align="right">23.089783</td>
 </tr>
 <tr class="even">
 <td align="left">infMacrophage</td>
 <td align="left">Myocarditis</td>
-<td align="right">2161</td>
-<td align="right">32411</td>
-<td align="right">6.667489</td>
+<td align="right">2154</td>
+<td align="right">32300</td>
+<td align="right">6.668731</td>
 </tr>
 <tr class="odd">
 <td align="left">other</td>
 <td align="left">Myocarditis</td>
-<td align="right">475</td>
-<td align="right">32411</td>
-<td align="right">1.465552</td>
+<td align="right">474</td>
+<td align="right">32300</td>
+<td align="right">1.467492</td>
 </tr>
 <tr class="even">
 <td align="left">Perivascular</td>
 <td align="left">Myocarditis</td>
-<td align="right">6151</td>
-<td align="right">32411</td>
-<td align="right">18.978125</td>
+<td align="right">6118</td>
+<td align="right">32300</td>
+<td align="right">18.941177</td>
 </tr>
 <tr class="odd">
 <td align="left">resMacrophage</td>
 <td align="left">Myocarditis</td>
-<td align="right">2312</td>
-<td align="right">32411</td>
-<td align="right">7.133381</td>
+<td align="right">2302</td>
+<td align="right">32300</td>
+<td align="right">7.126935</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">Myocarditis</td>
-<td align="right">4646</td>
-<td align="right">32411</td>
-<td align="right">14.334639</td>
+<td align="right">4633</td>
+<td align="right">32300</td>
+<td align="right">14.343653</td>
 </tr>
 <tr class="odd">
 <td align="left">Cardiomyocyte</td>
@@ -4166,6 +4023,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/8f79da03c6aee3465d4e298bcfb10305a2cc47bb/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/cnt tables per cond-1.png" target="_blank">8f79da0</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-13
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/e6d0c3cd120b043677f4e27895a57f1652da7e2a/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/cnt tables per cond-1.png" target="_blank">e6d0c3c</a>
 </td>
 <td>
@@ -4211,23 +4079,23 @@ seurat$TcellGrp &lt;- IDtoTcell$TcellGrp
 table(seurat$TcellGrp)</code></pre>
 <pre><code>
      Ctrl TcellHigh  TcellLow 
-    36012     24777     10254 </code></pre>
+    36012     24666     10254 </code></pre>
 <pre class="r"><code>table(seurat$TcellGrp, seurat$ID)</code></pre>
 <pre><code>           
-             GZ1 GZ10 GZ11 GZ12 GZ13 GZ14 GZ15 GZ16 GZ17 GZ18 GZ19  GZ2 GZ20
-  Ctrl         0 3731 3991 3818 9882    0    0    0    0    0    0    0    0
-  TcellHigh 2740    0    0    0    0    0 4439  436 1370    0  111    0 2706
-  TcellLow     0    0    0    0    0 1268    0    0    0 2280    0 1684    0
+             GZ1 GZ10 GZ11 GZ12 GZ13 GZ14 GZ15 GZ16 GZ17 GZ18  GZ2 GZ20 GZ21
+  Ctrl         0 3731 3991 3818 9882    0    0    0    0    0    0    0 1442
+  TcellHigh 2740    0    0    0    0    0 4439  436 1370    0    0 2706    0
+  TcellLow     0    0    0    0    0 1268    0    0    0 2280 1684    0    0
            
-            GZ21 GZ22 GZ23 GZ24  GZ3  GZ4  GZ5  GZ6  GZ7  GZ8  GZ9 SG29 SG30
-  Ctrl      1442 1998  841 1480    0    0    0    0    0 3921 4908    0    0
-  TcellHigh    0    0    0    0    0  545    0  491    0    0    0 1242    0
-  TcellLow     0    0    0    0 2396    0  781    0  653    0    0    0    0
+            GZ22 GZ23 GZ24  GZ3  GZ4  GZ5  GZ6  GZ7  GZ8  GZ9 SG29 SG31 SG32
+  Ctrl      1998  841 1480    0    0    0    0    0 3921 4908    0    0    0
+  TcellHigh    0    0    0    0  545    0  491    0    0    0 1242    0 1428
+  TcellLow     0    0    0 2396    0  781    0  653    0    0    0 1192    0
            
-            SG31 SG32 SG33 SG34 SG35
-  Ctrl         0    0    0    0    0
-  TcellHigh    0 1428 6286  620 2363
-  TcellLow  1192    0    0    0    0</code></pre>
+            SG33 SG34 SG35
+  Ctrl         0    0    0
+  TcellHigh 6286  620 2363
+  TcellLow     0    0    0</code></pre>
 </div>
 <div id="vis-marker-for-celltype-assignment" class="section level2">
 <h2>vis marker for celltype assignment</h2>
@@ -4337,6 +4205,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/8f79da03c6aee3465d4e298bcfb10305a2cc47bb/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis sel marker-2.png" target="_blank">8f79da0</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-13
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/e6d0c3cd120b043677f4e27895a57f1652da7e2a/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis sel marker-2.png" target="_blank">e6d0c3c</a>
 </td>
 <td>
@@ -4405,6 +4284,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/8f79da03c6aee3465d4e298bcfb10305a2cc47bb/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/dotplot-1.png" target="_blank">8f79da0</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-13
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/e6d0c3cd120b043677f4e27895a57f1652da7e2a/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/dotplot-1.png" target="_blank">e6d0c3c</a>
@@ -4512,24 +4402,6 @@ mluetge
 </div>
 </div>
 </div>
-<div id="exclude-two-patients-with-very-low-nuclei"
-class="section level2">
-<h2>exclude two patients with very low nuclei</h2>
-<pre class="r"><code>## two patients with &lt;250 nuclei --&gt; exclude from downstream analysis
-table(seurat$ID)</code></pre>
-<pre><code>
- GZ1 GZ10 GZ11 GZ12 GZ13 GZ14 GZ15 GZ16 GZ17 GZ18 GZ19  GZ2 GZ20 GZ21 GZ22 GZ23 
-2740 3731 3991 3818 9882 1268 4439  436 1370 2280  111 1684 2706 1442 1998  841 
-GZ24  GZ3  GZ4  GZ5  GZ6  GZ7  GZ8  GZ9 SG29 SG30 SG31 SG32 SG33 SG34 SG35 
-1480 2396  545  781  491  653 3921 4908 1242  236 1192 1428 6286  620 2363 </code></pre>
-<pre class="r"><code>seurat &lt;- subset(seurat, ID %in% c(&quot;GZ19&quot;, &quot;SG30&quot;), invert=T)
-table(seurat$ID)</code></pre>
-<pre><code>
- GZ1 GZ10 GZ11 GZ12 GZ13 GZ14 GZ15 GZ16 GZ17 GZ18  GZ2 GZ20 GZ21 GZ22 GZ23 GZ24 
-2740 3731 3991 3818 9882 1268 4439  436 1370 2280 1684 2706 1442 1998  841 1480 
- GZ3  GZ4  GZ5  GZ6  GZ7  GZ8  GZ9 SG29 SG31 SG32 SG33 SG34 SG35 
-2396  545  781  491  653 3921 4908 1242 1192 1428 6286  620 2363 </code></pre>
-</div>
 <div id="save-seurat-object" class="section level2">
 <h2>save seurat object</h2>
 <pre class="r"><code>saveRDS(seurat, file = paste0(basedir, 
@@ -4622,7 +4494,7 @@ loaded via a namespace (and not attached):
 [139] bit_4.0.4              stringi_1.7.8          sass_0.4.2            
 [142] irlba_2.3.5.1          future.apply_1.9.1    </code></pre>
 <pre class="r"><code>date()</code></pre>
-<pre><code>[1] &quot;Thu Oct 13 09:59:49 2022&quot;</code></pre>
+<pre><code>[1] &quot;Thu Oct 13 14:47:41 2022&quot;</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
