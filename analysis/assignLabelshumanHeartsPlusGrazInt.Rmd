@@ -67,13 +67,18 @@ table(seurat$ID)
 ```{r assign labels}
 
 seurat$label <- "other"
-seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("2","9","7","10","12"))] <- "Endothelial"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("2","9","7"))] <- "Endothelial"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("10"))] <- "EndoEC"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("12"))] <- "LEC"
 seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("4"))] <- "Tcell"
 seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("3"))] <- "Cardiomyocyte"
 seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("0"))] <- "Fibroblast"
-seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("1","8"))] <- "Perivascular"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("1"))] <- "Perivascular"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("8"))] <- "SMC"
 seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("5"))] <- "resMacrophage"
 seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("6"))] <- "infMacrophage"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("11"))] <- "NeuralCells"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("13"))] <- "Adipocytes"
 
 ```
 
@@ -93,7 +98,7 @@ colID <- c(pal_jco()(10), pal_npg()(10), pal_futurama()(10),
 colOrig <- pal_aaas()(length(unique(seurat$origin)))
 colIso <- pal_nejm()(length(unique(seurat$isolation)))
 colProc <- pal_aaas()(length(unique(seurat$processing)))
-colLab <- pal_futurama()(length(unique(seurat$label)))
+colLab <- c(pal_futurama()(8), pal_uchicago()(6))[1:length(unique(seurat$label))]
 
 names(colPal) <- levels(seurat)
 names(colTec) <- unique(seurat$technique)
@@ -118,6 +123,9 @@ DimPlot(seurat, reduction = "umap", cols=colPal)+
   xlab("UMAP1") +
   ylab("UMAP2")
 
+DimPlot(seurat, reduction = "umap", cols=colPal,
+        shuffle = T)+
+  theme_void()
 
 ```
 
@@ -130,7 +138,9 @@ DimPlot(seurat, reduction = "umap",  group.by = "label", cols=colLab)+
   xlab("UMAP1") +
   ylab("UMAP2")
 
-
+DimPlot(seurat, reduction = "umap", group.by = "label", cols=colLab,
+        shuffle = T)+
+  theme_void()
 ```
 
 
@@ -163,13 +173,16 @@ DimPlot(seurat, reduction = "umap", group.by = "dataset", cols=colSmp)+
 ### ID
 ```{r vis ID}
 
-DimPlot(seurat, reduction = "umap", group.by = "ID", cols=colID)+
+DimPlot(seurat, reduction = "umap", group.by = "ID", cols=colID, shuffle = T)+
   theme_bw() +
   theme(axis.text = element_blank(), axis.ticks = element_blank(), 
         panel.grid.minor = element_blank()) +
   xlab("UMAP1") +
   ylab("UMAP2")
 
+DimPlot(seurat, reduction = "umap", group.by = "ID", cols=colID,
+        shuffle = T)+
+  theme_void()
 
 ```
 
@@ -177,14 +190,17 @@ DimPlot(seurat, reduction = "umap", group.by = "ID", cols=colID)+
 ### Origin
 ```{r vis origin}
 
-DimPlot(seurat, reduction = "umap", group.by = "origin", cols=colOrig)+
+DimPlot(seurat, reduction = "umap", group.by = "origin", cols=colOrig,
+        shuffle = T)+
   theme_bw() +
   theme(axis.text = element_blank(), axis.ticks = element_blank(), 
         panel.grid.minor = element_blank()) +
   xlab("UMAP1") +
   ylab("UMAP2")
 
-
+DimPlot(seurat, reduction = "umap", group.by = "origin", cols=colOrig,
+        shuffle = T)+
+  theme_void()
 ```
 
 
@@ -414,6 +430,100 @@ DotPlot(seurat, assay="RNA", features = selGenesAll$gene, scale =T,
   scale_x_discrete(breaks=selGenesAll$gene, labels=selGenesAll$geneID) +
   xlab("") + ylab("")
 
+```
+
+## violin plots selected marker
+```{r vlnplt sel marker}
+
+genesDat <- data.frame(EnsID=rownames(seurat)) %>% 
+  mutate(gene=gsub(".*\\.", "", EnsID))
+selGenes <- data.frame(gene=c("CD2", "TNNT2", "PECAM1", "NRG1", "PROX1",
+                              "PDGFRA", "RGS5", "MYH11", "C1QA", "NRXN1",
+                              "PLIN1")) %>% 
+  left_join(., genesDat, by="gene")
+
+pList <- sapply(selGenes$EnsID, function(x){
+  p <- VlnPlot(object = seurat, features = x,
+               group.by = "label",
+               cols = colLab, pt.size = 0
+               ) + 
+    theme(legend.position = "none")
+    
+  plot(p)
+})
+
+pList <- sapply(selGenes$EnsID, function(x){
+  p <- VlnPlot(object = seurat, features = x,
+               group.by = "label",
+               cols = colLab, pt.size = 0.3
+               ) + 
+    theme(legend.position = "none")
+    
+  plot(p)
+})
+
+
+```
+
+## Feature plots BMPs
+```{r feautreplots BMPs}
+
+## list with all gene names for mapping of EnsIDs
+genesDat <- data.frame(EnsID=rownames(seurat)) %>% 
+  mutate(gene=gsub(".*\\.", "", EnsID))
+
+## selected genes to plot
+selGenes <- data.frame(gene=c("BMP2", "BMP4", "BMPR1A", "BMPR2")) %>% 
+  left_join(., genesDat, by="gene")
+
+## plotting loop order=F
+pList <- sapply(selGenes$EnsID, function(x){
+p <- FeaturePlot(seurat, reduction = "umap", 
+            features = x,
+            cols=c("lightgrey", "darkred"),
+            order = F)+
+  theme(legend.position="right")
+  plot(p)
+})
+
+## plotting loop order=T
+pList <- sapply(selGenes$EnsID, function(x){
+p <- FeaturePlot(seurat, reduction = "umap", 
+            features = x,
+            cols=c("lightgrey", "darkred"),
+            order = T)+
+  theme(legend.position="right")
+  plot(p)
+})
+```
+
+
+## average counts BMPs in Fibroblasts
+```{r average cnts BMPs}
+
+seuratSub <- subset(seurat, label=="Fibroblast")
+
+## assay data
+clusterAssigned <- as.data.frame(seuratSub$ID) %>%
+  dplyr::mutate(cell=rownames(.))
+colnames(clusterAssigned)[1] <- "ident"
+seuratDat <- GetAssayData(seuratSub)
+  
+  ## genes of interest
+genes <- data.frame(gene=rownames(seuratSub)) %>% 
+  mutate(geneID=gsub("^.*\\.", "", gene)) %>% filter(geneID %in% selGenes$gene)
+
+  ## matrix with averaged cnts per ident
+logNormExpres <- as.data.frame(t(as.matrix(
+  seuratDat[which(rownames(seuratDat) %in% genes$gene),])))
+logNormExpres <- logNormExpres %>% dplyr::mutate(cell=rownames(.)) %>%
+  dplyr::left_join(.,clusterAssigned, by=c("cell")) %>%
+  dplyr::select(-cell) %>% dplyr::group_by(ident) %>%
+  dplyr::summarise_all(mean)
+
+write.table(logNormExpres, 
+            file=paste0(basedir, "/data/BmpCntsFibroblastsPerPatient.txt"),
+            row.names = F, col.names = T, sep = "\t", quote = F)
 ```
 
 
