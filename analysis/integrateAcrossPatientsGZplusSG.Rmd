@@ -1,7 +1,7 @@
 ---
-title: "Merge samples"
+title: "integrate samples across patients"
 author: "Mechthild Lütge"
-date: "14 May 2020"
+date: "23 November 2020"
 output:
   html_document:
     self_contained: no
@@ -48,6 +48,14 @@ basedir <- here()
 seurat <- readRDS(file = paste0(basedir, 
                               "/data/humanHeartsPlusGraz_merged_seurat.rds"))
 
+## two patients with <250 nuclei --> exclude from downstream analysis
+table(seurat$ID)
+seurat <- subset(seurat, ID %in% c("GZ19", "SG30"), invert=T)
+table(seurat$ID)
+
+seurat <- subset(seurat, cond=="HH", invert=T)
+table(seurat$ID)
+
 ## integrate data across patients
 Idents(seurat) <- seurat$ID
 
@@ -56,8 +64,9 @@ for (i in 1:length(x = seurat.list)) {
     seurat.list[[i]] <- NormalizeData(object = seurat.list[[i]],
                                       verbose = FALSE)
     seurat.list[[i]] <- FindVariableFeatures(object = seurat.list[[i]], 
-        selection.method = "vst", nfeatures = 500, verbose = FALSE)
+        selection.method = "vst", nfeatures = 300, verbose = FALSE)
 }
+remove(seurat)
 
 seurat.anchors <- FindIntegrationAnchors(object.list = seurat.list, dims = 1:20)
 seurat.int <- IntegrateData(anchorset = seurat.anchors, dims = 1:20)
@@ -65,12 +74,13 @@ DefaultAssay(object = seurat.int) <- "integrated"
 
 # rerun seurat
 seurat.int <- ScaleData(object = seurat.int, verbose = FALSE)
+seurat.int <- FindVariableFeatures(seurat.int)
 seurat.int <- RunPCA(object = seurat.int, npcs = 20, verbose = FALSE)
 seurat.int <- RunTSNE(object = seurat.int, reduction = "pca", dims = 1:20)
 seurat.int <- RunUMAP(object = seurat.int, reduction = "pca", dims = 1:20)
 
 seurat.int <- FindNeighbors(object = seurat.int, reduction = "pca", dims = 1:20,
-                            k.param = 50)
+                            k.param = 100)
 res <- c(0.6,0.8,0.4,0.25)
 for(i in 1:length(res)){
   seurat.int <- FindClusters(object = seurat.int, resolution = res[i],
@@ -91,7 +101,6 @@ Idents(seurat) <- seurat$seurat_clusters
 saveRDS(seurat, file = paste0(basedir, 
                               "/data/humanHeartsPlusGraz_intPatients_merged", 
                               "_seurat.rds"))
-
 
 ```
 

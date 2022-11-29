@@ -88,12 +88,22 @@ remove(seuratX)
 
 
 
-## run clustering and DR and remove contaminating cells
+## run clustering and DR 
 ```{r clustering and DR}
 
-seurat <- rerunSeurat3(seurat)
-#seuratSub <- subset(seurat1, subset = `MGP-BALBcJ-G0026271.Grem1` >0) ## 5 cells
-#seuratSub <- subset(seurat1, subset = `MGP-BALBcJ-G0026527.Bmp2` >0) ## 14104 cells
+seurat <- NormalizeData(object = seurat)
+seurat <- FindVariableFeatures(object = seurat)
+seurat <- ScaleData(object = seurat, verbose = FALSE)
+seurat <- RunPCA(object = seurat, npcs = 30, verbose = FALSE)
+seurat <- RunTSNE(object = seurat, reduction = "pca", dims = 1:20)
+seurat <- RunUMAP(object = seurat, reduction = "pca", dims = 1:20)
+seurat <- FindNeighbors(object = seurat, reduction = "pca", 
+        dims = 1:20)
+res <- c(0.25,0.4,0.6)
+for (i in 1:length(res)) {
+        seurat <- FindClusters(object = seurat, resolution = res[i], 
+            random.seed = 1234)
+}
 
 dat <- data.frame(table(seurat$dataset))
 colnames(dat) <- c("dataset", "all")

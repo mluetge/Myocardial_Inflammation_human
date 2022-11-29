@@ -1,7 +1,7 @@
 Sample	technique	ID	cond	isolation	processing	origin
 o27533_1_11-11_20220203_Hu_nucseq_EMB30_GEM	nucleoi	SG29	Myocarditis	biopsy	frozen	SG
-o27533_1_12-12_20220203_Hu_nucseq_EMB31_GEM	nucleoi	SG30	inflamation	biopsy	frozen	SG
-o27936_1_7-7_20220309_Hu_nucseq_EMB32_GEM	nucleoi	SG31	Perimyocarditis	biopsy	frozen	SG
+o27533_1_12-12_20220203_Hu_nucseq_EMB31_GEM	nucleoi	SG30	Myocarditis	biopsy	frozen	SG
+o27936_1_7-7_20220309_Hu_nucseq_EMB32_GEM	nucleoi	SG31	Myocarditis	biopsy	frozen	SG
 o28576_1_01-1_20220525_Hu_nucseq_Graz_1_EMB_GEM	nucleoi	GZ1	Myocarditis	biopsy	frozen	GZ
 o28576_1_02-2_20220525_Hu_nucseq_Graz_2_EMB_GEM	nucleoi	GZ2	Myocarditis	biopsy	frozen	GZ
 o28576_1_03-3_20220525_Hu_nucseq_Graz_3_EMB_GEM	nucleoi	GZ3	Myocarditis	biopsy	frozen	GZ
@@ -9,7 +9,7 @@ o28576_1_04-4_20220525_Hu_nucseq_Graz_4_EMB_GEM	nucleoi	GZ4	Myocarditis	biopsy	f
 o28576_1_05-5_20220525_Hu_nucseq_Graz_5_EMB_GEM	nucleoi	GZ5	Myocarditis	biopsy	frozen	GZ
 o28576_1_06-6_20220525_Hu_nucseq_Graz_6_EMB_GEM	nucleoi	GZ6	Myocarditis	biopsy	frozen	GZ
 o28576_1_07-7_20220525_Hu_nucseq_Graz_7_EMB_GEM	nucleoi	GZ7	Myocarditis	biopsy	frozen	GZ
-o28576_1_13-13_20220525_Hu_nucseq_EMB32_GEM	nucleoi	SG32	InfCardiomyopathy	biopsy	frozen	SG
+o28576_1_13-13_20220525_Hu_nucseq_EMB32_GEM	nucleoi	SG32	Myocarditis	biopsy	frozen	SG
 o28576_1_08-8_20220525_Hu_nucseq_Graz_8_HH_GEM	nucleoi	GZ8	HH	explant	frozen	GZ
 o28576_1_10-10_20220525_Hu_nucseq_Graz_10_HH_GEM	nucleoi	GZ10	HH	explant	frozen	GZ
 o28576_1_11-11_20220525_Hu_nucseq_Graz_11_HH_GEM	nucleoi	GZ11	HH	explant	frozen	GZ
@@ -30,3 +30,9 @@ o294781_08-8_20220912_Hu_nucseq_Graz_17_EMB_GEM	nucleoi	GZ17	Myocarditis	biopsy	
 o294781_09-9_20220912_Hu_nucseq_Graz_18_EMB_GEM	nucleoi	GZ18	Myocarditis	biopsy	frozen	GZ
 o294781_10-10_20220912_Hu_nucseq_Graz_19_EMB_GEM	nucleoi	GZ19	Myocarditis	biopsy	frozen	GZ
 o294781_11-11_20220912_Hu_nucseq_Graz_20_EMB_GEM	nucleoi	GZ20	Myocarditis	biopsy	frozen	GZ
+9_20210817_Hu_nucleoi_seq_cardiac_transplant_Heart17_biopsy_NG	nucleoi	SG17	HTrans	biopsy	frozen	SG
+9_20210907_Hu_nucseq_HTrans_Heart21_GEM	nucleoi	SG21	HTrans	biopsy	frozen	SG
+2_20210930_Hu_nucseq_HTrans_Heart23_25_GEM	nucleoi	SG25	HTrans	biopsy	frozen	SG
+1_20210930_Hu_nucseq_HTrans_Heart22_24_GEM	nucleoi	SG24	HTrans	biopsy	frozen	SG
+o27533_1_09-9_20220203_Hu_nucseq_EMB28_GEM	nucleoi	SG28	HTrans	biopsy	frozen	SG
+o27533_1_10-10_20220203_Hu_nucseq_EMB29_GEM	nucleoi	SG29	HTrans	biopsy	frozen	SG

@@ -1,0 +1,574 @@
+---
+title: "assign labels"
+author: "Mechthild Lütge"
+date: "31 July 2022"
+output:
+  html_document:
+    self_contained: no
+    code_folding: show
+    number_sections: no
+    toc: yes
+    toc_depth: 3
+    toc_float: true
+    collapsed: no
+    smooth_scroll: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, dev = c("png", "pdf"))
+set.seed(1000)
+```
+
+## load packages
+```{r libs}
+suppressPackageStartupMessages({
+  library(SingleCellExperiment)
+  library(tidyverse)
+  library(Seurat)
+  library(magrittr)
+  library(dplyr)
+  library(purrr)
+  library(ggplot2)
+  library(here)
+  library(runSeurat3)
+  library(ggsci)
+  library(ggpubr)
+  library(pheatmap)
+  library(viridis)
+  library(sctransform)
+})
+
+```
+
+
+## load data 
+```{r set dir}
+basedir <- here()
+seurat <- readRDS(file = paste0(basedir, 
+                              "/data/humanHeartsPlusGraz_intPatients_merged", 
+                              "_seurat.rds"))
+Idents(seurat) <- seurat$seurat_clusters
+table(seurat$ID)
+```
+
+
+## assign labels
+```{r assign labels}
+
+seurat$label <- "other"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("2","9"))] <- "Endothelial"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("8"))] <- "EndoEC"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("6"))] <- "Tcell"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("5"))] <- "Cardiomyocyte"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("0"))] <- "Fibroblast"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("1"))] <- "Perivascular"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("7"))] <- "SMC"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("3"))] <- "resMacrophage"
+seurat$label[which(seurat$integrated_snn_res.0.6 %in% c("8"))] <- "infMacrophage"
+seurat$label[which(seurat$integrated_snn_res.0.4 %in% c("10"))] <- "NeuralCells"
+
+## reembedding of cluster 4 (mix of diff cell typpes)
+seuratSub <- subset(seurat, integrated_snn_res.0.4=="4")
+
+seuratSub <- rerunSeurat3(seuratSub)
+Tcell <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("0", "3","6", "5", "11"))]
+endo1 <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("1"))]
+fibro <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("2"))]
+peri <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("9", "12"))]
+Adipo <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("7"))]
+resmacro <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("4", "13"))]
+infmacro <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("8"))]
+LEC <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("10"))]
+
+
+seurat$label[which(colnames(seurat) %in% Tcell)] <- "Tcell"
+seurat$label[which(colnames(seurat) %in% peri)] <- "Perivascular"
+seurat$label[which(colnames(seurat) %in% endo1)] <- "Endothelial"
+seurat$label[which(colnames(seurat) %in% fibro)] <- "Fibroblast"
+seurat$label[which(colnames(seurat) %in% Adipo)] <- "Adipocytes"
+seurat$label[which(colnames(seurat) %in% resmacro)] <- "resMacrophage"
+seurat$label[which(colnames(seurat) %in% infmacro)] <- "infMacrophage"
+seurat$label[which(colnames(seurat) %in% LEC)] <- "LEC"
+
+unique(seurat$integrated_snn_res.0.4)
+seurat$clust <- as.character(seurat$integrated_snn_res.0.4)
+seurat$clust[which(seurat$integrated_snn_res.0.6 == "8")] <- "11"
+seurat$clust[which(colnames(seurat) %in% Tcell)] <- "12"
+seurat$clust[which(colnames(seurat) %in% peri)] <- "13"
+seurat$clust[which(colnames(seurat) %in% endo1)] <- "14"
+seurat$clust[which(colnames(seurat) %in% fibro)] <- "15"
+seurat$clust[which(colnames(seurat) %in% Adipo)] <- "16"
+seurat$clust[which(colnames(seurat) %in% resmacro)] <- "17"
+seurat$clust[which(colnames(seurat) %in% infmacro)] <- "18"
+seurat$clust[which(colnames(seurat) %in% LEC)] <- "19"
+
+```
+
+
+## color vectors
+```{r colVec}
+
+colPal <- c(pal_igv()(12),
+            pal_aaas()(10))[1:length(levels(seurat))]
+colTec <- pal_jama()(length(unique(seurat$technique)))
+colSmp <- c(pal_uchicago()(9), pal_npg()(10), pal_aaas()(10), 
+            pal_jama()(7))[1:length(unique(seurat$dataset))]
+colCond <- pal_npg()(length(unique(seurat$cond)))
+colID <- c(pal_jco()(10), pal_npg()(10), pal_futurama()(10),
+           pal_d3()(10))[1:length(unique(seurat$ID))]
+colOrig <- pal_aaas()(length(unique(seurat$origin)))
+colIso <- pal_nejm()(length(unique(seurat$isolation)))
+colProc <- pal_aaas()(length(unique(seurat$processing)))
+colLab <- c(pal_futurama()(8), pal_uchicago()(6))[1:length(unique(seurat$label))]
+colClust <- c(pal_igv()(12),
+            pal_aaas()(10))[1:length(unique(seurat$clust))]
+
+names(colPal) <- levels(seurat)
+names(colTec) <- unique(seurat$technique)
+names(colSmp) <- unique(seurat$dataset)
+names(colCond) <- unique(seurat$cond)
+names(colID) <- unique(seurat$ID)
+names(colOrig) <- unique(seurat$origin)
+names(colIso) <- unique(seurat$isolation)
+names(colProc) <- unique(seurat$processing)
+names(colLab) <- unique(seurat$label)
+names(colClust) <- unique(seurat$clust)
+```
+
+
+## vis data {.tabset}
+### clusters
+```{r vis cluster}
+DimPlot(seurat, reduction = "umap", cols=colPal)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+DimPlot(seurat, reduction = "umap", cols=colPal,
+        shuffle = T)+
+  theme_void()
+
+```
+
+### cluster plus re-embedding
+```{r vis cluster plus}
+DimPlot(seurat, reduction = "umap", cols=colClust, group.by = "clust")+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+DimPlot(seurat, reduction = "umap", cols=colClust, group.by = "clust",
+        shuffle = F)+
+  theme_void()
+
+```
+
+
+
+### label
+```{r vis label}
+DimPlot(seurat, reduction = "umap",  group.by = "label", cols=colLab)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+DimPlot(seurat, reduction = "umap", group.by = "label", cols=colLab,
+        shuffle = T)+
+  theme_void()
+```
+
+
+### technique
+```{r vis tecnique}
+
+DimPlot(seurat, reduction = "umap", group.by = "technique", cols=colTec)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+```
+
+
+### Sample
+```{r vis sample, fig.height=4, fig.width=12}
+
+DimPlot(seurat, reduction = "umap", group.by = "dataset", cols=colSmp)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### ID
+```{r vis ID}
+
+DimPlot(seurat, reduction = "umap", group.by = "ID", cols=colID, shuffle = T)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+DimPlot(seurat, reduction = "umap", group.by = "ID", cols=colID,
+        shuffle = T)+
+  theme_void()
+
+```
+
+
+### Origin
+```{r vis origin}
+
+DimPlot(seurat, reduction = "umap", group.by = "origin", cols=colOrig,
+        shuffle = T)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+DimPlot(seurat, reduction = "umap", group.by = "origin", cols=colOrig,
+        shuffle = T)+
+  theme_void()
+```
+
+
+### isolation
+```{r vis isolation}
+
+DimPlot(seurat, reduction = "umap", group.by = "isolation", cols=colIso)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+
+### cond
+```{r vis cond, fig.height=4, fig.width=5}
+
+DimPlot(seurat, reduction = "umap", group.by = "cond", cols=colCond)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### processing
+```{r vis proc}
+
+DimPlot(seurat, reduction = "umap", group.by = "processing", cols=colProc)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+## cnt tables {.tabset}
+### per patient
+```{r cnt tables per pat, fig.height=6, fig.width=8}
+
+## total cells per patient
+knitr::kable(table(seurat$ID))
+
+## celltype per patient counts
+knitr::kable(table(seurat$label, seurat$ID))
+
+## celltype percentages per patient
+datLab <- data.frame(table(seurat$label, seurat$ID))
+colnames(datLab) <- c("label", "ID", "cnt")
+datPat <- data.frame(table(seurat$ID))
+colnames(datPat) <- c("ID", "total")
+datFrac <- datLab %>% left_join(., datPat, by="ID") %>% 
+  mutate(percentage = cnt*100/total)
+knitr::kable(datFrac)
+
+ordVec <- datFrac %>% dplyr::filter(label=="Tcell") %>% 
+  arrange(., percentage)
+ordBar <- c("Tcell","infMacrophage","resMacrophage","Fibroblast","Perivascular",
+            "SMC","Endothelial","EndoEC","LEC","Cardiomyocyte","Adipocytes",
+            "NeuralCells")
+datFrac <-datFrac %>% mutate(labelFac=factor(label, levels = ordBar))
+ggbarplot(datFrac, x="ID", y="percentage",
+          fill = "labelFac",
+          palette = colLab,
+          order= ordVec$ID) +
+  rotate_x_text(angle = 90)
+
+## only Myocarditis patients
+selMyo <- unique(seurat$ID[which(seurat$cond != "HH")])
+datFracSel <- datFrac %>% filter(ID %in% selMyo)
+ggbarplot(datFracSel, x="ID", y="percentage",
+          fill = "labelFac",
+          palette = colLab,
+          order= ordVec$ID) +
+  rotate_x_text(angle = 90)
+
+```
+
+## assign groups based on T cell fraction
+```{r assign groups, eval=FALSE, include=FALSE}
+
+TcellGrp <- read_tsv(paste0(basedir, "/data/assignTcellGrp.txt"))
+IDtoTcell <- data.frame(ID=seurat$ID) %>% left_join(., TcellGrp, by="ID")
+seurat$TcellGrp <- IDtoTcell$TcellGrp
+table(seurat$TcellGrp)
+table(seurat$TcellGrp, seurat$ID)
+```
+
+
+## vis marker for celltype assignment
+
+```{r avg heatmap function, eval=T, include=FALSE}
+
+avgHeatmap <- function(seurat, selGenes, colVecIdent, colVecCond=NULL,
+                       ordVec=NULL, gapVecR=NULL, gapVecC=NULL,cc=FALSE,
+                       cr=FALSE, condCol=FALSE){
+  
+  ## format gene names (depends on how gene list is inputed)
+  selGenes <- selGenes %>% 
+      mutate(labelNam = (str_split(gene, '\\.', simplify = T)[,2]))
+  selGenes <- selGenes$labelNam
+  
+  ## assay data
+  clusterAssigned <- as.data.frame(Idents(seurat)) %>%
+  dplyr::mutate(cell=rownames(.))
+  colnames(clusterAssigned)[1] <- "ident"
+  seuratDat <- GetAssayData(seurat)
+  
+  ## genes of interest
+  genes <- data.frame(gene=rownames(seurat)) %>% 
+    mutate(geneID=gsub("^.*\\.", "", gene)) %>% filter(geneID %in% selGenes)
+
+  ## matrix with averaged cnts per ident
+  logNormExpres <- as.data.frame(t(as.matrix(
+    seuratDat[which(rownames(seuratDat) %in% genes$gene),])))
+  logNormExpres <- logNormExpres %>% dplyr::mutate(cell=rownames(.)) %>%
+    dplyr::left_join(.,clusterAssigned, by=c("cell")) %>%
+    dplyr::select(-cell) %>% dplyr::group_by(ident) %>%
+    dplyr::summarise_all(mean)
+  logNormExpresMa <- logNormExpres %>% dplyr::select(-ident) %>% as.matrix()
+  rownames(logNormExpresMa) <- logNormExpres$ident
+  logNormExpresMa <- t(logNormExpresMa)
+  rownames(logNormExpresMa) <- gsub("^.*?\\.","",rownames(logNormExpresMa))
+  
+  ## remove genes if they are all the same in all groups
+  ind <- apply(logNormExpresMa, 1, sd) == 0
+  logNormExpresMa <- logNormExpresMa[!ind,]
+  genes <- genes[!ind,]
+
+  ## color columns according to cluster
+  annotation_col <- as.data.frame(gsub("(^.*?_)","",
+                                       colnames(logNormExpresMa)))%>%
+    dplyr::mutate(celltype=gsub("(_.*$)","",colnames(logNormExpresMa)))
+  colnames(annotation_col)[1] <- "col1"
+  annotation_col <- annotation_col %>%
+    dplyr::mutate(cond = gsub("(^[0-9]_?)","",col1)) %>%
+    dplyr::select(cond, celltype)
+  rownames(annotation_col) <- colnames(logNormExpresMa) 
+
+  ann_colors = list(
+      cond = colVecCond,
+      celltype=colVecIdent)
+  if(is.null(ann_colors$cond)){
+    annotation_col$cond <- NULL
+  }
+  
+  ## adjust order
+  logNormExpresMa <- logNormExpresMa[selGenes,]
+  if(is.null(ordVec)){
+    ordVec <- levels(seurat)
+  }
+  logNormExpresMa <- logNormExpresMa[,ordVec]
+
+  ## scaled row-wise
+  pheatmap(logNormExpresMa, scale="row" ,treeheight_row = 0, cluster_rows = cr, 
+         cluster_cols = cc,
+         color = colorRampPalette(c("#2166AC", "#F7F7F7", "#B2182B"))(50),
+         annotation_col = annotation_col, cellwidth=15, cellheight=10,
+         annotation_colors = ann_colors, gaps_row = gapVecR, gaps_col = gapVecC)
+}
+
+```
+
+### heatmap
+```{r vis sel marker, fig.height=10, fig.width=8}
+
+genes <- data.frame(gene=rownames(seurat)) %>% 
+    mutate(geneID=gsub("^.*\\.", "", gene)) 
+
+selGenesAll <- read_tsv(file = paste0(basedir,
+                                      "/data/markerLabels.txt")) %>% 
+  left_join(., genes, by = "geneID")
+
+Idents(seurat) <- seurat$seurat_clusters
+pOut <- avgHeatmap(seurat = seurat, selGenes = selGenesAll,
+                  colVecIdent = colPal, 
+                  ordVec=levels(seurat),
+                  gapVecR=NULL, gapVecC=NULL,cc=T,
+                  cr=F, condCol=F)
+
+Idents(seurat) <- seurat$label
+pOut <- avgHeatmap(seurat = seurat, selGenes = selGenesAll,
+                  colVecIdent = colLab, 
+                  ordVec=levels(seurat),
+                  gapVecR=NULL, gapVecC=NULL,cc=T,
+                  cr=F, condCol=F)
+
+```
+
+### Dotplot
+```{r dotplot, fig.height=9, fig.width=7}
+
+DotPlot(seurat, assay="RNA", features = selGenesAll$gene, scale =T,
+        cluster.idents = T) +
+  scale_color_viridis_c() +
+  coord_flip() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  scale_x_discrete(breaks=selGenesAll$gene, labels=selGenesAll$geneID) +
+  xlab("") + ylab("")
+
+Idents(seurat) <- seurat$seurat_clusters
+DotPlot(seurat, assay="RNA", features = selGenesAll$gene, scale =T,
+        cluster.idents = T) +
+  scale_color_viridis_c() +
+  coord_flip() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  scale_x_discrete(breaks=selGenesAll$gene, labels=selGenesAll$geneID) +
+  xlab("") + ylab("")
+
+```
+
+## violin plots selected marker
+```{r vlnplt sel marker}
+
+genesDat <- data.frame(EnsID=rownames(seurat)) %>% 
+  mutate(gene=gsub(".*\\.", "", EnsID))
+selGenes <- data.frame(gene=c("CD2", "TNNT2", "PECAM1", "NRG1", "PROX1",
+                              "PDGFRA", "RGS5", "MYH11", "C1QA", "NRXN1",
+                              "PLIN1")) %>% 
+  left_join(., genesDat, by="gene")
+
+pList <- sapply(selGenes$EnsID, function(x){
+  p <- VlnPlot(object = seurat, features = x,
+               group.by = "label",
+               cols = colLab, pt.size = 0
+               ) + 
+    theme(legend.position = "none")
+    
+  plot(p)
+})
+
+pList <- sapply(selGenes$EnsID, function(x){
+  p <- VlnPlot(object = seurat, features = x,
+               group.by = "label",
+               cols = colLab, pt.size = 0.3
+               ) + 
+    theme(legend.position = "none")
+    
+  plot(p)
+})
+
+
+```
+
+## Feature plots BMPs
+```{r feautreplots BMPs}
+
+## list with all gene names for mapping of EnsIDs
+genesDat <- data.frame(EnsID=rownames(seurat)) %>% 
+  mutate(gene=gsub(".*\\.", "", EnsID))
+
+## selected genes to plot
+selGenes <- data.frame(gene=c("BMP2", "BMP4", "BMPR1A", "BMPR2")) %>% 
+  left_join(., genesDat, by="gene")
+
+## plotting loop order=F
+pList <- sapply(selGenes$EnsID, function(x){
+p <- FeaturePlot(seurat, reduction = "umap", 
+            features = x,
+            cols=c("lightgrey", "darkred"),
+            order = F)+
+  theme(legend.position="right")
+  plot(p)
+})
+
+## plotting loop order=T
+pList <- sapply(selGenes$EnsID, function(x){
+p <- FeaturePlot(seurat, reduction = "umap", 
+            features = x,
+            cols=c("lightgrey", "darkred"),
+            order = T)+
+  theme(legend.position="right")
+  plot(p)
+})
+```
+
+
+## average counts BMPs in Fibroblasts
+```{r average cnts BMPs}
+
+seuratSub <- subset(seurat, label=="Fibroblast")
+
+## assay data
+clusterAssigned <- as.data.frame(seuratSub$ID) %>%
+  dplyr::mutate(cell=rownames(.))
+colnames(clusterAssigned)[1] <- "ident"
+seuratDat <- GetAssayData(seuratSub)
+  
+  ## genes of interest
+genes <- data.frame(gene=rownames(seuratSub)) %>% 
+  mutate(geneID=gsub("^.*\\.", "", gene)) %>% filter(geneID %in% selGenes$gene)
+
+  ## matrix with averaged cnts per ident
+logNormExpres <- as.data.frame(t(as.matrix(
+  seuratDat[which(rownames(seuratDat) %in% genes$gene),])))
+logNormExpres <- logNormExpres %>% dplyr::mutate(cell=rownames(.)) %>%
+  dplyr::left_join(.,clusterAssigned, by=c("cell")) %>%
+  dplyr::select(-cell) %>% dplyr::group_by(ident) %>%
+  dplyr::summarise_all(mean)
+
+write.table(logNormExpres, 
+            file=paste0(basedir, "/data/BmpCntsFibroblastsPerPatient_woHH.txt"),
+            row.names = F, col.names = T, sep = "\t", quote = F)
+
+```
+
+
+## save seurat object
+```{r save}
+saveRDS(seurat, file = paste0(basedir, 
+                              "/data/humanHeartsPlusGraz_intPatients_merged", 
+                              "labeled_woHH_seurat.rds"))
+```
+
+
+## session info
+```{r session info}
+sessionInfo()
+date()
+```
+
+
+
