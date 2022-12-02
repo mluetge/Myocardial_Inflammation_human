@@ -50,7 +50,7 @@ seurat <- readRDS(file = paste0(basedir,
 
 ## two patients with <250 nuclei --> exclude from downstream analysis
 table(seurat$ID)
-seurat <- subset(seurat, ID %in% c("GZ19", "SG30"), invert=T)
+seurat <- subset(seurat, ID %in% c("GZ19", "SG30", "GZ7", "SG17"), invert=T)
 table(seurat$ID)
 
 seurat <- subset(seurat, cond=="HH", invert=T)
