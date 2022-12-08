@@ -1,0 +1,501 @@
+---
+title: "DE genes between T cell groups"
+author: "Mechthild Lütge"
+date: "Dec 2022"
+output:
+  html_document:
+    self_contained: no
+    code_folding: show
+    number_sections: no
+    toc: yes
+    toc_depth: 3
+    toc_float: true
+    collapsed: no
+    smooth_scroll: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, dev = c("png", "pdf"))
+set.seed(1000)
+```
+
+## load packages
+```{r libs}
+suppressPackageStartupMessages({
+  library(SingleCellExperiment)
+  library(tidyverse)
+  library(Seurat)
+  library(magrittr)
+  library(dplyr)
+  library(purrr)
+  library(ggplot2)
+  library(here)
+  library(runSeurat3)
+  library(ggsci)
+  library(pheatmap)
+  library(ggpubr)
+  library(RColorBrewer)
+  library(viridis)
+})
+
+```
+
+
+## heatmap function
+
+```{r avg heatmap funct}
+avgHeatmap <- function(seurat, selGenes, colVecIdent, colVecCond=NULL,
+                       ordVec=NULL, gapVecR=NULL, gapVecC=NULL,cc=FALSE,
+                       cr=FALSE, condCol=FALSE){
+  
+  selGenes <- selGenes$gene
+  
+  ## assay data
+  clusterAssigned <- as.data.frame(Idents(seurat)) %>%
+  dplyr::mutate(cell=rownames(.))
+  colnames(clusterAssigned)[1] <- "ident"
+  seuratDat <- GetAssayData(seurat)
+  
+  ## genes of interest
+  genes <- data.frame(gene=rownames(seurat)) %>% 
+    mutate(geneID=gsub("^.*\\.", "", gene)) %>% filter(geneID %in% selGenes)
+
+  ## matrix with averaged cnts per ident
+  logNormExpres <- as.data.frame(t(as.matrix(
+    seuratDat[which(rownames(seuratDat) %in% genes$gene),])))
+  logNormExpres <- logNormExpres %>% dplyr::mutate(cell=rownames(.)) %>%
+    dplyr::left_join(.,clusterAssigned, by=c("cell")) %>%
+    dplyr::select(-cell) %>% dplyr::group_by(ident) %>%
+    dplyr::summarise_all(mean)
+  logNormExpresMa <- logNormExpres %>% dplyr::select(-ident) %>% as.matrix()
+  rownames(logNormExpresMa) <- logNormExpres$ident
+  logNormExpresMa <- t(logNormExpresMa)
+  rownames(logNormExpresMa) <- gsub("^.*?\\.","",rownames(logNormExpresMa))
+  
+  ## remove genes if they are all the same in all groups
+  ind <- apply(logNormExpresMa, 1, sd) == 0
+  logNormExpresMa <- logNormExpresMa[!ind,]
+  genes <- genes[!ind,]
+
+  ## color columns according to cluster
+  annotation_col <- as.data.frame(gsub("(^.*?_)","",
+                                       colnames(logNormExpresMa)))%>%
+    dplyr::mutate(celltype=gsub("(_.*$)","",colnames(logNormExpresMa)))
+  colnames(annotation_col)[1] <- "col1"
+  annotation_col <- annotation_col %>%
+    dplyr::mutate(cond = gsub(".*_","",col1)) %>%
+    dplyr::select(cond, celltype)
+  rownames(annotation_col) <- colnames(logNormExpresMa) 
+
+  ann_colors = list(
+      cond = colVecCond,
+      celltype=colVecIdent)
+  if(is.null(ann_colors$cond)){
+    annotation_col$cond <- NULL
+  }
+  
+  ## adjust order
+  logNormExpresMa <- logNormExpresMa[selGenes,]
+  if(is.null(ordVec)){
+    ordVec <- levels(seurat)
+  }
+  logNormExpresMa <- logNormExpresMa[,ordVec]
+
+  ## scaled row-wise
+  pheatmap(logNormExpresMa, scale="row" ,treeheight_row = 0, cluster_rows = cr, 
+         cluster_cols = cc,
+         color = colorRampPalette(c("#2166AC", "#F7F7F7", "#B2182B"))(50),
+         annotation_col = annotation_col, cellwidth=15, cellheight=10,
+         annotation_colors = ann_colors, gaps_row = gapVecR, gaps_col = gapVecC)
+}
+
+```
+
+## sign plot funct
+```{r funct sign plot}
+## adapted from CellMixS
+visGroup_adapt <- function (sce,group,dim_red = "TSNE",col_group=pal_nejm()(8)) 
+{
+    if (!is(sce, "SingleCellExperiment")) {
+        stop("Error:'sce' must be a 'SingleCellExperiment' object.")
+    }
+    if (!group %in% names(colData(sce))) {
+        stop("Error: 'group' variable must be in 'colData(sce)'")
+    }
+    cell_names <- colnames(sce)
+    if (!dim_red %in% "TSNE") {
+        if (!dim_red %in% reducedDimNames(sce)) {
+            stop("Please provide a dim_red method listed in reducedDims of sce")
+        }
+        red_dim <- as.data.frame(reducedDim(sce, dim_red))
+    }
+    else {
+        if (!"TSNE" %in% reducedDimNames(sce)) {
+            if ("logcounts" %in% names(assays(sce))) {
+                sce <- runTSNE(sce)
+            }
+            else {
+                sce <- runTSNE(sce, exprs_values = "counts")
+            }
+        }
+        red_dim <- as.data.frame(reducedDim(sce, "TSNE"))
+    }
+    colnames(red_dim) <- c("red_dim1", "red_dim2")
+    df <- data.frame(sample_id = cell_names, group_var = colData(sce)[, 
+        group], red_Dim1 = red_dim$red_dim1, red_Dim2 = red_dim$red_dim2)
+    t <- ggplot(df, aes_string(x = "red_Dim1", y = "red_Dim2")) + 
+        xlab(paste0(dim_red, "_1")) + ylab(paste0(dim_red, "_2")) + 
+        theme_void() + theme(aspect.ratio = 1,
+                             panel.grid.minor = element_blank(), 
+        panel.grid.major = element_line(color = "grey", size = 0.3))
+    t_group <- t + geom_point(size = 1.5, alpha = 0.8,
+                              aes_string(color = "group_var")) + 
+        guides(color = guide_legend(override.aes = list(size = 1), 
+            title = group)) + ggtitle(group)
+    if (is.numeric(df$group_var)) {
+        t_group <- t_group + scale_color_viridis(option = "D")
+    }
+    else {
+        t_group <- t_group + scale_color_manual(values = col_group)
+    }
+    t_group
+}
+
+
+
+```
+
+
+
+## set dir
+```{r set dir}
+basedir <- here()
+seurat <- readRDS(file = paste0(basedir, 
+                              "/data/humanHeartsPlusGraz_intPatients_merged", 
+                              "labeled_woHH_seurat.rds"))
+Idents(seurat) <- seurat$integrated_snn_res.0.6
+
+```
+
+
+
+## color vectors
+```{r colVec}
+
+colPal <- c(pal_igv()(12),
+            pal_aaas()(10))[1:length(levels(seurat))]
+colTec <- pal_jama()(length(unique(seurat$technique)))
+colSmp <- c(pal_uchicago()(9), pal_npg()(10), pal_aaas()(10), 
+            pal_jama()(7))[1:length(unique(seurat$dataset))]
+colCond <- pal_npg()(length(unique(seurat$cond)))
+colID <- c(pal_jco()(10), pal_npg()(10), pal_futurama()(10),
+           pal_d3()(10))[1:length(unique(seurat$ID))]
+colOrig <- pal_aaas()(length(unique(seurat$origin)))
+colIso <- pal_nejm()(length(unique(seurat$isolation)))
+colProc <- pal_aaas()(length(unique(seurat$processing)))
+colTgrp <- c("#9f2238", "#48557e", "#71737a")
+colLab <- c("#1b805d", "#C71000FF", "#344080", "#803467", "#5A9599FF",
+            "#FF6348FF", "#84D7E1FF", "#8A9045FF", "#800000FF", "#767676FF",
+            "#FFA319FF", "#FF95A8FF") 
+
+names(colLab) <- c("EndoEC", "Tcell","resMacrophage", "Fibroblast",
+                   "infMacrophage", "Perivascular","Cardiomyocyte",
+                   "Endothelial","Adipocytes","NeuralCells","SMC","LEC")
+names(colTgrp) <- c("TcellHigh", "TcellLow", "TcellInt" )
+names(colPal) <- levels(seurat)
+names(colTec) <- unique(seurat$technique)
+names(colSmp) <- unique(seurat$dataset)
+names(colCond) <- unique(seurat$cond)
+names(colID) <- unique(seurat$ID)
+names(colOrig) <- unique(seurat$origin)
+names(colIso) <- unique(seurat$isolation)
+names(colProc) <- unique(seurat$processing)
+```
+
+
+## vis data {.tabset}
+### clusters
+```{r vis cluster}
+DimPlot(seurat, reduction = "umap", cols=colPal)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+DimPlot(seurat, reduction = "umap", cols=colPal,
+        shuffle = T)+
+  theme_void()
+
+```
+
+### label
+```{r vis label}
+DimPlot(seurat, reduction = "umap",  group.by = "label", cols=colLab)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+DimPlot(seurat, reduction = "umap", group.by = "label", cols=colLab,
+        shuffle = T)+
+  theme_void()
+```
+
+
+### ID
+```{r vis ID}
+
+DimPlot(seurat, reduction = "umap", group.by = "ID", cols=colID, shuffle = T)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+DimPlot(seurat, reduction = "umap", group.by = "ID", cols=colID,
+        shuffle = T)+
+  theme_void()
+
+```
+
+
+### cond
+```{r vis cond, fig.height=4, fig.width=5}
+
+DimPlot(seurat, reduction = "umap", group.by = "cond", cols=colCond)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+
+```
+
+### T cell grp
+```{r vis T cell group}
+
+DimPlot(seurat, reduction = "umap", group.by = "TcellGrp", cols=colTgrp)+
+  theme_bw() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("UMAP1") +
+  ylab("UMAP2")
+
+DimPlot(seurat, reduction = "umap", group.by = "TcellGrp", cols=colTgrp,
+        shuffle = T)+
+  theme_void()
+
+```
+
+
+### label split by T cell Grp
+```{r vis label split seq, fig.height=3.5, fig.width=12}
+
+DimPlot(seurat, reduction = "umap", group.by = "label", cols=colLab,
+        split.by = "TcellGrp", shuffle = T)+
+  theme_void()
+
+```
+
+## project signatures
+
+## signature cut 2
+```{r signature cut 2, fig.height=6, fig.width=8}
+
+signDat <- read_delim(file = paste0(basedir,
+                    "/data/GSEA/selGenesSignature.txt"),
+                    delim = "\t")
+genes <- data.frame(geneID=rownames(seurat)) %>% 
+  mutate(gene=gsub("^.*\\.", "", geneID))
+signDat <- signDat %>% left_join(.,genes, by="gene")
+allSign <- unique(signDat$signature)
+
+sce <- as.SingleCellExperiment(seurat)
+
+## add reduced dim
+seurat2 <- seurat
+DefaultAssay(object = seurat2) <- "integrated"
+sce2 <- as.SingleCellExperiment(seurat2)
+reducedDims(sce) <- reducedDims(sce2)
+remove(seurat2)
+remove(sce2)
+
+treatGrps <- unique(sce$TcellGrp)
+
+cutOff <- 2
+pal = viridis(100)
+sc <- scale_colour_gradientn(colours = pal, limits=c(0, cutOff))
+
+lapply(unique(signDat$signature), function(sign){
+  signGenes <- signDat %>% dplyr::filter(signature == sign)
+  sceSub <- sce[which(rownames(sce) %in% signGenes$geneID),]
+  cntMat <- rowSums(t(as.matrix(sceSub@assays@data$logcounts)))/nrow(signGenes)
+  sceSub$sign <- cntMat
+  sceSub$sign[which(sceSub$sign > cutOff)] <- cutOff
+  sceSub$sign[which(sceSub$sign < 0)] <- 0
+  lapply(treatGrps, function(treat){
+    sceSubT <- sceSub[, which(sceSub$TcellGrp == treat)]
+    p <- visGroup_adapt(sceSubT, 'sign', dim_red = 'UMAP') +
+    sc +
+    guides(colour = guide_colourbar(title = '')) +
+    ggtitle(paste0(sign, ' signature - ', treat)) +
+    theme_classic() + 
+    theme(axis.text = element_blank(),
+          axis.ticks = element_blank()) +
+    labs(x='Dimension 1', y='Dimension 2')
+    p
+  })
+})
+
+pal = colorRampPalette(rev(brewer.pal(11, 'RdBu')))
+sc <- scale_colour_gradientn(colours = pal(100), limits=c(0, cutOff))
+
+lapply(unique(signDat$signature), function(sign){
+  signGenes <- signDat %>% dplyr::filter(signature == sign)
+  sceSub <- sce[which(rownames(sce) %in% signGenes$geneID),]
+  cntMat <- rowSums(t(as.matrix(sceSub@assays@data$logcounts)))/nrow(signGenes)
+  sceSub$sign <- cntMat
+  sceSub$sign[which(sceSub$sign > cutOff)] <- cutOff
+  sceSub$sign[which(sceSub$sign < 0)] <- 0
+  lapply(treatGrps, function(treat){
+    sceSubT <- sceSub[, which(sceSub$TcellGrp == treat)]
+    p <- visGroup_adapt(sceSubT, 'sign', dim_red = 'UMAP') +
+    sc +
+    guides(colour = guide_colourbar(title = '')) +
+    ggtitle(paste0(sign, ' signature - ', treat)) +
+    theme_classic() + 
+    theme(axis.text = element_blank(),
+          axis.ticks = element_blank()) +
+    labs(x='Dimension 1', y='Dimension 2')
+    p
+  })
+})
+
+```
+
+
+## signature cut 1.5
+```{r signature cut 1.5, fig.height=6, fig.width=8}
+
+
+cutOff <- 1.5
+pal = colorRampPalette(rev(brewer.pal(11, 'RdBu')))
+sc <- scale_colour_gradientn(colours = pal(100), limits=c(0, cutOff))
+
+lapply(unique(signDat$signature), function(sign){
+  signGenes <- signDat %>% dplyr::filter(signature == sign)
+  sceSub <- sce[which(rownames(sce) %in% signGenes$geneID),]
+  cntMat <- rowSums(t(as.matrix(sceSub@assays@data$logcounts)))/nrow(signGenes)
+  sceSub$sign <- cntMat
+  sceSub$sign[which(sceSub$sign > cutOff)] <- cutOff
+  sceSub$sign[which(sceSub$sign < 0)] <- 0
+  lapply(treatGrps, function(treat){
+    sceSubT <- sceSub[, which(sceSub$TcellGrp == treat)]
+    p <- visGroup_adapt(sceSubT, 'sign', dim_red = 'UMAP') +
+    sc +
+    guides(colour = guide_colourbar(title = '')) +
+    ggtitle(paste0(sign, ' signature - ', treat)) +
+    theme_classic() + 
+    theme(axis.text = element_blank(),
+          axis.ticks = element_blank()) +
+    labs(x='Dimension 1', y='Dimension 2')
+    p
+  })
+})
+
+pal = viridis(100)
+sc <- scale_colour_gradientn(colours = pal, limits=c(0, cutOff))
+lapply(unique(signDat$signature), function(sign){
+  signGenes <- signDat %>% dplyr::filter(signature == sign)
+  sceSub <- sce[which(rownames(sce) %in% signGenes$geneID),]
+  cntMat <- rowSums(t(as.matrix(sceSub@assays@data$logcounts)))/nrow(signGenes)
+  sceSub$sign <- cntMat
+  sceSub$sign[which(sceSub$sign > cutOff)] <- cutOff
+  sceSub$sign[which(sceSub$sign < 0)] <- 0
+  lapply(treatGrps, function(treat){
+    sceSubT <- sceSub[, which(sceSub$TcellGrp == treat)]
+    p <- visGroup_adapt(sceSubT, 'sign', dim_red = 'UMAP') +
+    sc +
+    guides(colour = guide_colourbar(title = '')) +
+    ggtitle(paste0(sign, ' signature - ', treat)) +
+    theme_classic() + 
+    theme(axis.text = element_blank(),
+          axis.ticks = element_blank()) +
+    labs(x='Dimension 1', y='Dimension 2')
+    p
+  })
+})
+
+
+```
+
+## signature cut 1
+```{r signature cut 1, fig.height=6, fig.width=8}
+
+
+cutOff <- 1
+pal = colorRampPalette(rev(brewer.pal(11, 'RdBu')))
+sc <- scale_colour_gradientn(colours = pal(100), limits=c(0, cutOff))
+
+lapply(unique(signDat$signature), function(sign){
+  signGenes <- signDat %>% dplyr::filter(signature == sign)
+  sceSub <- sce[which(rownames(sce) %in% signGenes$geneID),]
+  cntMat <- rowSums(t(as.matrix(sceSub@assays@data$logcounts)))/nrow(signGenes)
+  sceSub$sign <- cntMat
+  sceSub$sign[which(sceSub$sign > cutOff)] <- cutOff
+  sceSub$sign[which(sceSub$sign < 0)] <- 0
+  lapply(treatGrps, function(treat){
+    sceSubT <- sceSub[, which(sceSub$TcellGrp == treat)]
+    p <- visGroup_adapt(sceSubT, 'sign', dim_red = 'UMAP') +
+    sc +
+    guides(colour = guide_colourbar(title = '')) +
+    ggtitle(paste0(sign, ' signature - ', treat)) +
+    theme_classic() + 
+    theme(axis.text = element_blank(),
+          axis.ticks = element_blank()) +
+    labs(x='Dimension 1', y='Dimension 2')
+    p
+  })
+})
+
+pal = viridis(100)
+sc <- scale_colour_gradientn(colours = pal, limits=c(0, cutOff))
+lapply(unique(signDat$signature), function(sign){
+  signGenes <- signDat %>% dplyr::filter(signature == sign)
+  sceSub <- sce[which(rownames(sce) %in% signGenes$geneID),]
+  cntMat <- rowSums(t(as.matrix(sceSub@assays@data$logcounts)))/nrow(signGenes)
+  sceSub$sign <- cntMat
+  sceSub$sign[which(sceSub$sign > cutOff)] <- cutOff
+  sceSub$sign[which(sceSub$sign < 0)] <- 0
+  lapply(treatGrps, function(treat){
+    sceSubT <- sceSub[, which(sceSub$TcellGrp == treat)]
+    p <- visGroup_adapt(sceSubT, 'sign', dim_red = 'UMAP') +
+    sc +
+    guides(colour = guide_colourbar(title = '')) +
+    ggtitle(paste0(sign, ' signature - ', treat)) +
+    theme_classic() + 
+    theme(axis.text = element_blank(),
+          axis.ticks = element_blank()) +
+    labs(x='Dimension 1', y='Dimension 2')
+    p
+  })
+})
+
+
+```
+
+
+
+## session info
+```{r session info}
+sessionInfo()
+date()
+```
+
+
+
+

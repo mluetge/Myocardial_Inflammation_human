@@ -15,7 +15,7 @@
 
 <title>Merge samples</title>
 
-<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -361,7 +361,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -372,8 +372,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -382,13 +382,13 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-10-19
+<strong>Last updated:</strong> 2022-12-06
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>humanCardiacFibroblasts/</code>
@@ -411,21 +411,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -516,15 +513,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree3ac37095ef38a6b9207fe2bb5ea981d921911113targetblank3ac3709a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree1e723809868eb6a738ab7c8aa6a0bf244ea60da5targetblank1e72380a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/3ac37095ef38a6b9207fe2bb5ea981d921911113" target="_blank">3ac3709</a>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/1e723809868eb6a738ab7c8aa6a0bf244ea60da5" target="_blank">1e72380</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree3ac37095ef38a6b9207fe2bb5ea981d921911113targetblank3ac3709a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree1e723809868eb6a738ab7c8aa6a0bf244ea60da5targetblank1e72380a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -534,7 +531,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/3ac37095ef38a6b9207fe2bb5ea981d921911113" target="_blank">3ac3709</a>.
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/1e723809868eb6a738ab7c8aa6a0bf244ea60da5" target="_blank">1e72380</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -552,13 +549,17 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/figure/
     Ignored:    data/GSEA/
     Ignored:    data/humanFibroblast/
     Ignored:    figure/DEgenesGZplusSG_Groups.Rmd/.DS_Store
 
+Untracked files:
+    Untracked:  analysis/DEgenesTcellgrps.Rmd
+    Untracked:  figure/DEgenesTcellgrps.Rmd/
+
 Unstaged changes:
-    Modified:   analysis/assignLabelshumanHeartsPlusGrazInt.Rmd
+    Modified:   analysis/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd
+    Modified:   analysis/integrateAcrossPatientsGZplusSG.Rmd
 
 </code></pre>
 <p>
@@ -605,6 +606,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/analysis/assignLabelshumanHeartsPlusGrazInt.Rmd" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+<td>
+update label
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mluetge/humanCardiacFibroblasts/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/assignLabelshumanHeartsPlusGrazInt.html" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+<td>
+update label
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -815,17 +850,17 @@ class="section level2">
 <pre class="r"><code>## two patients with &lt;250 nuclei --&gt; exclude from downstream analysis
 table(seurat$ID)</code></pre>
 <pre><code>
- GZ1 GZ10 GZ11 GZ12 GZ13 GZ14 GZ15 GZ16 GZ17 GZ18 GZ19  GZ2 GZ20 GZ21 GZ22 GZ23 
-2740 3731 3991 3818 9882 1268 4439  436 1370 2280  111 1684 2706 1442 1998  841 
-GZ24  GZ3  GZ4  GZ5  GZ6  GZ7  GZ8  GZ9 SG29 SG30 SG31 SG32 SG33 SG34 SG35 
-1480 2396  545  781  491  653 3921 4908 1242  236 1192 1428 6286  620 2363 </code></pre>
+ GZ1 GZ14 GZ15 GZ16 GZ17 GZ18  GZ2 GZ20  GZ3  GZ4  GZ5  GZ6 SG21 SG24 SG25 SG28 
+2740 1268 4439  436 1370 2280 1684 2706 2396  545  781  491 1536 2381 3131 1545 
+SG29 SG31 SG32 SG33 SG34 SG35 
+2496 1192 1428 6286  620 2363 </code></pre>
 <pre class="r"><code>seurat &lt;- subset(seurat, ID %in% c(&quot;GZ19&quot;, &quot;SG30&quot;), invert=T)
 table(seurat$ID)</code></pre>
 <pre><code>
- GZ1 GZ10 GZ11 GZ12 GZ13 GZ14 GZ15 GZ16 GZ17 GZ18  GZ2 GZ20 GZ21 GZ22 GZ23 GZ24 
-2740 3731 3991 3818 9882 1268 4439  436 1370 2280 1684 2706 1442 1998  841 1480 
- GZ3  GZ4  GZ5  GZ6  GZ7  GZ8  GZ9 SG29 SG31 SG32 SG33 SG34 SG35 
-2396  545  781  491  653 3921 4908 1242 1192 1428 6286  620 2363 </code></pre>
+ GZ1 GZ14 GZ15 GZ16 GZ17 GZ18  GZ2 GZ20  GZ3  GZ4  GZ5  GZ6 SG21 SG24 SG25 SG28 
+2740 1268 4439  436 1370 2280 1684 2706 2396  545  781  491 1536 2381 3131 1545 
+SG29 SG31 SG32 SG33 SG34 SG35 
+2496 1192 1428 6286  620 2363 </code></pre>
 </div>
 <div id="assign-labels" class="section level2">
 <h2>assign labels</h2>
@@ -953,6 +988,43 @@ mluetge
         shuffle = T)+
   theme_void()</code></pre>
 <p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis%20cluster-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-cluster-2">
+Past versions of "vis cluster-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-cluster-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis cluster-2.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="label" class="section level3">
 <h3>label</h3>
@@ -985,6 +1057,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis label-1.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/3ac37095ef38a6b9207fe2bb5ea981d921911113/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis label-1.png" target="_blank">3ac3709</a>
@@ -1048,6 +1131,43 @@ mluetge
         shuffle = T)+
   theme_void()</code></pre>
 <p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis%20label-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-label-2">
+Past versions of "vis label-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-label-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis label-2.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="technique" class="section level3">
 <h3>technique</h3>
@@ -1242,6 +1362,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis ID-1.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/3ac37095ef38a6b9207fe2bb5ea981d921911113/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis ID-1.png" target="_blank">3ac3709</a>
 </td>
 <td>
@@ -1292,6 +1423,43 @@ mluetge
         shuffle = T)+
   theme_void()</code></pre>
 <p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis%20ID-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-ID-2">
+Past versions of "vis ID-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-ID-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis ID-2.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="origin" class="section level3">
 <h3>Origin</h3>
@@ -1325,6 +1493,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis origin-1.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/3ac37095ef38a6b9207fe2bb5ea981d921911113/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis origin-1.png" target="_blank">3ac3709</a>
@@ -1377,6 +1556,43 @@ mluetge
         shuffle = T)+
   theme_void()</code></pre>
 <p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis%20origin-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-origin-2">
+Past versions of "vis origin-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-origin-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis origin-2.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="isolation" class="section level3">
 <h3>isolation</h3>
@@ -1638,22 +1854,6 @@ knitr::kable(table(seurat$ID))</code></pre>
 <td align="right">2740</td>
 </tr>
 <tr class="even">
-<td align="left">GZ10</td>
-<td align="right">3731</td>
-</tr>
-<tr class="odd">
-<td align="left">GZ11</td>
-<td align="right">3991</td>
-</tr>
-<tr class="even">
-<td align="left">GZ12</td>
-<td align="right">3818</td>
-</tr>
-<tr class="odd">
-<td align="left">GZ13</td>
-<td align="right">9882</td>
-</tr>
-<tr class="even">
 <td align="left">GZ14</td>
 <td align="right">1268</td>
 </tr>
@@ -1682,22 +1882,6 @@ knitr::kable(table(seurat$ID))</code></pre>
 <td align="right">2706</td>
 </tr>
 <tr class="odd">
-<td align="left">GZ21</td>
-<td align="right">1442</td>
-</tr>
-<tr class="even">
-<td align="left">GZ22</td>
-<td align="right">1998</td>
-</tr>
-<tr class="odd">
-<td align="left">GZ23</td>
-<td align="right">841</td>
-</tr>
-<tr class="even">
-<td align="left">GZ24</td>
-<td align="right">1480</td>
-</tr>
-<tr class="odd">
 <td align="left">GZ3</td>
 <td align="right">2396</td>
 </tr>
@@ -1714,38 +1898,42 @@ knitr::kable(table(seurat$ID))</code></pre>
 <td align="right">491</td>
 </tr>
 <tr class="odd">
-<td align="left">GZ7</td>
-<td align="right">653</td>
+<td align="left">SG21</td>
+<td align="right">1536</td>
 </tr>
 <tr class="even">
-<td align="left">GZ8</td>
-<td align="right">3921</td>
+<td align="left">SG24</td>
+<td align="right">2381</td>
 </tr>
 <tr class="odd">
-<td align="left">GZ9</td>
-<td align="right">4908</td>
+<td align="left">SG25</td>
+<td align="right">3131</td>
 </tr>
 <tr class="even">
+<td align="left">SG28</td>
+<td align="right">1545</td>
+</tr>
+<tr class="odd">
 <td align="left">SG29</td>
-<td align="right">1242</td>
+<td align="right">2496</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SG31</td>
 <td align="right">1192</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">SG32</td>
 <td align="right">1428</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SG33</td>
 <td align="right">6286</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">SG34</td>
 <td align="right">620</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SG35</td>
 <td align="right">2363</td>
 </tr>
@@ -1755,45 +1943,34 @@ knitr::kable(table(seurat$ID))</code></pre>
 knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <table>
 <colgroup>
-<col width="9%" />
-<col width="2%" />
+<col width="11%" />
+<col width="3%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
 <col width="3%" />
 <col width="3%" />
 <col width="3%" />
 <col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="2%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="2%" />
-<col width="2%" />
-<col width="2%" />
-<col width="2%" />
-<col width="2%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left"></th>
 <th align="right">GZ1</th>
-<th align="right">GZ10</th>
-<th align="right">GZ11</th>
-<th align="right">GZ12</th>
-<th align="right">GZ13</th>
 <th align="right">GZ14</th>
 <th align="right">GZ15</th>
 <th align="right">GZ16</th>
@@ -1801,17 +1978,14 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 <th align="right">GZ18</th>
 <th align="right">GZ2</th>
 <th align="right">GZ20</th>
-<th align="right">GZ21</th>
-<th align="right">GZ22</th>
-<th align="right">GZ23</th>
-<th align="right">GZ24</th>
 <th align="right">GZ3</th>
 <th align="right">GZ4</th>
 <th align="right">GZ5</th>
 <th align="right">GZ6</th>
-<th align="right">GZ7</th>
-<th align="right">GZ8</th>
-<th align="right">GZ9</th>
+<th align="right">SG21</th>
+<th align="right">SG24</th>
+<th align="right">SG25</th>
+<th align="right">SG28</th>
 <th align="right">SG29</th>
 <th align="right">SG31</th>
 <th align="right">SG32</th>
@@ -1822,388 +1996,254 @@ knitr::kable(table(seurat$label, seurat$ID))</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="right">0</td>
-<td align="right">61</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">41</td>
-<td align="right">4</td>
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">5</td>
-<td align="right">8</td>
-<td align="right">0</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
-<td align="right">208</td>
-<td align="right">1098</td>
-<td align="right">299</td>
-<td align="right">117</td>
-<td align="right">2207</td>
-<td align="right">50</td>
-<td align="right">117</td>
-<td align="right">25</td>
-<td align="right">71</td>
-<td align="right">328</td>
-<td align="right">108</td>
-<td align="right">46</td>
-<td align="right">58</td>
-<td align="right">159</td>
-<td align="right">54</td>
-<td align="right">117</td>
-<td align="right">234</td>
-<td align="right">45</td>
-<td align="right">39</td>
-<td align="right">12</td>
-<td align="right">88</td>
-<td align="right">714</td>
-<td align="right">650</td>
-<td align="right">109</td>
-<td align="right">178</td>
-<td align="right">40</td>
-<td align="right">212</td>
-<td align="right">173</td>
-<td align="right">304</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="right">94</td>
-<td align="right">25</td>
-<td align="right">33</td>
+<td align="right">218</td>
+<td align="right">37</td>
+<td align="right">185</td>
+<td align="right">110</td>
+<td align="right">184</td>
+<td align="right">42</td>
+<td align="right">42</td>
+<td align="right">134</td>
+<td align="right">77</td>
+<td align="right">27</td>
+<td align="right">18</td>
+<td align="right">37</td>
+<td align="right">44</td>
+<td align="right">116</td>
+<td align="right">359</td>
+<td align="right">21</td>
+<td align="right">417</td>
 <td align="right">23</td>
-<td align="right">174</td>
-<td align="right">4</td>
-<td align="right">8</td>
-<td align="right">14</td>
-<td align="right">3</td>
-<td align="right">133</td>
-<td align="right">93</td>
-<td align="right">159</td>
-<td align="right">8</td>
-<td align="right">3</td>
-<td align="right">9</td>
-<td align="right">4</td>
-<td align="right">163</td>
-<td align="right">55</td>
-<td align="right">27</td>
-<td align="right">37</td>
-<td align="right">5</td>
-<td align="right">16</td>
-<td align="right">349</td>
-<td align="right">19</td>
-<td align="right">51</td>
-<td align="right">29</td>
-<td align="right">36</td>
-<td align="right">12</td>
+<td align="right">77</td>
+<td align="right">3079</td>
+<td align="right">25</td>
+<td align="right">82</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">6</td>
+<td align="right">6</td>
+<td align="right">2</td>
 <td align="right">30</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="right">335</td>
-<td align="right">381</td>
-<td align="right">775</td>
-<td align="right">1123</td>
-<td align="right">2065</td>
-<td align="right">319</td>
-<td align="right">1057</td>
-<td align="right">58</td>
-<td align="right">190</td>
-<td align="right">503</td>
-<td align="right">326</td>
-<td align="right">1081</td>
-<td align="right">250</td>
-<td align="right">270</td>
-<td align="right">211</td>
-<td align="right">272</td>
-<td align="right">403</td>
-<td align="right">125</td>
-<td align="right">217</td>
-<td align="right">118</td>
-<td align="right">121</td>
-<td align="right">752</td>
-<td align="right">657</td>
-<td align="right">147</td>
-<td align="right">206</td>
-<td align="right">550</td>
-<td align="right">219</td>
-<td align="right">92</td>
-<td align="right">550</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="right">715</td>
-<td align="right">983</td>
-<td align="right">841</td>
-<td align="right">1110</td>
-<td align="right">2217</td>
-<td align="right">316</td>
-<td align="right">1095</td>
-<td align="right">88</td>
-<td align="right">368</td>
-<td align="right">623</td>
-<td align="right">638</td>
-<td align="right">622</td>
-<td align="right">99</td>
-<td align="right">314</td>
-<td align="right">68</td>
-<td align="right">268</td>
-<td align="right">812</td>
-<td align="right">135</td>
-<td align="right">261</td>
-<td align="right">150</td>
-<td align="right">220</td>
-<td align="right">1144</td>
-<td align="right">1466</td>
-<td align="right">140</td>
-<td align="right">347</td>
-<td align="right">306</td>
-<td align="right">401</td>
-<td align="right">115</td>
-<td align="right">759</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="right">162</td>
-<td align="right">108</td>
-<td align="right">275</td>
-<td align="right">65</td>
-<td align="right">288</td>
-<td align="right">19</td>
-<td align="right">109</td>
-<td align="right">32</td>
-<td align="right">106</td>
-<td align="right">18</td>
-<td align="right">29</td>
-<td align="right">36</td>
-<td align="right">38</td>
-<td align="right">113</td>
-<td align="right">31</td>
-<td align="right">29</td>
-<td align="right">43</td>
-<td align="right">22</td>
-<td align="right">11</td>
-<td align="right">19</td>
-<td align="right">5</td>
-<td align="right">120</td>
-<td align="right">228</td>
-<td align="right">187</td>
-<td align="right">36</td>
-<td align="right">19</td>
-<td align="right">1270</td>
-<td align="right">10</td>
-<td align="right">76</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="right">42</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">9</td>
+<td align="right">0</td>
+<td align="right">1</td>
 <td align="right">15</td>
-<td align="right">11</td>
-<td align="right">42</td>
-<td align="right">113</td>
-<td align="right">3</td>
-<td align="right">33</td>
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">14</td>
-<td align="right">37</td>
-<td align="right">16</td>
 <td align="right">0</td>
-<td align="right">6</td>
-<td align="right">6</td>
-<td align="right">10</td>
-<td align="right">50</td>
 <td align="right">4</td>
-<td align="right">1</td>
 <td align="right">0</td>
-<td align="right">13</td>
-<td align="right">27</td>
-<td align="right">31</td>
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">14</td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">18</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="right">350</td>
+<td align="right">301</td>
+<td align="right">1050</td>
+<td align="right">59</td>
+<td align="right">203</td>
+<td align="right">482</td>
+<td align="right">339</td>
+<td align="right">955</td>
+<td align="right">402</td>
+<td align="right">129</td>
+<td align="right">232</td>
+<td align="right">108</td>
+<td align="right">192</td>
+<td align="right">412</td>
+<td align="right">587</td>
+<td align="right">533</td>
+<td align="right">490</td>
+<td align="right">219</td>
+<td align="right">534</td>
+<td align="right">255</td>
+<td align="right">89</td>
+<td align="right">548</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="right">814</td>
+<td align="right">317</td>
+<td align="right">1122</td>
+<td align="right">130</td>
+<td align="right">374</td>
+<td align="right">628</td>
+<td align="right">662</td>
+<td align="right">653</td>
+<td align="right">846</td>
+<td align="right">141</td>
+<td align="right">264</td>
+<td align="right">155</td>
+<td align="right">613</td>
+<td align="right">868</td>
+<td align="right">844</td>
+<td align="right">319</td>
+<td align="right">434</td>
+<td align="right">356</td>
+<td align="right">320</td>
+<td align="right">415</td>
+<td align="right">117</td>
+<td align="right">778</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="right">172</td>
+<td align="right">33</td>
+<td align="right">112</td>
+<td align="right">22</td>
+<td align="right">23</td>
+<td align="right">183</td>
+<td align="right">126</td>
+<td align="right">310</td>
+<td align="right">195</td>
+<td align="right">64</td>
+<td align="right">39</td>
+<td align="right">48</td>
+<td align="right">43</td>
+<td align="right">103</td>
+<td align="right">99</td>
+<td align="right">53</td>
+<td align="right">101</td>
+<td align="right">60</td>
+<td align="right">73</td>
+<td align="right">70</td>
+<td align="right">21</td>
+<td align="right">60</td>
 </tr>
 <tr class="even">
 <td align="left">NeuralCells</td>
-<td align="right">59</td>
-<td align="right">32</td>
-<td align="right">27</td>
-<td align="right">22</td>
-<td align="right">202</td>
-<td align="right">10</td>
-<td align="right">77</td>
-<td align="right">11</td>
-<td align="right">28</td>
-<td align="right">29</td>
-<td align="right">29</td>
-<td align="right">20</td>
-<td align="right">15</td>
-<td align="right">30</td>
-<td align="right">7</td>
-<td align="right">10</td>
-<td align="right">35</td>
-<td align="right">7</td>
-<td align="right">27</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
 <td align="right">3</td>
-<td align="right">12</td>
-<td align="right">65</td>
-<td align="right">32</td>
-<td align="right">15</td>
-<td align="right">23</td>
-<td align="right">28</td>
-<td align="right">24</td>
+<td align="right">49</td>
+<td align="right">3</td>
 <td align="right">6</td>
-<td align="right">29</td>
+<td align="right">0</td>
+<td align="right">5</td>
+<td align="right">8</td>
+<td align="right">0</td>
+<td align="right">0</td>
 </tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
-<td align="right">562</td>
-<td align="right">452</td>
-<td align="right">1084</td>
-<td align="right">965</td>
-<td align="right">1516</td>
-<td align="right">347</td>
-<td align="right">1321</td>
-<td align="right">66</td>
-<td align="right">151</td>
-<td align="right">394</td>
-<td align="right">274</td>
-<td align="right">374</td>
-<td align="right">724</td>
-<td align="right">645</td>
-<td align="right">299</td>
-<td align="right">586</td>
-<td align="right">432</td>
-<td align="right">68</td>
-<td align="right">118</td>
-<td align="right">55</td>
-<td align="right">68</td>
-<td align="right">584</td>
-<td align="right">864</td>
-<td align="right">86</td>
-<td align="right">191</td>
-<td align="right">254</td>
-<td align="right">142</td>
+<td align="right">488</td>
+<td align="right">355</td>
+<td align="right">1356</td>
+<td align="right">21</td>
+<td align="right">148</td>
+<td align="right">387</td>
+<td align="right">270</td>
+<td align="right">352</td>
+<td align="right">408</td>
+<td align="right">63</td>
 <td align="right">122</td>
-<td align="right">335</td>
+<td align="right">53</td>
+<td align="right">320</td>
+<td align="right">287</td>
+<td align="right">460</td>
+<td align="right">436</td>
+<td align="right">311</td>
+<td align="right">184</td>
+<td align="right">241</td>
+<td align="right">135</td>
+<td align="right">121</td>
+<td align="right">328</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
-<td align="right">137</td>
-<td align="right">380</td>
-<td align="right">384</td>
-<td align="right">154</td>
-<td align="right">611</td>
-<td align="right">72</td>
-<td align="right">223</td>
-<td align="right">24</td>
-<td align="right">225</td>
-<td align="right">75</td>
-<td align="right">56</td>
-<td align="right">101</td>
-<td align="right">143</td>
-<td align="right">331</td>
-<td align="right">91</td>
-<td align="right">77</td>
-<td align="right">76</td>
-<td align="right">32</td>
-<td align="right">20</td>
-<td align="right">44</td>
-<td align="right">13</td>
-<td align="right">240</td>
-<td align="right">409</td>
-<td align="right">136</td>
-<td align="right">88</td>
+<td align="right">207</td>
+<td align="right">50</td>
+<td align="right">116</td>
+<td align="right">25</td>
+<td align="right">71</td>
+<td align="right">329</td>
+<td align="right">106</td>
 <td align="right">46</td>
-<td align="right">898</td>
-<td align="right">41</td>
-<td align="right">129</td>
+<td align="right">238</td>
+<td align="right">44</td>
+<td align="right">39</td>
+<td align="right">12</td>
+<td align="right">96</td>
+<td align="right">298</td>
+<td align="right">396</td>
+<td align="right">73</td>
+<td align="right">178</td>
+<td align="right">178</td>
+<td align="right">40</td>
+<td align="right">212</td>
+<td align="right">174</td>
+<td align="right">304</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
-<td align="right">187</td>
-<td align="right">71</td>
-<td align="right">116</td>
-<td align="right">131</td>
-<td align="right">301</td>
-<td align="right">92</td>
-<td align="right">214</td>
-<td align="right">16</td>
-<td align="right">39</td>
-<td align="right">124</td>
-<td align="right">49</td>
-<td align="right">125</td>
-<td align="right">79</td>
-<td align="right">83</td>
-<td align="right">38</td>
-<td align="right">71</td>
-<td align="right">93</td>
-<td align="right">23</td>
-<td align="right">38</td>
+<td align="right">185</td>
+<td align="right">84</td>
+<td align="right">181</td>
 <td align="right">17</td>
-<td align="right">55</td>
-<td align="right">160</td>
-<td align="right">136</td>
-<td align="right">18</td>
-<td align="right">43</td>
+<td align="right">39</td>
+<td align="right">129</td>
+<td align="right">48</td>
+<td align="right">119</td>
+<td align="right">82</td>
+<td align="right">22</td>
+<td align="right">36</td>
+<td align="right">15</td>
+<td align="right">72</td>
+<td align="right">117</td>
+<td align="right">100</td>
+<td align="right">93</td>
+<td align="right">98</td>
+<td align="right">45</td>
 <td align="right">67</td>
-<td align="right">29</td>
-<td align="right">23</td>
-<td align="right">61</td>
+<td align="right">28</td>
+<td align="right">22</td>
+<td align="right">65</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
-<td align="right">239</td>
-<td align="right">125</td>
-<td align="right">146</td>
-<td align="right">66</td>
-<td align="right">185</td>
-<td align="right">36</td>
-<td align="right">185</td>
-<td align="right">101</td>
-<td align="right">187</td>
-<td align="right">39</td>
-<td align="right">44</td>
-<td align="right">126</td>
-<td align="right">28</td>
-<td align="right">44</td>
-<td align="right">27</td>
-<td align="right">35</td>
-<td align="right">53</td>
-<td align="right">28</td>
-<td align="right">22</td>
-<td align="right">36</td>
-<td align="right">12</td>
-<td align="right">95</td>
+<td align="right">300</td>
+<td align="right">91</td>
+<td align="right">317</td>
+<td align="right">52</td>
+<td align="right">328</td>
+<td align="right">94</td>
 <td align="right">84</td>
-<td align="right">383</td>
-<td align="right">27</td>
-<td align="right">70</td>
-<td align="right">3045</td>
-<td align="right">25</td>
-<td align="right">72</td>
+<td align="right">135</td>
+<td align="right">116</td>
+<td align="right">54</td>
+<td align="right">31</td>
+<td align="right">63</td>
+<td align="right">154</td>
+<td align="right">168</td>
+<td align="right">237</td>
+<td align="right">13</td>
+<td align="right">446</td>
+<td align="right">127</td>
+<td align="right">67</td>
+<td align="right">2084</td>
+<td align="right">51</td>
+<td align="right">198</td>
 </tr>
 </tbody>
 </table>
@@ -2227,746 +2267,340 @@ knitr::kable(datFrac)</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">GZ1</td>
+<td align="right">218</td>
+<td align="right">2740</td>
+<td align="right">7.9562044</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">GZ1</td>
+<td align="right">6</td>
+<td align="right">2740</td>
+<td align="right">0.2189781</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">GZ1</td>
+<td align="right">350</td>
+<td align="right">2740</td>
+<td align="right">12.7737226</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">GZ1</td>
+<td align="right">814</td>
+<td align="right">2740</td>
+<td align="right">29.7080292</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ1</td>
+<td align="right">172</td>
+<td align="right">2740</td>
+<td align="right">6.2773723</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
 <td align="left">GZ1</td>
 <td align="right">0</td>
 <td align="right">2740</td>
 <td align="right">0.0000000</td>
 </tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ1</td>
-<td align="right">208</td>
-<td align="right">2740</td>
-<td align="right">7.5912409</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ1</td>
-<td align="right">94</td>
-<td align="right">2740</td>
-<td align="right">3.4306569</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ1</td>
-<td align="right">335</td>
-<td align="right">2740</td>
-<td align="right">12.2262774</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ1</td>
-<td align="right">715</td>
-<td align="right">2740</td>
-<td align="right">26.0948905</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ1</td>
-<td align="right">162</td>
-<td align="right">2740</td>
-<td align="right">5.9124088</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ1</td>
-<td align="right">42</td>
-<td align="right">2740</td>
-<td align="right">1.5328467</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ1</td>
-<td align="right">59</td>
-<td align="right">2740</td>
-<td align="right">2.1532847</td>
-</tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
 <td align="left">GZ1</td>
-<td align="right">562</td>
+<td align="right">488</td>
 <td align="right">2740</td>
-<td align="right">20.5109489</td>
+<td align="right">17.8102190</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
 <td align="left">GZ1</td>
-<td align="right">137</td>
+<td align="right">207</td>
 <td align="right">2740</td>
-<td align="right">5.0000000</td>
+<td align="right">7.5547445</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
 <td align="left">GZ1</td>
-<td align="right">187</td>
-<td align="right">2740</td>
-<td align="right">6.8248175</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ1</td>
-<td align="right">239</td>
-<td align="right">2740</td>
-<td align="right">8.7226277</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ10</td>
-<td align="right">61</td>
-<td align="right">3731</td>
-<td align="right">1.6349504</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ10</td>
-<td align="right">1098</td>
-<td align="right">3731</td>
-<td align="right">29.4291075</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ10</td>
-<td align="right">25</td>
-<td align="right">3731</td>
-<td align="right">0.6700616</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ10</td>
-<td align="right">381</td>
-<td align="right">3731</td>
-<td align="right">10.2117395</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ10</td>
-<td align="right">983</td>
-<td align="right">3731</td>
-<td align="right">26.3468239</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ10</td>
-<td align="right">108</td>
-<td align="right">3731</td>
-<td align="right">2.8946663</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ10</td>
-<td align="right">15</td>
-<td align="right">3731</td>
-<td align="right">0.4020370</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ10</td>
-<td align="right">32</td>
-<td align="right">3731</td>
-<td align="right">0.8576789</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ10</td>
-<td align="right">452</td>
-<td align="right">3731</td>
-<td align="right">12.1147146</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ10</td>
-<td align="right">380</td>
-<td align="right">3731</td>
-<td align="right">10.1849370</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ10</td>
-<td align="right">71</td>
-<td align="right">3731</td>
-<td align="right">1.9029751</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ10</td>
-<td align="right">125</td>
-<td align="right">3731</td>
-<td align="right">3.3503082</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ11</td>
-<td align="right">0</td>
-<td align="right">3991</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ11</td>
-<td align="right">299</td>
-<td align="right">3991</td>
-<td align="right">7.4918567</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ11</td>
-<td align="right">33</td>
-<td align="right">3991</td>
-<td align="right">0.8268604</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ11</td>
-<td align="right">775</td>
-<td align="right">3991</td>
-<td align="right">19.4186921</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ11</td>
-<td align="right">841</td>
-<td align="right">3991</td>
-<td align="right">21.0724129</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ11</td>
-<td align="right">275</td>
-<td align="right">3991</td>
-<td align="right">6.8905036</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ11</td>
-<td align="right">11</td>
-<td align="right">3991</td>
-<td align="right">0.2756201</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ11</td>
-<td align="right">27</td>
-<td align="right">3991</td>
-<td align="right">0.6765222</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ11</td>
-<td align="right">1084</td>
-<td align="right">3991</td>
-<td align="right">27.1611125</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ11</td>
-<td align="right">384</td>
-<td align="right">3991</td>
-<td align="right">9.6216487</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ11</td>
-<td align="right">116</td>
-<td align="right">3991</td>
-<td align="right">2.9065397</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ11</td>
-<td align="right">146</td>
-<td align="right">3991</td>
-<td align="right">3.6582310</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ12</td>
-<td align="right">0</td>
-<td align="right">3818</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ12</td>
-<td align="right">117</td>
-<td align="right">3818</td>
-<td align="right">3.0644316</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ12</td>
-<td align="right">23</td>
-<td align="right">3818</td>
-<td align="right">0.6024096</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ12</td>
-<td align="right">1123</td>
-<td align="right">3818</td>
-<td align="right">29.4133054</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ12</td>
-<td align="right">1110</td>
-<td align="right">3818</td>
-<td align="right">29.0728130</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ12</td>
-<td align="right">65</td>
-<td align="right">3818</td>
-<td align="right">1.7024620</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ12</td>
-<td align="right">42</td>
-<td align="right">3818</td>
-<td align="right">1.1000524</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ12</td>
-<td align="right">22</td>
-<td align="right">3818</td>
-<td align="right">0.5762179</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ12</td>
-<td align="right">965</td>
-<td align="right">3818</td>
-<td align="right">25.2750131</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ12</td>
-<td align="right">154</td>
-<td align="right">3818</td>
-<td align="right">4.0335254</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ12</td>
-<td align="right">131</td>
-<td align="right">3818</td>
-<td align="right">3.4311158</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ12</td>
-<td align="right">66</td>
-<td align="right">3818</td>
-<td align="right">1.7286537</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ13</td>
-<td align="right">3</td>
-<td align="right">9882</td>
-<td align="right">0.0303582</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ13</td>
-<td align="right">2207</td>
-<td align="right">9882</td>
-<td align="right">22.3335357</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ13</td>
-<td align="right">174</td>
-<td align="right">9882</td>
-<td align="right">1.7607772</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ13</td>
-<td align="right">2065</td>
-<td align="right">9882</td>
-<td align="right">20.8965796</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ13</td>
-<td align="right">2217</td>
-<td align="right">9882</td>
-<td align="right">22.4347298</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ13</td>
-<td align="right">288</td>
-<td align="right">9882</td>
-<td align="right">2.9143898</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ13</td>
-<td align="right">113</td>
-<td align="right">9882</td>
-<td align="right">1.1434932</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ13</td>
-<td align="right">202</td>
-<td align="right">9882</td>
-<td align="right">2.0441206</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ13</td>
-<td align="right">1516</td>
-<td align="right">9882</td>
-<td align="right">15.3410241</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ13</td>
-<td align="right">611</td>
-<td align="right">9882</td>
-<td align="right">6.1829589</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ13</td>
-<td align="right">301</td>
-<td align="right">9882</td>
-<td align="right">3.0459421</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ13</td>
 <td align="right">185</td>
-<td align="right">9882</td>
-<td align="right">1.8720907</td>
+<td align="right">2740</td>
+<td align="right">6.7518248</td>
+</tr>
+<tr class="even">
+<td align="left">Tcell</td>
+<td align="left">GZ1</td>
+<td align="right">300</td>
+<td align="right">2740</td>
+<td align="right">10.9489051</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">GZ14</td>
+<td align="right">37</td>
+<td align="right">1268</td>
+<td align="right">2.9179811</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
 <td align="left">GZ14</td>
 <td align="right">0</td>
 <td align="right">1268</td>
 <td align="right">0.0000000</td>
 </tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">GZ14</td>
+<td align="right">301</td>
+<td align="right">1268</td>
+<td align="right">23.7381703</td>
+</tr>
 <tr class="even">
-<td align="left">Cardiomyocyte</td>
+<td align="left">Fibroblast</td>
+<td align="left">GZ14</td>
+<td align="right">317</td>
+<td align="right">1268</td>
+<td align="right">25.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ14</td>
+<td align="right">33</td>
+<td align="right">1268</td>
+<td align="right">2.6025237</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
+<td align="left">GZ14</td>
+<td align="right">0</td>
+<td align="right">1268</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">GZ14</td>
+<td align="right">355</td>
+<td align="right">1268</td>
+<td align="right">27.9968454</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
 <td align="left">GZ14</td>
 <td align="right">50</td>
 <td align="right">1268</td>
 <td align="right">3.9432177</td>
 </tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ14</td>
-<td align="right">4</td>
-<td align="right">1268</td>
-<td align="right">0.3154574</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ14</td>
-<td align="right">319</td>
-<td align="right">1268</td>
-<td align="right">25.1577287</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ14</td>
-<td align="right">316</td>
-<td align="right">1268</td>
-<td align="right">24.9211356</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ14</td>
-<td align="right">19</td>
-<td align="right">1268</td>
-<td align="right">1.4984227</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ14</td>
-<td align="right">3</td>
-<td align="right">1268</td>
-<td align="right">0.2365931</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ14</td>
-<td align="right">10</td>
-<td align="right">1268</td>
-<td align="right">0.7886435</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ14</td>
-<td align="right">347</td>
-<td align="right">1268</td>
-<td align="right">27.3659306</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ14</td>
-<td align="right">72</td>
-<td align="right">1268</td>
-<td align="right">5.6782334</td>
-</tr>
-<tr class="odd">
 <td align="left">SMC</td>
 <td align="left">GZ14</td>
-<td align="right">92</td>
+<td align="right">84</td>
 <td align="right">1268</td>
-<td align="right">7.2555205</td>
+<td align="right">6.6246057</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">GZ14</td>
-<td align="right">36</td>
+<td align="right">91</td>
 <td align="right">1268</td>
-<td align="right">2.8391167</td>
+<td align="right">7.1766562</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ15</td>
-<td align="right">0</td>
-<td align="right">4439</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
-<td align="left">GZ15</td>
-<td align="right">117</td>
-<td align="right">4439</td>
-<td align="right">2.6357288</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ15</td>
-<td align="right">8</td>
-<td align="right">4439</td>
-<td align="right">0.1802208</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ15</td>
-<td align="right">1057</td>
-<td align="right">4439</td>
-<td align="right">23.8116693</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ15</td>
-<td align="right">1095</td>
-<td align="right">4439</td>
-<td align="right">24.6677180</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ15</td>
-<td align="right">109</td>
-<td align="right">4439</td>
-<td align="right">2.4555080</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ15</td>
-<td align="right">33</td>
-<td align="right">4439</td>
-<td align="right">0.7434107</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ15</td>
-<td align="right">77</td>
-<td align="right">4439</td>
-<td align="right">1.7346249</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ15</td>
-<td align="right">1321</td>
-<td align="right">4439</td>
-<td align="right">29.7589547</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ15</td>
-<td align="right">223</td>
-<td align="right">4439</td>
-<td align="right">5.0236540</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ15</td>
-<td align="right">214</td>
-<td align="right">4439</td>
-<td align="right">4.8209056</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
 <td align="left">GZ15</td>
 <td align="right">185</td>
 <td align="right">4439</td>
 <td align="right">4.1676053</td>
 </tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">GZ15</td>
+<td align="right">0</td>
+<td align="right">4439</td>
+<td align="right">0.0000000</td>
+</tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Endothelial</td>
+<td align="left">GZ15</td>
+<td align="right">1050</td>
+<td align="right">4439</td>
+<td align="right">23.6539761</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">GZ15</td>
+<td align="right">1122</td>
+<td align="right">4439</td>
+<td align="right">25.2759631</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ15</td>
+<td align="right">112</td>
+<td align="right">4439</td>
+<td align="right">2.5230908</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
+<td align="left">GZ15</td>
+<td align="right">0</td>
+<td align="right">4439</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">GZ15</td>
+<td align="right">1356</td>
+<td align="right">4439</td>
+<td align="right">30.5474206</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
+<td align="left">GZ15</td>
+<td align="right">116</td>
+<td align="right">4439</td>
+<td align="right">2.6132012</td>
+</tr>
+<tr class="odd">
+<td align="left">SMC</td>
+<td align="left">GZ15</td>
+<td align="right">181</td>
+<td align="right">4439</td>
+<td align="right">4.0774949</td>
+</tr>
+<tr class="even">
+<td align="left">Tcell</td>
+<td align="left">GZ15</td>
+<td align="right">317</td>
+<td align="right">4439</td>
+<td align="right">7.1412480</td>
+</tr>
+<tr class="odd">
+<td align="left">Cardiomyocyte</td>
+<td align="left">GZ16</td>
+<td align="right">110</td>
+<td align="right">436</td>
+<td align="right">25.2293578</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
 <td align="left">GZ16</td>
 <td align="right">0</td>
 <td align="right">436</td>
 <td align="right">0.0000000</td>
 </tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">GZ16</td>
+<td align="right">59</td>
+<td align="right">436</td>
+<td align="right">13.5321101</td>
+</tr>
 <tr class="even">
-<td align="left">Cardiomyocyte</td>
+<td align="left">Fibroblast</td>
+<td align="left">GZ16</td>
+<td align="right">130</td>
+<td align="right">436</td>
+<td align="right">29.8165138</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ16</td>
+<td align="right">22</td>
+<td align="right">436</td>
+<td align="right">5.0458716</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
+<td align="left">GZ16</td>
+<td align="right">0</td>
+<td align="right">436</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">GZ16</td>
+<td align="right">21</td>
+<td align="right">436</td>
+<td align="right">4.8165138</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
 <td align="left">GZ16</td>
 <td align="right">25</td>
 <td align="right">436</td>
 <td align="right">5.7339450</td>
 </tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ16</td>
-<td align="right">14</td>
-<td align="right">436</td>
-<td align="right">3.2110092</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ16</td>
-<td align="right">58</td>
-<td align="right">436</td>
-<td align="right">13.3027523</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ16</td>
-<td align="right">88</td>
-<td align="right">436</td>
-<td align="right">20.1834862</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ16</td>
-<td align="right">32</td>
-<td align="right">436</td>
-<td align="right">7.3394495</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ16</td>
-<td align="right">1</td>
-<td align="right">436</td>
-<td align="right">0.2293578</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ16</td>
-<td align="right">11</td>
-<td align="right">436</td>
-<td align="right">2.5229358</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ16</td>
-<td align="right">66</td>
-<td align="right">436</td>
-<td align="right">15.1376147</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ16</td>
-<td align="right">24</td>
-<td align="right">436</td>
-<td align="right">5.5045872</td>
-</tr>
-<tr class="odd">
 <td align="left">SMC</td>
 <td align="left">GZ16</td>
-<td align="right">16</td>
+<td align="right">17</td>
 <td align="right">436</td>
-<td align="right">3.6697248</td>
+<td align="right">3.8990826</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">GZ16</td>
-<td align="right">101</td>
+<td align="right">52</td>
 <td align="right">436</td>
-<td align="right">23.1651376</td>
+<td align="right">11.9266055</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">GZ17</td>
+<td align="right">184</td>
+<td align="right">1370</td>
+<td align="right">13.4306569</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
 <td align="left">GZ17</td>
 <td align="right">0</td>
 <td align="right">1370</td>
 <td align="right">0.0000000</td>
 </tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ17</td>
-<td align="right">71</td>
-<td align="right">1370</td>
-<td align="right">5.1824818</td>
-</tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ17</td>
-<td align="right">3</td>
-<td align="right">1370</td>
-<td align="right">0.2189781</td>
-</tr>
-<tr class="even">
 <td align="left">Endothelial</td>
 <td align="left">GZ17</td>
-<td align="right">190</td>
+<td align="right">203</td>
 <td align="right">1370</td>
-<td align="right">13.8686131</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ17</td>
-<td align="right">368</td>
-<td align="right">1370</td>
-<td align="right">26.8613139</td>
+<td align="right">14.8175182</td>
 </tr>
 <tr class="even">
-<td align="left">infMacrophage</td>
+<td align="left">Fibroblast</td>
 <td align="left">GZ17</td>
-<td align="right">106</td>
+<td align="right">374</td>
 <td align="right">1370</td>
-<td align="right">7.7372263</td>
+<td align="right">27.2992701</td>
 </tr>
 <tr class="odd">
-<td align="left">LEC</td>
+<td align="left">infMacrophage</td>
 <td align="left">GZ17</td>
-<td align="right">2</td>
+<td align="right">23</td>
 <td align="right">1370</td>
-<td align="right">0.1459854</td>
+<td align="right">1.6788321</td>
 </tr>
 <tr class="even">
 <td align="left">NeuralCells</td>
 <td align="left">GZ17</td>
-<td align="right">28</td>
+<td align="right">0</td>
 <td align="right">1370</td>
-<td align="right">2.0437956</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
 <td align="left">GZ17</td>
-<td align="right">151</td>
+<td align="right">148</td>
 <td align="right">1370</td>
-<td align="right">11.0218978</td>
+<td align="right">10.8029197</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
 <td align="left">GZ17</td>
-<td align="right">225</td>
+<td align="right">71</td>
 <td align="right">1370</td>
-<td align="right">16.4233577</td>
+<td align="right">5.1824818</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
@@ -2978,1423 +2612,975 @@ knitr::kable(datFrac)</code></pre>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">GZ17</td>
-<td align="right">187</td>
+<td align="right">328</td>
 <td align="right">1370</td>
-<td align="right">13.6496350</td>
+<td align="right">23.9416058</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">GZ18</td>
+<td align="right">42</td>
+<td align="right">2280</td>
+<td align="right">1.8421053</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">GZ18</td>
+<td align="right">6</td>
+<td align="right">2280</td>
+<td align="right">0.2631579</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">GZ18</td>
+<td align="right">482</td>
+<td align="right">2280</td>
+<td align="right">21.1403509</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">GZ18</td>
+<td align="right">628</td>
+<td align="right">2280</td>
+<td align="right">27.5438596</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ18</td>
+<td align="right">183</td>
+<td align="right">2280</td>
+<td align="right">8.0263158</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
 <td align="left">GZ18</td>
 <td align="right">0</td>
 <td align="right">2280</td>
 <td align="right">0.0000000</td>
 </tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ18</td>
-<td align="right">328</td>
-<td align="right">2280</td>
-<td align="right">14.3859649</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ18</td>
-<td align="right">133</td>
-<td align="right">2280</td>
-<td align="right">5.8333333</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ18</td>
-<td align="right">503</td>
-<td align="right">2280</td>
-<td align="right">22.0614035</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ18</td>
-<td align="right">623</td>
-<td align="right">2280</td>
-<td align="right">27.3245614</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ18</td>
-<td align="right">18</td>
-<td align="right">2280</td>
-<td align="right">0.7894737</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ18</td>
-<td align="right">14</td>
-<td align="right">2280</td>
-<td align="right">0.6140351</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ18</td>
-<td align="right">29</td>
-<td align="right">2280</td>
-<td align="right">1.2719298</td>
-</tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
 <td align="left">GZ18</td>
-<td align="right">394</td>
+<td align="right">387</td>
 <td align="right">2280</td>
-<td align="right">17.2807018</td>
+<td align="right">16.9736842</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
 <td align="left">GZ18</td>
-<td align="right">75</td>
+<td align="right">329</td>
 <td align="right">2280</td>
-<td align="right">3.2894737</td>
+<td align="right">14.4298246</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
 <td align="left">GZ18</td>
-<td align="right">124</td>
+<td align="right">129</td>
 <td align="right">2280</td>
-<td align="right">5.4385965</td>
+<td align="right">5.6578947</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">GZ18</td>
-<td align="right">39</td>
+<td align="right">94</td>
 <td align="right">2280</td>
-<td align="right">1.7105263</td>
+<td align="right">4.1228070</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">GZ2</td>
+<td align="right">42</td>
+<td align="right">1684</td>
+<td align="right">2.4940618</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">GZ2</td>
+<td align="right">6</td>
+<td align="right">1684</td>
+<td align="right">0.3562945</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">GZ2</td>
+<td align="right">339</td>
+<td align="right">1684</td>
+<td align="right">20.1306413</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">GZ2</td>
+<td align="right">662</td>
+<td align="right">1684</td>
+<td align="right">39.3111639</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ2</td>
+<td align="right">126</td>
+<td align="right">1684</td>
+<td align="right">7.4821853</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
 <td align="left">GZ2</td>
 <td align="right">1</td>
 <td align="right">1684</td>
 <td align="right">0.0593824</td>
 </tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ2</td>
-<td align="right">108</td>
-<td align="right">1684</td>
-<td align="right">6.4133017</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ2</td>
-<td align="right">93</td>
-<td align="right">1684</td>
-<td align="right">5.5225653</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ2</td>
-<td align="right">326</td>
-<td align="right">1684</td>
-<td align="right">19.3586698</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ2</td>
-<td align="right">638</td>
-<td align="right">1684</td>
-<td align="right">37.8859857</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ2</td>
-<td align="right">29</td>
-<td align="right">1684</td>
-<td align="right">1.7220903</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ2</td>
-<td align="right">37</td>
-<td align="right">1684</td>
-<td align="right">2.1971496</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ2</td>
-<td align="right">29</td>
-<td align="right">1684</td>
-<td align="right">1.7220903</td>
-</tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
 <td align="left">GZ2</td>
-<td align="right">274</td>
+<td align="right">270</td>
 <td align="right">1684</td>
-<td align="right">16.2707838</td>
+<td align="right">16.0332542</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
 <td align="left">GZ2</td>
-<td align="right">56</td>
+<td align="right">106</td>
 <td align="right">1684</td>
-<td align="right">3.3254157</td>
+<td align="right">6.2945368</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
 <td align="left">GZ2</td>
-<td align="right">49</td>
+<td align="right">48</td>
 <td align="right">1684</td>
-<td align="right">2.9097387</td>
+<td align="right">2.8503563</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">GZ2</td>
-<td align="right">44</td>
+<td align="right">84</td>
 <td align="right">1684</td>
-<td align="right">2.6128266</td>
+<td align="right">4.9881235</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">GZ20</td>
+<td align="right">134</td>
+<td align="right">2706</td>
+<td align="right">4.9519586</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">GZ20</td>
+<td align="right">2</td>
+<td align="right">2706</td>
+<td align="right">0.0739098</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">GZ20</td>
+<td align="right">955</td>
+<td align="right">2706</td>
+<td align="right">35.2919438</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">GZ20</td>
+<td align="right">653</td>
+<td align="right">2706</td>
+<td align="right">24.1315595</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ20</td>
+<td align="right">310</td>
+<td align="right">2706</td>
+<td align="right">11.4560237</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
 <td align="left">GZ20</td>
 <td align="right">0</td>
 <td align="right">2706</td>
 <td align="right">0.0000000</td>
 </tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">GZ20</td>
+<td align="right">352</td>
+<td align="right">2706</td>
+<td align="right">13.0081301</td>
+</tr>
 <tr class="even">
-<td align="left">Cardiomyocyte</td>
+<td align="left">resMacrophage</td>
 <td align="left">GZ20</td>
 <td align="right">46</td>
 <td align="right">2706</td>
 <td align="right">1.6999261</td>
 </tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ20</td>
-<td align="right">159</td>
-<td align="right">2706</td>
-<td align="right">5.8758315</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ20</td>
-<td align="right">1081</td>
-<td align="right">2706</td>
-<td align="right">39.9482631</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ20</td>
-<td align="right">622</td>
-<td align="right">2706</td>
-<td align="right">22.9859571</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ20</td>
-<td align="right">36</td>
-<td align="right">2706</td>
-<td align="right">1.3303769</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ20</td>
-<td align="right">16</td>
-<td align="right">2706</td>
-<td align="right">0.5912786</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ20</td>
-<td align="right">20</td>
-<td align="right">2706</td>
-<td align="right">0.7390983</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ20</td>
-<td align="right">374</td>
-<td align="right">2706</td>
-<td align="right">13.8211382</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ20</td>
-<td align="right">101</td>
-<td align="right">2706</td>
-<td align="right">3.7324464</td>
-</tr>
-<tr class="odd">
 <td align="left">SMC</td>
 <td align="left">GZ20</td>
-<td align="right">125</td>
+<td align="right">119</td>
 <td align="right">2706</td>
-<td align="right">4.6193644</td>
+<td align="right">4.3976349</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">GZ20</td>
-<td align="right">126</td>
+<td align="right">135</td>
 <td align="right">2706</td>
-<td align="right">4.6563193</td>
+<td align="right">4.9889135</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ21</td>
-<td align="right">0</td>
-<td align="right">1442</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
-<td align="left">GZ21</td>
-<td align="right">58</td>
-<td align="right">1442</td>
-<td align="right">4.0221914</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ21</td>
-<td align="right">8</td>
-<td align="right">1442</td>
-<td align="right">0.5547850</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ21</td>
-<td align="right">250</td>
-<td align="right">1442</td>
-<td align="right">17.3370319</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ21</td>
-<td align="right">99</td>
-<td align="right">1442</td>
-<td align="right">6.8654646</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ21</td>
-<td align="right">38</td>
-<td align="right">1442</td>
-<td align="right">2.6352288</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ21</td>
-<td align="right">0</td>
-<td align="right">1442</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ21</td>
-<td align="right">15</td>
-<td align="right">1442</td>
-<td align="right">1.0402219</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ21</td>
-<td align="right">724</td>
-<td align="right">1442</td>
-<td align="right">50.2080444</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ21</td>
-<td align="right">143</td>
-<td align="right">1442</td>
-<td align="right">9.9167822</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ21</td>
-<td align="right">79</td>
-<td align="right">1442</td>
-<td align="right">5.4785021</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ21</td>
-<td align="right">28</td>
-<td align="right">1442</td>
-<td align="right">1.9417476</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ22</td>
-<td align="right">0</td>
-<td align="right">1998</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ22</td>
-<td align="right">159</td>
-<td align="right">1998</td>
-<td align="right">7.9579580</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ22</td>
-<td align="right">3</td>
-<td align="right">1998</td>
-<td align="right">0.1501502</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ22</td>
-<td align="right">270</td>
-<td align="right">1998</td>
-<td align="right">13.5135135</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ22</td>
-<td align="right">314</td>
-<td align="right">1998</td>
-<td align="right">15.7157157</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ22</td>
-<td align="right">113</td>
-<td align="right">1998</td>
-<td align="right">5.6556557</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ22</td>
-<td align="right">6</td>
-<td align="right">1998</td>
-<td align="right">0.3003003</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ22</td>
-<td align="right">30</td>
-<td align="right">1998</td>
-<td align="right">1.5015015</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ22</td>
-<td align="right">645</td>
-<td align="right">1998</td>
-<td align="right">32.2822823</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ22</td>
-<td align="right">331</td>
-<td align="right">1998</td>
-<td align="right">16.5665666</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ22</td>
-<td align="right">83</td>
-<td align="right">1998</td>
-<td align="right">4.1541542</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ22</td>
-<td align="right">44</td>
-<td align="right">1998</td>
-<td align="right">2.2022022</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ23</td>
-<td align="right">0</td>
-<td align="right">841</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ23</td>
-<td align="right">54</td>
-<td align="right">841</td>
-<td align="right">6.4209275</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ23</td>
-<td align="right">9</td>
-<td align="right">841</td>
-<td align="right">1.0701546</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ23</td>
-<td align="right">211</td>
-<td align="right">841</td>
-<td align="right">25.0891795</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ23</td>
-<td align="right">68</td>
-<td align="right">841</td>
-<td align="right">8.0856124</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ23</td>
-<td align="right">31</td>
-<td align="right">841</td>
-<td align="right">3.6860880</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ23</td>
-<td align="right">6</td>
-<td align="right">841</td>
-<td align="right">0.7134364</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ23</td>
-<td align="right">7</td>
-<td align="right">841</td>
-<td align="right">0.8323424</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ23</td>
-<td align="right">299</td>
-<td align="right">841</td>
-<td align="right">35.5529132</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ23</td>
-<td align="right">91</td>
-<td align="right">841</td>
-<td align="right">10.8204518</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ23</td>
-<td align="right">38</td>
-<td align="right">841</td>
-<td align="right">4.5184304</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ23</td>
-<td align="right">27</td>
-<td align="right">841</td>
-<td align="right">3.2104637</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ24</td>
-<td align="right">1</td>
-<td align="right">1480</td>
-<td align="right">0.0675676</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ24</td>
-<td align="right">117</td>
-<td align="right">1480</td>
-<td align="right">7.9054054</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ24</td>
-<td align="right">4</td>
-<td align="right">1480</td>
-<td align="right">0.2702703</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ24</td>
-<td align="right">272</td>
-<td align="right">1480</td>
-<td align="right">18.3783784</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ24</td>
-<td align="right">268</td>
-<td align="right">1480</td>
-<td align="right">18.1081081</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ24</td>
-<td align="right">29</td>
-<td align="right">1480</td>
-<td align="right">1.9594595</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ24</td>
-<td align="right">10</td>
-<td align="right">1480</td>
-<td align="right">0.6756757</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ24</td>
-<td align="right">10</td>
-<td align="right">1480</td>
-<td align="right">0.6756757</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ24</td>
-<td align="right">586</td>
-<td align="right">1480</td>
-<td align="right">39.5945946</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ24</td>
+<td align="left">GZ3</td>
 <td align="right">77</td>
-<td align="right">1480</td>
-<td align="right">5.2027027</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ24</td>
-<td align="right">71</td>
-<td align="right">1480</td>
-<td align="right">4.7972973</td>
+<td align="right">2396</td>
+<td align="right">3.2136895</td>
 </tr>
 <tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ24</td>
-<td align="right">35</td>
-<td align="right">1480</td>
-<td align="right">2.3648649</td>
+<td align="left">EndoEC</td>
+<td align="left">GZ3</td>
+<td align="right">30</td>
+<td align="right">2396</td>
+<td align="right">1.2520868</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Endothelial</td>
+<td align="left">GZ3</td>
+<td align="right">402</td>
+<td align="right">2396</td>
+<td align="right">16.7779633</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">GZ3</td>
+<td align="right">846</td>
+<td align="right">2396</td>
+<td align="right">35.3088481</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ3</td>
+<td align="right">195</td>
+<td align="right">2396</td>
+<td align="right">8.1385643</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
 <td align="left">GZ3</td>
 <td align="right">2</td>
 <td align="right">2396</td>
 <td align="right">0.0834725</td>
 </tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ3</td>
-<td align="right">234</td>
-<td align="right">2396</td>
-<td align="right">9.7662771</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ3</td>
-<td align="right">163</td>
-<td align="right">2396</td>
-<td align="right">6.8030050</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ3</td>
-<td align="right">403</td>
-<td align="right">2396</td>
-<td align="right">16.8196995</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ3</td>
-<td align="right">812</td>
-<td align="right">2396</td>
-<td align="right">33.8898164</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ3</td>
-<td align="right">43</td>
-<td align="right">2396</td>
-<td align="right">1.7946578</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ3</td>
-<td align="right">50</td>
-<td align="right">2396</td>
-<td align="right">2.0868114</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ3</td>
-<td align="right">35</td>
-<td align="right">2396</td>
-<td align="right">1.4607679</td>
-</tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
 <td align="left">GZ3</td>
-<td align="right">432</td>
+<td align="right">408</td>
 <td align="right">2396</td>
-<td align="right">18.0300501</td>
+<td align="right">17.0283806</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
 <td align="left">GZ3</td>
-<td align="right">76</td>
+<td align="right">238</td>
 <td align="right">2396</td>
-<td align="right">3.1719533</td>
+<td align="right">9.9332220</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
 <td align="left">GZ3</td>
-<td align="right">93</td>
+<td align="right">82</td>
 <td align="right">2396</td>
-<td align="right">3.8814691</td>
+<td align="right">3.4223706</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">GZ3</td>
-<td align="right">53</td>
+<td align="right">116</td>
 <td align="right">2396</td>
-<td align="right">2.2120200</td>
+<td align="right">4.8414023</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">GZ4</td>
+<td align="right">27</td>
+<td align="right">545</td>
+<td align="right">4.9541284</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">GZ4</td>
+<td align="right">0</td>
+<td align="right">545</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">GZ4</td>
+<td align="right">129</td>
+<td align="right">545</td>
+<td align="right">23.6697248</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">GZ4</td>
+<td align="right">141</td>
+<td align="right">545</td>
+<td align="right">25.8715596</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ4</td>
+<td align="right">64</td>
+<td align="right">545</td>
+<td align="right">11.7431193</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
 <td align="left">GZ4</td>
 <td align="right">1</td>
 <td align="right">545</td>
 <td align="right">0.1834862</td>
 </tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
+<tr class="odd">
+<td align="left">Perivascular</td>
 <td align="left">GZ4</td>
-<td align="right">45</td>
+<td align="right">63</td>
 <td align="right">545</td>
-<td align="right">8.2568807</td>
+<td align="right">11.5596330</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
+<td align="left">GZ4</td>
+<td align="right">44</td>
+<td align="right">545</td>
+<td align="right">8.0733945</td>
 </tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ4</td>
-<td align="right">55</td>
-<td align="right">545</td>
-<td align="right">10.0917431</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ4</td>
-<td align="right">125</td>
-<td align="right">545</td>
-<td align="right">22.9357798</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ4</td>
-<td align="right">135</td>
-<td align="right">545</td>
-<td align="right">24.7706422</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
+<td align="left">SMC</td>
 <td align="left">GZ4</td>
 <td align="right">22</td>
 <td align="right">545</td>
 <td align="right">4.0366972</td>
 </tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ4</td>
-<td align="right">4</td>
-<td align="right">545</td>
-<td align="right">0.7339450</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ4</td>
-<td align="right">7</td>
-<td align="right">545</td>
-<td align="right">1.2844037</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ4</td>
-<td align="right">68</td>
-<td align="right">545</td>
-<td align="right">12.4770642</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ4</td>
-<td align="right">32</td>
-<td align="right">545</td>
-<td align="right">5.8715596</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ4</td>
-<td align="right">23</td>
-<td align="right">545</td>
-<td align="right">4.2201835</td>
-</tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">GZ4</td>
-<td align="right">28</td>
+<td align="right">54</td>
 <td align="right">545</td>
-<td align="right">5.1376147</td>
+<td align="right">9.9082569</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">GZ5</td>
+<td align="right">18</td>
+<td align="right">781</td>
+<td align="right">2.3047375</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
 <td align="left">GZ5</td>
 <td align="right">0</td>
 <td align="right">781</td>
 <td align="right">0.0000000</td>
 </tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">GZ5</td>
+<td align="right">232</td>
+<td align="right">781</td>
+<td align="right">29.7055058</td>
+</tr>
 <tr class="even">
-<td align="left">Cardiomyocyte</td>
+<td align="left">Fibroblast</td>
+<td align="left">GZ5</td>
+<td align="right">264</td>
+<td align="right">781</td>
+<td align="right">33.8028169</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ5</td>
+<td align="right">39</td>
+<td align="right">781</td>
+<td align="right">4.9935980</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
+<td align="left">GZ5</td>
+<td align="right">0</td>
+<td align="right">781</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">GZ5</td>
+<td align="right">122</td>
+<td align="right">781</td>
+<td align="right">15.6209987</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
 <td align="left">GZ5</td>
 <td align="right">39</td>
 <td align="right">781</td>
 <td align="right">4.9935980</td>
 </tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">GZ5</td>
-<td align="right">27</td>
-<td align="right">781</td>
-<td align="right">3.4571063</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ5</td>
-<td align="right">217</td>
-<td align="right">781</td>
-<td align="right">27.7848912</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ5</td>
-<td align="right">261</td>
-<td align="right">781</td>
-<td align="right">33.4186940</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ5</td>
-<td align="right">11</td>
-<td align="right">781</td>
-<td align="right">1.4084507</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ5</td>
-<td align="right">1</td>
-<td align="right">781</td>
-<td align="right">0.1280410</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ5</td>
-<td align="right">27</td>
-<td align="right">781</td>
-<td align="right">3.4571063</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ5</td>
-<td align="right">118</td>
-<td align="right">781</td>
-<td align="right">15.1088348</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ5</td>
-<td align="right">20</td>
-<td align="right">781</td>
-<td align="right">2.5608195</td>
-</tr>
-<tr class="odd">
 <td align="left">SMC</td>
 <td align="left">GZ5</td>
-<td align="right">38</td>
+<td align="right">36</td>
 <td align="right">781</td>
-<td align="right">4.8655570</td>
+<td align="right">4.6094750</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">GZ5</td>
-<td align="right">22</td>
+<td align="right">31</td>
 <td align="right">781</td>
-<td align="right">2.8169014</td>
+<td align="right">3.9692702</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ6</td>
-<td align="right">0</td>
-<td align="right">491</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
-<td align="left">GZ6</td>
-<td align="right">12</td>
-<td align="right">491</td>
-<td align="right">2.4439919</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
 <td align="left">GZ6</td>
 <td align="right">37</td>
 <td align="right">491</td>
 <td align="right">7.5356415</td>
 </tr>
 <tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ6</td>
-<td align="right">118</td>
-<td align="right">491</td>
-<td align="right">24.0325866</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ6</td>
-<td align="right">150</td>
-<td align="right">491</td>
-<td align="right">30.5498982</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ6</td>
-<td align="right">19</td>
-<td align="right">491</td>
-<td align="right">3.8696538</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
+<td align="left">EndoEC</td>
 <td align="left">GZ6</td>
 <td align="right">0</td>
 <td align="right">491</td>
 <td align="right">0.0000000</td>
 </tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">GZ6</td>
+<td align="right">108</td>
+<td align="right">491</td>
+<td align="right">21.9959267</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">GZ6</td>
+<td align="right">155</td>
+<td align="right">491</td>
+<td align="right">31.5682281</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">GZ6</td>
+<td align="right">48</td>
+<td align="right">491</td>
+<td align="right">9.7759674</td>
+</tr>
 <tr class="even">
 <td align="left">NeuralCells</td>
 <td align="left">GZ6</td>
-<td align="right">3</td>
+<td align="right">0</td>
 <td align="right">491</td>
-<td align="right">0.6109980</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
 <td align="left">GZ6</td>
-<td align="right">55</td>
+<td align="right">53</td>
 <td align="right">491</td>
-<td align="right">11.2016293</td>
+<td align="right">10.7942974</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
 <td align="left">GZ6</td>
+<td align="right">12</td>
+<td align="right">491</td>
+<td align="right">2.4439919</td>
+</tr>
+<tr class="odd">
+<td align="left">SMC</td>
+<td align="left">GZ6</td>
+<td align="right">15</td>
+<td align="right">491</td>
+<td align="right">3.0549898</td>
+</tr>
+<tr class="even">
+<td align="left">Tcell</td>
+<td align="left">GZ6</td>
+<td align="right">63</td>
+<td align="right">491</td>
+<td align="right">12.8309572</td>
+</tr>
+<tr class="odd">
+<td align="left">Cardiomyocyte</td>
+<td align="left">SG21</td>
 <td align="right">44</td>
-<td align="right">491</td>
-<td align="right">8.9613035</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ6</td>
-<td align="right">17</td>
-<td align="right">491</td>
-<td align="right">3.4623218</td>
+<td align="right">1536</td>
+<td align="right">2.8645833</td>
 </tr>
 <tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ6</td>
-<td align="right">36</td>
-<td align="right">491</td>
-<td align="right">7.3319756</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ7</td>
-<td align="right">41</td>
-<td align="right">653</td>
-<td align="right">6.2787136</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">GZ7</td>
-<td align="right">88</td>
-<td align="right">653</td>
-<td align="right">13.4762634</td>
-</tr>
-<tr class="odd">
 <td align="left">EndoEC</td>
-<td align="left">GZ7</td>
-<td align="right">5</td>
-<td align="right">653</td>
-<td align="right">0.7656968</td>
+<td align="left">SG21</td>
+<td align="right">1</td>
+<td align="right">1536</td>
+<td align="right">0.0651042</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Endothelial</td>
-<td align="left">GZ7</td>
-<td align="right">121</td>
-<td align="right">653</td>
-<td align="right">18.5298622</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ7</td>
-<td align="right">220</td>
-<td align="right">653</td>
-<td align="right">33.6906585</td>
+<td align="left">SG21</td>
+<td align="right">192</td>
+<td align="right">1536</td>
+<td align="right">12.5000000</td>
 </tr>
 <tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ7</td>
-<td align="right">5</td>
-<td align="right">653</td>
-<td align="right">0.7656968</td>
+<td align="left">Fibroblast</td>
+<td align="left">SG21</td>
+<td align="right">613</td>
+<td align="right">1536</td>
+<td align="right">39.9088542</td>
 </tr>
 <tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ7</td>
-<td align="right">13</td>
-<td align="right">653</td>
-<td align="right">1.9908116</td>
+<td align="left">infMacrophage</td>
+<td align="left">SG21</td>
+<td align="right">43</td>
+<td align="right">1536</td>
+<td align="right">2.7994792</td>
 </tr>
 <tr class="even">
 <td align="left">NeuralCells</td>
-<td align="left">GZ7</td>
-<td align="right">12</td>
-<td align="right">653</td>
-<td align="right">1.8376723</td>
+<td align="left">SG21</td>
+<td align="right">1</td>
+<td align="right">1536</td>
+<td align="right">0.0651042</td>
 </tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
-<td align="left">GZ7</td>
-<td align="right">68</td>
-<td align="right">653</td>
-<td align="right">10.4134763</td>
+<td align="left">SG21</td>
+<td align="right">320</td>
+<td align="right">1536</td>
+<td align="right">20.8333333</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
-<td align="left">GZ7</td>
-<td align="right">13</td>
-<td align="right">653</td>
-<td align="right">1.9908116</td>
+<td align="left">SG21</td>
+<td align="right">96</td>
+<td align="right">1536</td>
+<td align="right">6.2500000</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
-<td align="left">GZ7</td>
-<td align="right">55</td>
-<td align="right">653</td>
-<td align="right">8.4226646</td>
+<td align="left">SG21</td>
+<td align="right">72</td>
+<td align="right">1536</td>
+<td align="right">4.6875000</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
-<td align="left">GZ7</td>
-<td align="right">12</td>
-<td align="right">653</td>
-<td align="right">1.8376723</td>
+<td align="left">SG21</td>
+<td align="right">154</td>
+<td align="right">1536</td>
+<td align="right">10.0260417</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ8</td>
-<td align="right">4</td>
-<td align="right">3921</td>
-<td align="right">0.1020148</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
-<td align="left">GZ8</td>
-<td align="right">714</td>
-<td align="right">3921</td>
-<td align="right">18.2096404</td>
+<td align="left">SG24</td>
+<td align="right">116</td>
+<td align="right">2381</td>
+<td align="right">4.8719026</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">EndoEC</td>
-<td align="left">GZ8</td>
-<td align="right">16</td>
-<td align="right">3921</td>
-<td align="right">0.4080592</td>
+<td align="left">SG24</td>
+<td align="right">9</td>
+<td align="right">2381</td>
+<td align="right">0.3779924</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Endothelial</td>
-<td align="left">GZ8</td>
-<td align="right">752</td>
-<td align="right">3921</td>
-<td align="right">19.1787809</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ8</td>
-<td align="right">1144</td>
-<td align="right">3921</td>
-<td align="right">29.1762306</td>
+<td align="left">SG24</td>
+<td align="right">412</td>
+<td align="right">2381</td>
+<td align="right">17.3036539</td>
 </tr>
 <tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ8</td>
-<td align="right">120</td>
-<td align="right">3921</td>
-<td align="right">3.0604438</td>
+<td align="left">Fibroblast</td>
+<td align="left">SG24</td>
+<td align="right">868</td>
+<td align="right">2381</td>
+<td align="right">36.4552709</td>
 </tr>
 <tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ8</td>
-<td align="right">27</td>
-<td align="right">3921</td>
-<td align="right">0.6885998</td>
+<td align="left">infMacrophage</td>
+<td align="left">SG24</td>
+<td align="right">103</td>
+<td align="right">2381</td>
+<td align="right">4.3259135</td>
 </tr>
 <tr class="even">
 <td align="left">NeuralCells</td>
-<td align="left">GZ8</td>
-<td align="right">65</td>
-<td align="right">3921</td>
-<td align="right">1.6577404</td>
+<td align="left">SG24</td>
+<td align="right">3</td>
+<td align="right">2381</td>
+<td align="right">0.1259975</td>
 </tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
-<td align="left">GZ8</td>
-<td align="right">584</td>
-<td align="right">3921</td>
-<td align="right">14.8941597</td>
+<td align="left">SG24</td>
+<td align="right">287</td>
+<td align="right">2381</td>
+<td align="right">12.0537589</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
-<td align="left">GZ8</td>
-<td align="right">240</td>
-<td align="right">3921</td>
-<td align="right">6.1208875</td>
+<td align="left">SG24</td>
+<td align="right">298</td>
+<td align="right">2381</td>
+<td align="right">12.5157497</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
-<td align="left">GZ8</td>
-<td align="right">160</td>
-<td align="right">3921</td>
-<td align="right">4.0805917</td>
+<td align="left">SG24</td>
+<td align="right">117</td>
+<td align="right">2381</td>
+<td align="right">4.9139017</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
-<td align="left">GZ8</td>
-<td align="right">95</td>
-<td align="right">3921</td>
-<td align="right">2.4228513</td>
+<td align="left">SG24</td>
+<td align="right">168</td>
+<td align="right">2381</td>
+<td align="right">7.0558589</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">GZ9</td>
-<td align="right">2</td>
-<td align="right">4908</td>
-<td align="right">0.0407498</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
-<td align="left">GZ9</td>
-<td align="right">650</td>
-<td align="right">4908</td>
-<td align="right">13.2436838</td>
+<td align="left">SG25</td>
+<td align="right">359</td>
+<td align="right">3131</td>
+<td align="right">11.4659853</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">EndoEC</td>
-<td align="left">GZ9</td>
-<td align="right">349</td>
-<td align="right">4908</td>
-<td align="right">7.1108394</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">GZ9</td>
-<td align="right">657</td>
-<td align="right">4908</td>
-<td align="right">13.3863081</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">GZ9</td>
-<td align="right">1466</td>
-<td align="right">4908</td>
-<td align="right">29.8696007</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">GZ9</td>
-<td align="right">228</td>
-<td align="right">4908</td>
-<td align="right">4.6454768</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">GZ9</td>
-<td align="right">31</td>
-<td align="right">4908</td>
-<td align="right">0.6316218</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">GZ9</td>
-<td align="right">32</td>
-<td align="right">4908</td>
-<td align="right">0.6519967</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">GZ9</td>
-<td align="right">864</td>
-<td align="right">4908</td>
-<td align="right">17.6039120</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">GZ9</td>
-<td align="right">409</td>
-<td align="right">4908</td>
-<td align="right">8.3333333</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">GZ9</td>
-<td align="right">136</td>
-<td align="right">4908</td>
-<td align="right">2.7709861</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">GZ9</td>
-<td align="right">84</td>
-<td align="right">4908</td>
-<td align="right">1.7114914</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">SG29</td>
+<td align="left">SG25</td>
 <td align="right">0</td>
-<td align="right">1242</td>
+<td align="right">3131</td>
 <td align="right">0.0000000</td>
 </tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">SG29</td>
-<td align="right">109</td>
-<td align="right">1242</td>
-<td align="right">8.7761675</td>
-</tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">SG29</td>
-<td align="right">19</td>
-<td align="right">1242</td>
-<td align="right">1.5297907</td>
-</tr>
-<tr class="even">
 <td align="left">Endothelial</td>
-<td align="left">SG29</td>
-<td align="right">147</td>
-<td align="right">1242</td>
-<td align="right">11.8357488</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">SG29</td>
-<td align="right">140</td>
-<td align="right">1242</td>
-<td align="right">11.2721417</td>
+<td align="left">SG25</td>
+<td align="right">587</td>
+<td align="right">3131</td>
+<td align="right">18.7480038</td>
 </tr>
 <tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">SG29</td>
-<td align="right">187</td>
-<td align="right">1242</td>
-<td align="right">15.0563607</td>
+<td align="left">Fibroblast</td>
+<td align="left">SG25</td>
+<td align="right">844</td>
+<td align="right">3131</td>
+<td align="right">26.9562440</td>
 </tr>
 <tr class="odd">
-<td align="left">LEC</td>
-<td align="left">SG29</td>
-<td align="right">2</td>
-<td align="right">1242</td>
-<td align="right">0.1610306</td>
+<td align="left">infMacrophage</td>
+<td align="left">SG25</td>
+<td align="right">99</td>
+<td align="right">3131</td>
+<td align="right">3.1619291</td>
 </tr>
 <tr class="even">
 <td align="left">NeuralCells</td>
+<td align="left">SG25</td>
+<td align="right">49</td>
+<td align="right">3131</td>
+<td align="right">1.5649952</td>
+</tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">SG25</td>
+<td align="right">460</td>
+<td align="right">3131</td>
+<td align="right">14.6917918</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
+<td align="left">SG25</td>
+<td align="right">396</td>
+<td align="right">3131</td>
+<td align="right">12.6477164</td>
+</tr>
+<tr class="odd">
+<td align="left">SMC</td>
+<td align="left">SG25</td>
+<td align="right">100</td>
+<td align="right">3131</td>
+<td align="right">3.1938678</td>
+</tr>
+<tr class="even">
+<td align="left">Tcell</td>
+<td align="left">SG25</td>
+<td align="right">237</td>
+<td align="right">3131</td>
+<td align="right">7.5694666</td>
+</tr>
+<tr class="odd">
+<td align="left">Cardiomyocyte</td>
+<td align="left">SG28</td>
+<td align="right">21</td>
+<td align="right">1545</td>
+<td align="right">1.3592233</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">SG28</td>
+<td align="right">1</td>
+<td align="right">1545</td>
+<td align="right">0.0647249</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">SG28</td>
+<td align="right">533</td>
+<td align="right">1545</td>
+<td align="right">34.4983819</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">SG28</td>
+<td align="right">319</td>
+<td align="right">1545</td>
+<td align="right">20.6472492</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">SG28</td>
+<td align="right">53</td>
+<td align="right">1545</td>
+<td align="right">3.4304207</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
+<td align="left">SG28</td>
+<td align="right">3</td>
+<td align="right">1545</td>
+<td align="right">0.1941748</td>
+</tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">SG28</td>
+<td align="right">436</td>
+<td align="right">1545</td>
+<td align="right">28.2200647</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
+<td align="left">SG28</td>
+<td align="right">73</td>
+<td align="right">1545</td>
+<td align="right">4.7249191</td>
+</tr>
+<tr class="odd">
+<td align="left">SMC</td>
+<td align="left">SG28</td>
+<td align="right">93</td>
+<td align="right">1545</td>
+<td align="right">6.0194175</td>
+</tr>
+<tr class="even">
+<td align="left">Tcell</td>
+<td align="left">SG28</td>
+<td align="right">13</td>
+<td align="right">1545</td>
+<td align="right">0.8414239</td>
+</tr>
+<tr class="odd">
+<td align="left">Cardiomyocyte</td>
+<td align="left">SG29</td>
+<td align="right">417</td>
+<td align="right">2496</td>
+<td align="right">16.7067308</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
 <td align="left">SG29</td>
 <td align="right">15</td>
-<td align="right">1242</td>
-<td align="right">1.2077295</td>
+<td align="right">2496</td>
+<td align="right">0.6009615</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">SG29</td>
+<td align="right">490</td>
+<td align="right">2496</td>
+<td align="right">19.6314103</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">SG29</td>
+<td align="right">434</td>
+<td align="right">2496</td>
+<td align="right">17.3878205</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">SG29</td>
+<td align="right">101</td>
+<td align="right">2496</td>
+<td align="right">4.0464744</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
+<td align="left">SG29</td>
+<td align="right">6</td>
+<td align="right">2496</td>
+<td align="right">0.2403846</td>
 </tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
 <td align="left">SG29</td>
-<td align="right">86</td>
-<td align="right">1242</td>
-<td align="right">6.9243156</td>
+<td align="right">311</td>
+<td align="right">2496</td>
+<td align="right">12.4599359</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
 <td align="left">SG29</td>
-<td align="right">136</td>
-<td align="right">1242</td>
-<td align="right">10.9500805</td>
+<td align="right">178</td>
+<td align="right">2496</td>
+<td align="right">7.1314103</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
 <td align="left">SG29</td>
-<td align="right">18</td>
-<td align="right">1242</td>
-<td align="right">1.4492754</td>
+<td align="right">98</td>
+<td align="right">2496</td>
+<td align="right">3.9262821</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">SG29</td>
-<td align="right">383</td>
-<td align="right">1242</td>
-<td align="right">30.8373591</td>
+<td align="right">446</td>
+<td align="right">2496</td>
+<td align="right">17.8685897</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">SG31</td>
+<td align="right">23</td>
+<td align="right">1192</td>
+<td align="right">1.9295302</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
 <td align="left">SG31</td>
 <td align="right">0</td>
 <td align="right">1192</td>
 <td align="right">0.0000000</td>
 </tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">SG31</td>
+<td align="right">219</td>
+<td align="right">1192</td>
+<td align="right">18.3724832</td>
+</tr>
 <tr class="even">
-<td align="left">Cardiomyocyte</td>
+<td align="left">Fibroblast</td>
+<td align="left">SG31</td>
+<td align="right">356</td>
+<td align="right">1192</td>
+<td align="right">29.8657718</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">SG31</td>
+<td align="right">60</td>
+<td align="right">1192</td>
+<td align="right">5.0335570</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
+<td align="left">SG31</td>
+<td align="right">0</td>
+<td align="right">1192</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">SG31</td>
+<td align="right">184</td>
+<td align="right">1192</td>
+<td align="right">15.4362416</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
 <td align="left">SG31</td>
 <td align="right">178</td>
 <td align="right">1192</td>
 <td align="right">14.9328859</td>
 </tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">SG31</td>
-<td align="right">51</td>
-<td align="right">1192</td>
-<td align="right">4.2785235</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">SG31</td>
-<td align="right">206</td>
-<td align="right">1192</td>
-<td align="right">17.2818792</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">SG31</td>
-<td align="right">347</td>
-<td align="right">1192</td>
-<td align="right">29.1107383</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">SG31</td>
-<td align="right">36</td>
-<td align="right">1192</td>
-<td align="right">3.0201342</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">SG31</td>
-<td align="right">2</td>
-<td align="right">1192</td>
-<td align="right">0.1677852</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">SG31</td>
-<td align="right">23</td>
-<td align="right">1192</td>
-<td align="right">1.9295302</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">SG31</td>
-<td align="right">191</td>
-<td align="right">1192</td>
-<td align="right">16.0234899</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">SG31</td>
-<td align="right">88</td>
-<td align="right">1192</td>
-<td align="right">7.3825503</td>
-</tr>
-<tr class="odd">
 <td align="left">SMC</td>
 <td align="left">SG31</td>
-<td align="right">43</td>
+<td align="right">45</td>
 <td align="right">1192</td>
-<td align="right">3.6073826</td>
+<td align="right">3.7751678</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">SG31</td>
-<td align="right">27</td>
+<td align="right">127</td>
 <td align="right">1192</td>
-<td align="right">2.2651007</td>
+<td align="right">10.6543624</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">SG32</td>
+<td align="right">77</td>
+<td align="right">1428</td>
+<td align="right">5.3921569</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">SG32</td>
+<td align="right">4</td>
+<td align="right">1428</td>
+<td align="right">0.2801120</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">SG32</td>
+<td align="right">534</td>
+<td align="right">1428</td>
+<td align="right">37.3949580</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">SG32</td>
+<td align="right">320</td>
+<td align="right">1428</td>
+<td align="right">22.4089636</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">SG32</td>
+<td align="right">73</td>
+<td align="right">1428</td>
+<td align="right">5.1120448</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
 <td align="left">SG32</td>
 <td align="right">5</td>
 <td align="right">1428</td>
 <td align="right">0.3501401</td>
 </tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">SG32</td>
-<td align="right">40</td>
-<td align="right">1428</td>
-<td align="right">2.8011204</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">SG32</td>
-<td align="right">29</td>
-<td align="right">1428</td>
-<td align="right">2.0308123</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">SG32</td>
-<td align="right">550</td>
-<td align="right">1428</td>
-<td align="right">38.5154062</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">SG32</td>
-<td align="right">306</td>
-<td align="right">1428</td>
-<td align="right">21.4285714</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">SG32</td>
-<td align="right">19</td>
-<td align="right">1428</td>
-<td align="right">1.3305322</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">SG32</td>
-<td align="right">14</td>
-<td align="right">1428</td>
-<td align="right">0.9803922</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">SG32</td>
-<td align="right">28</td>
-<td align="right">1428</td>
-<td align="right">1.9607843</td>
-</tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
 <td align="left">SG32</td>
-<td align="right">254</td>
+<td align="right">241</td>
 <td align="right">1428</td>
-<td align="right">17.7871148</td>
+<td align="right">16.8767507</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
 <td align="left">SG32</td>
-<td align="right">46</td>
+<td align="right">40</td>
 <td align="right">1428</td>
-<td align="right">3.2212885</td>
+<td align="right">2.8011204</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
@@ -4406,261 +3592,219 @@ knitr::kable(datFrac)</code></pre>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">SG32</td>
-<td align="right">70</td>
+<td align="right">67</td>
 <td align="right">1428</td>
-<td align="right">4.9019608</td>
+<td align="right">4.6918768</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Cardiomyocyte</td>
+<td align="left">SG33</td>
+<td align="right">3079</td>
+<td align="right">6286</td>
+<td align="right">48.9818645</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">SG33</td>
+<td align="right">0</td>
+<td align="right">6286</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">SG33</td>
+<td align="right">255</td>
+<td align="right">6286</td>
+<td align="right">4.0566338</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">SG33</td>
+<td align="right">415</td>
+<td align="right">6286</td>
+<td align="right">6.6019726</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">SG33</td>
+<td align="right">70</td>
+<td align="right">6286</td>
+<td align="right">1.1135857</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
 <td align="left">SG33</td>
 <td align="right">8</td>
 <td align="right">6286</td>
 <td align="right">0.1272669</td>
 </tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">SG33</td>
+<td align="right">135</td>
+<td align="right">6286</td>
+<td align="right">2.1476297</td>
+</tr>
 <tr class="even">
-<td align="left">Cardiomyocyte</td>
+<td align="left">resMacrophage</td>
 <td align="left">SG33</td>
 <td align="right">212</td>
 <td align="right">6286</td>
 <td align="right">3.3725740</td>
 </tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">SG33</td>
-<td align="right">36</td>
-<td align="right">6286</td>
-<td align="right">0.5727012</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">SG33</td>
-<td align="right">219</td>
-<td align="right">6286</td>
-<td align="right">3.4839325</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">SG33</td>
-<td align="right">401</td>
-<td align="right">6286</td>
-<td align="right">6.3792555</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">SG33</td>
-<td align="right">1270</td>
-<td align="right">6286</td>
-<td align="right">20.2036271</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">SG33</td>
-<td align="right">2</td>
-<td align="right">6286</td>
-<td align="right">0.0318167</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">SG33</td>
-<td align="right">24</td>
-<td align="right">6286</td>
-<td align="right">0.3818008</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">SG33</td>
-<td align="right">142</td>
-<td align="right">6286</td>
-<td align="right">2.2589882</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">SG33</td>
-<td align="right">898</td>
-<td align="right">6286</td>
-<td align="right">14.2857143</td>
-</tr>
-<tr class="odd">
 <td align="left">SMC</td>
 <td align="left">SG33</td>
-<td align="right">29</td>
+<td align="right">28</td>
 <td align="right">6286</td>
-<td align="right">0.4613427</td>
+<td align="right">0.4454343</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">SG33</td>
-<td align="right">3045</td>
+<td align="right">2084</td>
 <td align="right">6286</td>
-<td align="right">48.4409800</td>
+<td align="right">33.1530385</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">SG34</td>
-<td align="right">0</td>
-<td align="right">620</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
-<td align="left">SG34</td>
-<td align="right">173</td>
-<td align="right">620</td>
-<td align="right">27.9032258</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">SG34</td>
-<td align="right">12</td>
-<td align="right">620</td>
-<td align="right">1.9354839</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">SG34</td>
-<td align="right">92</td>
-<td align="right">620</td>
-<td align="right">14.8387097</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">SG34</td>
-<td align="right">115</td>
-<td align="right">620</td>
-<td align="right">18.5483871</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">SG34</td>
-<td align="right">10</td>
-<td align="right">620</td>
-<td align="right">1.6129032</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">SG34</td>
-<td align="right">1</td>
-<td align="right">620</td>
-<td align="right">0.1612903</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">SG34</td>
-<td align="right">6</td>
-<td align="right">620</td>
-<td align="right">0.9677419</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">SG34</td>
-<td align="right">122</td>
-<td align="right">620</td>
-<td align="right">19.6774194</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">SG34</td>
-<td align="right">41</td>
-<td align="right">620</td>
-<td align="right">6.6129032</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">SG34</td>
-<td align="right">23</td>
-<td align="right">620</td>
-<td align="right">3.7096774</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
 <td align="left">SG34</td>
 <td align="right">25</td>
 <td align="right">620</td>
 <td align="right">4.0322581</td>
 </tr>
+<tr class="even">
+<td align="left">EndoEC</td>
+<td align="left">SG34</td>
+<td align="right">0</td>
+<td align="right">620</td>
+<td align="right">0.0000000</td>
+</tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
+<td align="left">Endothelial</td>
+<td align="left">SG34</td>
+<td align="right">89</td>
+<td align="right">620</td>
+<td align="right">14.3548387</td>
+</tr>
+<tr class="even">
+<td align="left">Fibroblast</td>
+<td align="left">SG34</td>
+<td align="right">117</td>
+<td align="right">620</td>
+<td align="right">18.8709677</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">SG34</td>
+<td align="right">21</td>
+<td align="right">620</td>
+<td align="right">3.3870968</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
+<td align="left">SG34</td>
+<td align="right">0</td>
+<td align="right">620</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">SG34</td>
+<td align="right">121</td>
+<td align="right">620</td>
+<td align="right">19.5161290</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
+<td align="left">SG34</td>
+<td align="right">174</td>
+<td align="right">620</td>
+<td align="right">28.0645161</td>
+</tr>
+<tr class="odd">
+<td align="left">SMC</td>
+<td align="left">SG34</td>
+<td align="right">22</td>
+<td align="right">620</td>
+<td align="right">3.5483871</td>
+</tr>
+<tr class="even">
+<td align="left">Tcell</td>
+<td align="left">SG34</td>
+<td align="right">51</td>
+<td align="right">620</td>
+<td align="right">8.2258065</td>
+</tr>
+<tr class="odd">
+<td align="left">Cardiomyocyte</td>
+<td align="left">SG35</td>
+<td align="right">82</td>
+<td align="right">2363</td>
+<td align="right">3.4701650</td>
+</tr>
+<tr class="even">
+<td align="left">EndoEC</td>
 <td align="left">SG35</td>
 <td align="right">0</td>
 <td align="right">2363</td>
 <td align="right">0.0000000</td>
 </tr>
+<tr class="odd">
+<td align="left">Endothelial</td>
+<td align="left">SG35</td>
+<td align="right">548</td>
+<td align="right">2363</td>
+<td align="right">23.1908591</td>
+</tr>
 <tr class="even">
-<td align="left">Cardiomyocyte</td>
+<td align="left">Fibroblast</td>
+<td align="left">SG35</td>
+<td align="right">778</td>
+<td align="right">2363</td>
+<td align="right">32.9242488</td>
+</tr>
+<tr class="odd">
+<td align="left">infMacrophage</td>
+<td align="left">SG35</td>
+<td align="right">60</td>
+<td align="right">2363</td>
+<td align="right">2.5391452</td>
+</tr>
+<tr class="even">
+<td align="left">NeuralCells</td>
+<td align="left">SG35</td>
+<td align="right">0</td>
+<td align="right">2363</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Perivascular</td>
+<td align="left">SG35</td>
+<td align="right">328</td>
+<td align="right">2363</td>
+<td align="right">13.8806602</td>
+</tr>
+<tr class="even">
+<td align="left">resMacrophage</td>
 <td align="left">SG35</td>
 <td align="right">304</td>
 <td align="right">2363</td>
 <td align="right">12.8650021</td>
 </tr>
 <tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">SG35</td>
-<td align="right">30</td>
-<td align="right">2363</td>
-<td align="right">1.2695726</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">SG35</td>
-<td align="right">550</td>
-<td align="right">2363</td>
-<td align="right">23.2754972</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">SG35</td>
-<td align="right">759</td>
-<td align="right">2363</td>
-<td align="right">32.1201862</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">SG35</td>
-<td align="right">76</td>
-<td align="right">2363</td>
-<td align="right">3.2162505</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">SG35</td>
-<td align="right">18</td>
-<td align="right">2363</td>
-<td align="right">0.7617435</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">SG35</td>
-<td align="right">29</td>
-<td align="right">2363</td>
-<td align="right">1.2272535</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">SG35</td>
-<td align="right">335</td>
-<td align="right">2363</td>
-<td align="right">14.1768938</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">SG35</td>
-<td align="right">129</td>
-<td align="right">2363</td>
-<td align="right">5.4591621</td>
-</tr>
-<tr class="odd">
 <td align="left">SMC</td>
 <td align="left">SG35</td>
-<td align="right">61</td>
+<td align="right">65</td>
 <td align="right">2363</td>
-<td align="right">2.5814642</td>
+<td align="right">2.7507406</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">SG35</td>
-<td align="right">72</td>
+<td align="right">198</td>
 <td align="right">2363</td>
-<td align="right">3.0469742</td>
+<td align="right">8.3791790</td>
 </tr>
 </tbody>
 </table>
@@ -4695,6 +3839,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/cnt tables per pat-1.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/3ac37095ef38a6b9207fe2bb5ea981d921911113/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/cnt tables per pat-1.png" target="_blank">3ac3709</a>
@@ -4768,20 +3923,12 @@ knitr::kable(table(seurat$cond))</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">HH</td>
-<td align="right">36012</td>
+<td align="left">HTrans</td>
+<td align="right">9847</td>
 </tr>
 <tr class="even">
-<td align="left">InfCardiomyopathy</td>
-<td align="right">1428</td>
-</tr>
-<tr class="odd">
 <td align="left">Myocarditis</td>
-<td align="right">32300</td>
-</tr>
-<tr class="even">
-<td align="left">Perimyocarditis</td>
-<td align="right">1192</td>
+<td align="right">34267</td>
 </tr>
 </tbody>
 </table>
@@ -4791,96 +3938,60 @@ knitr::kable(table(seurat$label, seurat$cond))</code></pre>
 <thead>
 <tr class="header">
 <th align="left"></th>
-<th align="right">HH</th>
-<th align="right">InfCardiomyopathy</th>
+<th align="right">HTrans</th>
 <th align="right">Myocarditis</th>
-<th align="right">Perimyocarditis</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="right">71</td>
-<td align="right">5</td>
-<td align="right">53</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
-<td align="right">5473</td>
-<td align="right">40</td>
-<td align="right">2169</td>
-<td align="right">178</td>
+<td align="right">579</td>
+<td align="right">4775</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">EndoEC</td>
-<td align="right">644</td>
-<td align="right">29</td>
-<td align="right">892</td>
-<td align="right">51</td>
+<td align="right">26</td>
+<td align="right">54</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Endothelial</td>
-<td align="right">6756</td>
-<td align="right">550</td>
-<td align="right">5861</td>
-<td align="right">206</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="right">8510</td>
-<td align="right">306</td>
-<td align="right">7458</td>
-<td align="right">347</td>
+<td align="right">2112</td>
+<td align="right">6357</td>
 </tr>
 <tr class="even">
-<td align="left">infMacrophage</td>
-<td align="right">1295</td>
-<td align="right">19</td>
-<td align="right">2154</td>
-<td align="right">36</td>
+<td align="left">Fibroblast</td>
+<td align="right">2915</td>
+<td align="right">8255</td>
 </tr>
 <tr class="odd">
-<td align="left">LEC</td>
-<td align="right">261</td>
-<td align="right">14</td>
-<td align="right">239</td>
-<td align="right">2</td>
+<td align="left">infMacrophage</td>
+<td align="right">355</td>
+<td align="right">1655</td>
 </tr>
 <tr class="even">
 <td align="left">NeuralCells</td>
-<td align="right">442</td>
-<td align="right">28</td>
-<td align="right">421</td>
-<td align="right">23</td>
+<td align="right">57</td>
+<td align="right">22</td>
 </tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
-<td align="right">7719</td>
-<td align="right">254</td>
-<td align="right">4915</td>
-<td align="right">191</td>
+<td align="right">1773</td>
+<td align="right">5073</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
-<td align="right">2820</td>
-<td align="right">46</td>
-<td align="right">2302</td>
-<td align="right">88</td>
+<td align="right">941</td>
+<td align="right">2291</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
-<td align="right">1186</td>
-<td align="right">67</td>
-<td align="right">1203</td>
-<td align="right">43</td>
+<td align="right">477</td>
+<td align="right">1187</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
-<td align="right">835</td>
-<td align="right">70</td>
-<td align="right">4633</td>
-<td align="right">27</td>
+<td align="right">612</td>
+<td align="right">4598</td>
 </tr>
 </tbody>
 </table>
@@ -4904,340 +4015,144 @@ knitr::kable(datFrac)</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">HH</td>
-<td align="right">71</td>
-<td align="right">36012</td>
-<td align="right">0.1971565</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
-<td align="left">HH</td>
-<td align="right">5473</td>
-<td align="right">36012</td>
-<td align="right">15.1977119</td>
+<td align="left">HTrans</td>
+<td align="right">579</td>
+<td align="right">9847</td>
+<td align="right">5.8799634</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">EndoEC</td>
-<td align="left">HH</td>
-<td align="right">644</td>
-<td align="right">36012</td>
-<td align="right">1.7882928</td>
+<td align="left">HTrans</td>
+<td align="right">26</td>
+<td align="right">9847</td>
+<td align="right">0.2640398</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Endothelial</td>
-<td align="left">HH</td>
-<td align="right">6756</td>
-<td align="right">36012</td>
-<td align="right">18.7604132</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">HH</td>
-<td align="right">8510</td>
-<td align="right">36012</td>
-<td align="right">23.6310119</td>
+<td align="left">HTrans</td>
+<td align="right">2112</td>
+<td align="right">9847</td>
+<td align="right">21.4481568</td>
 </tr>
 <tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">HH</td>
-<td align="right">1295</td>
-<td align="right">36012</td>
-<td align="right">3.5960235</td>
+<td align="left">Fibroblast</td>
+<td align="left">HTrans</td>
+<td align="right">2915</td>
+<td align="right">9847</td>
+<td align="right">29.6029247</td>
 </tr>
 <tr class="odd">
-<td align="left">LEC</td>
-<td align="left">HH</td>
-<td align="right">261</td>
-<td align="right">36012</td>
-<td align="right">0.7247584</td>
+<td align="left">infMacrophage</td>
+<td align="left">HTrans</td>
+<td align="right">355</td>
+<td align="right">9847</td>
+<td align="right">3.6051589</td>
 </tr>
 <tr class="even">
 <td align="left">NeuralCells</td>
-<td align="left">HH</td>
-<td align="right">442</td>
-<td align="right">36012</td>
-<td align="right">1.2273687</td>
+<td align="left">HTrans</td>
+<td align="right">57</td>
+<td align="right">9847</td>
+<td align="right">0.5788565</td>
 </tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
-<td align="left">HH</td>
-<td align="right">7719</td>
-<td align="right">36012</td>
-<td align="right">21.4345218</td>
+<td align="left">HTrans</td>
+<td align="right">1773</td>
+<td align="right">9847</td>
+<td align="right">18.0054839</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
-<td align="left">HH</td>
-<td align="right">2820</td>
-<td align="right">36012</td>
-<td align="right">7.8307231</td>
+<td align="left">HTrans</td>
+<td align="right">941</td>
+<td align="right">9847</td>
+<td align="right">9.5562100</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
-<td align="left">HH</td>
-<td align="right">1186</td>
-<td align="right">36012</td>
-<td align="right">3.2933467</td>
+<td align="left">HTrans</td>
+<td align="right">477</td>
+<td align="right">9847</td>
+<td align="right">4.8441150</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
-<td align="left">HH</td>
-<td align="right">835</td>
-<td align="right">36012</td>
-<td align="right">2.3186716</td>
+<td align="left">HTrans</td>
+<td align="right">612</td>
+<td align="right">9847</td>
+<td align="right">6.2150909</td>
 </tr>
 <tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">5</td>
-<td align="right">1428</td>
-<td align="right">0.3501401</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">40</td>
-<td align="right">1428</td>
-<td align="right">2.8011204</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">29</td>
-<td align="right">1428</td>
-<td align="right">2.0308123</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">550</td>
-<td align="right">1428</td>
-<td align="right">38.5154062</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">306</td>
-<td align="right">1428</td>
-<td align="right">21.4285714</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">19</td>
-<td align="right">1428</td>
-<td align="right">1.3305322</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">14</td>
-<td align="right">1428</td>
-<td align="right">0.9803922</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">28</td>
-<td align="right">1428</td>
-<td align="right">1.9607843</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">254</td>
-<td align="right">1428</td>
-<td align="right">17.7871148</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">46</td>
-<td align="right">1428</td>
-<td align="right">3.2212885</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">67</td>
-<td align="right">1428</td>
-<td align="right">4.6918768</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">InfCardiomyopathy</td>
-<td align="right">70</td>
-<td align="right">1428</td>
-<td align="right">4.9019608</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">Myocarditis</td>
-<td align="right">53</td>
-<td align="right">32300</td>
-<td align="right">0.1640867</td>
-</tr>
-<tr class="even">
 <td align="left">Cardiomyocyte</td>
 <td align="left">Myocarditis</td>
-<td align="right">2169</td>
-<td align="right">32300</td>
-<td align="right">6.7151703</td>
+<td align="right">4775</td>
+<td align="right">34267</td>
+<td align="right">13.9346894</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">EndoEC</td>
 <td align="left">Myocarditis</td>
-<td align="right">892</td>
-<td align="right">32300</td>
-<td align="right">2.7616099</td>
+<td align="right">54</td>
+<td align="right">34267</td>
+<td align="right">0.1575860</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Endothelial</td>
 <td align="left">Myocarditis</td>
-<td align="right">5861</td>
-<td align="right">32300</td>
-<td align="right">18.1455108</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">Myocarditis</td>
-<td align="right">7458</td>
-<td align="right">32300</td>
-<td align="right">23.0897833</td>
+<td align="right">6357</td>
+<td align="right">34267</td>
+<td align="right">18.5513760</td>
 </tr>
 <tr class="even">
-<td align="left">infMacrophage</td>
+<td align="left">Fibroblast</td>
 <td align="left">Myocarditis</td>
-<td align="right">2154</td>
-<td align="right">32300</td>
-<td align="right">6.6687307</td>
+<td align="right">8255</td>
+<td align="right">34267</td>
+<td align="right">24.0902326</td>
 </tr>
 <tr class="odd">
-<td align="left">LEC</td>
+<td align="left">infMacrophage</td>
 <td align="left">Myocarditis</td>
-<td align="right">239</td>
-<td align="right">32300</td>
-<td align="right">0.7399381</td>
+<td align="right">1655</td>
+<td align="right">34267</td>
+<td align="right">4.8297196</td>
 </tr>
 <tr class="even">
 <td align="left">NeuralCells</td>
 <td align="left">Myocarditis</td>
-<td align="right">421</td>
-<td align="right">32300</td>
-<td align="right">1.3034056</td>
+<td align="right">22</td>
+<td align="right">34267</td>
+<td align="right">0.0642017</td>
 </tr>
 <tr class="odd">
 <td align="left">Perivascular</td>
 <td align="left">Myocarditis</td>
-<td align="right">4915</td>
-<td align="right">32300</td>
-<td align="right">15.2167183</td>
+<td align="right">5073</td>
+<td align="right">34267</td>
+<td align="right">14.8043307</td>
 </tr>
 <tr class="even">
 <td align="left">resMacrophage</td>
 <td align="left">Myocarditis</td>
-<td align="right">2302</td>
-<td align="right">32300</td>
-<td align="right">7.1269350</td>
+<td align="right">2291</td>
+<td align="right">34267</td>
+<td align="right">6.6857326</td>
 </tr>
 <tr class="odd">
 <td align="left">SMC</td>
 <td align="left">Myocarditis</td>
-<td align="right">1203</td>
-<td align="right">32300</td>
-<td align="right">3.7244582</td>
+<td align="right">1187</td>
+<td align="right">34267</td>
+<td align="right">3.4639741</td>
 </tr>
 <tr class="even">
 <td align="left">Tcell</td>
 <td align="left">Myocarditis</td>
-<td align="right">4633</td>
-<td align="right">32300</td>
-<td align="right">14.3436533</td>
-</tr>
-<tr class="odd">
-<td align="left">Adipocytes</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">0</td>
-<td align="right">1192</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
-<td align="left">Cardiomyocyte</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">178</td>
-<td align="right">1192</td>
-<td align="right">14.9328859</td>
-</tr>
-<tr class="odd">
-<td align="left">EndoEC</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">51</td>
-<td align="right">1192</td>
-<td align="right">4.2785235</td>
-</tr>
-<tr class="even">
-<td align="left">Endothelial</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">206</td>
-<td align="right">1192</td>
-<td align="right">17.2818792</td>
-</tr>
-<tr class="odd">
-<td align="left">Fibroblast</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">347</td>
-<td align="right">1192</td>
-<td align="right">29.1107383</td>
-</tr>
-<tr class="even">
-<td align="left">infMacrophage</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">36</td>
-<td align="right">1192</td>
-<td align="right">3.0201342</td>
-</tr>
-<tr class="odd">
-<td align="left">LEC</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">2</td>
-<td align="right">1192</td>
-<td align="right">0.1677852</td>
-</tr>
-<tr class="even">
-<td align="left">NeuralCells</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">23</td>
-<td align="right">1192</td>
-<td align="right">1.9295302</td>
-</tr>
-<tr class="odd">
-<td align="left">Perivascular</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">191</td>
-<td align="right">1192</td>
-<td align="right">16.0234899</td>
-</tr>
-<tr class="even">
-<td align="left">resMacrophage</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">88</td>
-<td align="right">1192</td>
-<td align="right">7.3825503</td>
-</tr>
-<tr class="odd">
-<td align="left">SMC</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">43</td>
-<td align="right">1192</td>
-<td align="right">3.6073826</td>
-</tr>
-<tr class="even">
-<td align="left">Tcell</td>
-<td align="left">Perimyocarditis</td>
-<td align="right">27</td>
-<td align="right">1192</td>
-<td align="right">2.2651007</td>
+<td align="right">4598</td>
+<td align="right">34267</td>
+<td align="right">13.4181574</td>
 </tr>
 </tbody>
 </table>
@@ -5268,6 +4183,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/cnt tables per cond-1.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/3ac37095ef38a6b9207fe2bb5ea981d921911113/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/cnt tables per cond-1.png" target="_blank">3ac3709</a>
@@ -5336,24 +4262,19 @@ IDtoTcell &lt;- data.frame(ID=seurat$ID) %&gt;% left_join(., TcellGrp, by=&quot;
 seurat$TcellGrp &lt;- IDtoTcell$TcellGrp
 table(seurat$TcellGrp)</code></pre>
 <pre><code>
-     Ctrl TcellHigh  TcellLow 
-    36012     24666     10254 </code></pre>
+TcellHigh  TcellInt  TcellLow 
+    16950     16878     10286 </code></pre>
 <pre class="r"><code>table(seurat$TcellGrp, seurat$ID)</code></pre>
 <pre><code>           
-             GZ1 GZ10 GZ11 GZ12 GZ13 GZ14 GZ15 GZ16 GZ17 GZ18  GZ2 GZ20 GZ21
-  Ctrl         0 3731 3991 3818 9882    0    0    0    0    0    0    0 1442
-  TcellHigh 2740    0    0    0    0    0 4439  436 1370    0    0 2706    0
-  TcellLow     0    0    0    0    0 1268    0    0    0 2280 1684    0    0
+             GZ1 GZ14 GZ15 GZ16 GZ17 GZ18  GZ2 GZ20  GZ3  GZ4  GZ5  GZ6 SG21
+  TcellHigh 2740    0    0  436 1370    0    0    0    0    0    0  491    0
+  TcellInt     0    0 4439    0    0    0    0 2706 2396  545    0    0    0
+  TcellLow     0 1268    0    0    0 2280 1684    0    0    0  781    0 1536
            
-            GZ22 GZ23 GZ24  GZ3  GZ4  GZ5  GZ6  GZ7  GZ8  GZ9 SG29 SG31 SG32
-  Ctrl      1998  841 1480    0    0    0    0    0 3921 4908    0    0    0
-  TcellHigh    0    0    0    0  545    0  491    0    0    0 1242    0 1428
-  TcellLow     0    0    0 2396    0  781    0  653    0    0    0 1192    0
-           
-            SG33 SG34 SG35
-  Ctrl         0    0    0
-  TcellHigh 6286  620 2363
-  TcellLow     0    0    0</code></pre>
+            SG24 SG25 SG28 SG29 SG31 SG32 SG33 SG34 SG35
+  TcellHigh    0 3131    0 2496    0    0 6286    0    0
+  TcellInt  2381    0    0    0    0 1428    0  620 2363
+  TcellLow     0    0 1545    0 1192    0    0    0    0</code></pre>
 </div>
 <div id="vis-marker-for-celltype-assignment" class="section level2">
 <h2>vis marker for celltype assignment</h2>
@@ -5395,6 +4316,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis sel marker-1.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/3ac37095ef38a6b9207fe2bb5ea981d921911113/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis sel marker-1.png" target="_blank">3ac3709</a>
@@ -5472,6 +4404,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis sel marker-2.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/3ac37095ef38a6b9207fe2bb5ea981d921911113/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vis sel marker-2.png" target="_blank">3ac3709</a>
@@ -5566,6 +4509,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/dotplot-1.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/3ac37095ef38a6b9207fe2bb5ea981d921911113/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/dotplot-1.png" target="_blank">3ac3709</a>
 </td>
 <td>
@@ -5656,6 +4610,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/dotplot-2.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/3ac37095ef38a6b9207fe2bb5ea981d921911113/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/dotplot-2.png" target="_blank">3ac3709</a>
 </td>
 <td>
@@ -5722,7 +4687,462 @@ pList &lt;- sapply(selGenes$EnsID, function(x){
     
   plot(p)
 })</code></pre>
-<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-4.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-6.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-7.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-8.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-9.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-10.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-11.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-12.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-1">
+Past versions of "vlnplt sel marker-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-1.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-2">
+Past versions of "vlnplt sel marker-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-2.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-3">
+Past versions of "vlnplt sel marker-3.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-3.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-4">
+Past versions of "vlnplt sel marker-4.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-4.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-5">
+Past versions of "vlnplt sel marker-5.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-5.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-6.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-6">
+Past versions of "vlnplt sel marker-6.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-6.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-7.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-7">
+Past versions of "vlnplt sel marker-7.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-7.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-8.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-8">
+Past versions of "vlnplt sel marker-8.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-8" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-8.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-9.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-9">
+Past versions of "vlnplt sel marker-9.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-9" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-9.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-10.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-10">
+Past versions of "vlnplt sel marker-10.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-10" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-10.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-11.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-11">
+Past versions of "vlnplt sel marker-11.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-11" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-11.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-12.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-12">
+Past versions of "vlnplt sel marker-12.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-12" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-12.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>pList &lt;- sapply(selGenes$EnsID, function(x){
   p &lt;- VlnPlot(object = seurat, features = x,
                group.by = &quot;label&quot;,
@@ -5732,7 +5152,462 @@ pList &lt;- sapply(selGenes$EnsID, function(x){
     
   plot(p)
 })</code></pre>
-<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-13.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-14.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-15.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-16.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-17.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-18.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-19.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-20.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-21.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-22.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-23.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-24.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-13.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-13">
+Past versions of "vlnplt sel marker-13.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-13" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-13.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-14.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-14">
+Past versions of "vlnplt sel marker-14.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-14" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-14.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-15.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-15">
+Past versions of "vlnplt sel marker-15.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-15" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-15.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-16.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-16">
+Past versions of "vlnplt sel marker-16.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-16" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-16.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-17.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-17">
+Past versions of "vlnplt sel marker-17.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-17" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-17.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-18.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-18">
+Past versions of "vlnplt sel marker-18.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-18" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-18.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-19.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-19">
+Past versions of "vlnplt sel marker-19.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-19" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-19.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-20.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-20">
+Past versions of "vlnplt sel marker-20.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-20" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-20.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-21.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-21">
+Past versions of "vlnplt sel marker-21.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-21" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-21.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-22.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-22">
+Past versions of "vlnplt sel marker-22.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-22" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-22.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-23.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-23">
+Past versions of "vlnplt sel marker-23.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-23" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-23.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt%20sel%20marker-24.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-24">
+Past versions of "vlnplt sel marker-24.png"
+</button>
+</p>
+<div id="fig-no-spaces-vlnplt-sel-marker-24" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/vlnplt sel marker-24.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="feature-plots-bmps" class="section level2">
 <h2>Feature plots BMPs</h2>
@@ -5753,7 +5628,158 @@ p &lt;- FeaturePlot(seurat, reduction = &quot;umap&quot;,
   theme(legend.position=&quot;right&quot;)
   plot(p)
 })</code></pre>
-<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-feautreplots-BMPs-1">
+Past versions of "feautreplots BMPs-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-feautreplots-BMPs-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots BMPs-1.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-feautreplots-BMPs-2">
+Past versions of "feautreplots BMPs-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-feautreplots-BMPs-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots BMPs-2.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-feautreplots-BMPs-3">
+Past versions of "feautreplots BMPs-3.png"
+</button>
+</p>
+<div id="fig-no-spaces-feautreplots-BMPs-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots BMPs-3.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-feautreplots-BMPs-4">
+Past versions of "feautreplots BMPs-4.png"
+</button>
+</p>
+<div id="fig-no-spaces-feautreplots-BMPs-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots BMPs-4.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>## plotting loop order=T
 pList &lt;- sapply(selGenes$EnsID, function(x){
 p &lt;- FeaturePlot(seurat, reduction = &quot;umap&quot;, 
@@ -5763,7 +5789,158 @@ p &lt;- FeaturePlot(seurat, reduction = &quot;umap&quot;,
   theme(legend.position=&quot;right&quot;)
   plot(p)
 })</code></pre>
-<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-6.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-7.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-8.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-feautreplots-BMPs-5">
+Past versions of "feautreplots BMPs-5.png"
+</button>
+</p>
+<div id="fig-no-spaces-feautreplots-BMPs-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots BMPs-5.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-6.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-feautreplots-BMPs-6">
+Past versions of "feautreplots BMPs-6.png"
+</button>
+</p>
+<div id="fig-no-spaces-feautreplots-BMPs-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots BMPs-6.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-7.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-feautreplots-BMPs-7">
+Past versions of "feautreplots BMPs-7.png"
+</button>
+</p>
+<div id="fig-no-spaces-feautreplots-BMPs-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots BMPs-7.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots%20BMPs-8.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-feautreplots-BMPs-8">
+Past versions of "feautreplots BMPs-8.png"
+</button>
+</p>
+<div id="fig-no-spaces-feautreplots-BMPs-8" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/2a11889f57e3ea1855c1d33f0311ac59e38f6f29/docs/figure/assignLabelshumanHeartsPlusGrazInt.Rmd/feautreplots BMPs-8.png" target="_blank">2a11889</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-10-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="average-counts-bmps-in-fibroblasts" class="section level2">
 <h2>average counts BMPs in Fibroblasts</h2>
@@ -5818,73 +5995,72 @@ attached base packages:
 other attached packages:
  [1] sctransform_0.3.5           viridis_0.6.2              
  [3] viridisLite_0.4.1           pheatmap_1.0.12            
- [5] ggpubr_0.4.0                ggsci_2.9                  
+ [5] ggpubr_0.5.0                ggsci_2.9                  
  [7] runSeurat3_0.1.0            here_1.0.1                 
- [9] magrittr_2.0.3              sp_1.5-0                   
-[11] SeuratObject_4.1.2          Seurat_4.2.0               
-[13] forcats_0.5.2               stringr_1.4.1              
-[15] dplyr_1.0.10                purrr_0.3.5                
-[17] readr_2.1.3                 tidyr_1.2.1                
-[19] tibble_3.1.8                ggplot2_3.3.6              
-[21] tidyverse_1.3.2             SingleCellExperiment_1.18.1
-[23] SummarizedExperiment_1.26.1 Biobase_2.56.0             
-[25] GenomicRanges_1.48.0        GenomeInfoDb_1.32.4        
-[27] IRanges_2.30.1              S4Vectors_0.34.0           
-[29] BiocGenerics_0.42.0         MatrixGenerics_1.8.1       
-[31] matrixStats_0.62.0         
+ [9] magrittr_2.0.3              SeuratObject_4.1.3         
+[11] Seurat_4.3.0                forcats_0.5.2              
+[13] stringr_1.5.0               dplyr_1.0.10               
+[15] purrr_0.3.5                 readr_2.1.3                
+[17] tidyr_1.2.1                 tibble_3.1.8               
+[19] ggplot2_3.4.0               tidyverse_1.3.2            
+[21] SingleCellExperiment_1.18.1 SummarizedExperiment_1.26.1
+[23] Biobase_2.56.0              GenomicRanges_1.48.0       
+[25] GenomeInfoDb_1.32.4         IRanges_2.30.1             
+[27] S4Vectors_0.34.0            BiocGenerics_0.42.0        
+[29] MatrixGenerics_1.8.1        matrixStats_0.63.0         
 
 loaded via a namespace (and not attached):
-  [1] utf8_1.2.2             reticulate_1.26        tidyselect_1.2.0      
-  [4] htmlwidgets_1.5.4      grid_4.2.1             Rtsne_0.16            
-  [7] munsell_0.5.0          codetools_0.2-18       ica_1.0-3             
- [10] future_1.28.0          miniUI_0.1.1.1         withr_2.5.0           
- [13] spatstat.random_2.2-0  colorspace_2.0-3       progressr_0.11.0      
- [16] highr_0.9              knitr_1.40             rstudioapi_0.14       
- [19] ROCR_1.0-11            ggsignif_0.6.3         tensor_1.5            
- [22] listenv_0.8.0          labeling_0.4.2         git2r_0.30.1          
- [25] GenomeInfoDbData_1.2.8 polyclip_1.10-0        bit64_4.0.5           
- [28] farver_2.1.1           rprojroot_2.0.3        parallelly_1.32.1     
- [31] vctrs_0.4.2            generics_0.1.3         xfun_0.33             
- [34] R6_2.5.1               ggbeeswarm_0.6.0       bitops_1.0-7          
- [37] spatstat.utils_2.3-1   cachem_1.0.6           DelayedArray_0.22.0   
- [40] assertthat_0.2.1       vroom_1.6.0            promises_1.2.0.1      
- [43] scales_1.2.1           googlesheets4_1.0.1    beeswarm_0.4.0        
- [46] rgeos_0.5-9            gtable_0.3.1           globals_0.16.1        
- [49] goftest_1.2-3          workflowr_1.7.0        rlang_1.0.6           
- [52] splines_4.2.1          rstatix_0.7.0          lazyeval_0.2.2        
- [55] gargle_1.2.1           spatstat.geom_2.4-0    broom_1.0.1           
- [58] yaml_2.3.5             reshape2_1.4.4         abind_1.4-5           
- [61] modelr_0.1.9           backports_1.4.1        httpuv_1.6.6          
- [64] tools_4.2.1            ellipsis_0.3.2         spatstat.core_2.4-4   
+  [1] utf8_1.2.2             spatstat.explore_3.0-5 reticulate_1.26       
+  [4] tidyselect_1.2.0       htmlwidgets_1.5.4      grid_4.2.1            
+  [7] Rtsne_0.16             munsell_0.5.0          codetools_0.2-18      
+ [10] ica_1.0-3              future_1.29.0          miniUI_0.1.1.1        
+ [13] withr_2.5.0            spatstat.random_3.0-1  colorspace_2.0-3      
+ [16] progressr_0.11.0       highr_0.9              knitr_1.41            
+ [19] rstudioapi_0.14        ROCR_1.0-11            ggsignif_0.6.4        
+ [22] tensor_1.5             listenv_0.8.0          labeling_0.4.2        
+ [25] git2r_0.30.1           GenomeInfoDbData_1.2.8 polyclip_1.10-4       
+ [28] bit64_4.0.5            farver_2.1.1           rprojroot_2.0.3       
+ [31] parallelly_1.32.1      vctrs_0.5.1            generics_0.1.3        
+ [34] xfun_0.35              timechange_0.1.1       R6_2.5.1              
+ [37] ggbeeswarm_0.6.0       bitops_1.0-7           spatstat.utils_3.0-1  
+ [40] cachem_1.0.6           DelayedArray_0.22.0    assertthat_0.2.1      
+ [43] vroom_1.6.0            promises_1.2.0.1       scales_1.2.1          
+ [46] googlesheets4_1.0.1    beeswarm_0.4.0         gtable_0.3.1          
+ [49] globals_0.16.2         goftest_1.2-3          workflowr_1.7.0       
+ [52] rlang_1.0.6            splines_4.2.1          rstatix_0.7.1         
+ [55] lazyeval_0.2.2         gargle_1.2.1           spatstat.geom_3.0-3   
+ [58] broom_1.0.1            yaml_2.3.6             reshape2_1.4.4        
+ [61] abind_1.4-5            modelr_0.1.10          backports_1.4.1       
+ [64] httpuv_1.6.6           tools_4.2.1            ellipsis_0.3.2        
  [67] jquerylib_0.1.4        RColorBrewer_1.1-3     ggridges_0.5.4        
- [70] Rcpp_1.0.9             plyr_1.8.7             zlibbioc_1.42.0       
- [73] RCurl_1.98-1.9         rpart_4.1.16           deldir_1.0-6          
- [76] pbapply_1.5-0          cowplot_1.1.1          zoo_1.8-11            
- [79] haven_2.5.1            ggrepel_0.9.1          cluster_2.1.4         
- [82] fs_1.5.2               data.table_1.14.2      scattermore_0.8       
- [85] lmtest_0.9-40          reprex_2.0.2           RANN_2.6.1            
- [88] googledrive_2.0.0      whisker_0.4            fitdistrplus_1.1-8    
- [91] hms_1.1.2              patchwork_1.1.2        mime_0.12             
- [94] evaluate_0.17          xtable_1.8-4           readxl_1.4.1          
- [97] gridExtra_2.3          compiler_4.2.1         KernSmooth_2.23-20    
-[100] crayon_1.5.2           htmltools_0.5.3        mgcv_1.8-40           
-[103] later_1.3.0            tzdb_0.3.0             lubridate_1.8.0       
-[106] DBI_1.1.3              dbplyr_2.2.1           MASS_7.3-58.1         
-[109] Matrix_1.5-1           car_3.1-0              cli_3.4.1             
-[112] parallel_4.2.1         igraph_1.3.5           pkgconfig_2.0.3       
-[115] plotly_4.10.0          spatstat.sparse_2.1-1  xml2_1.3.3            
-[118] vipor_0.4.5            bslib_0.4.0            XVector_0.36.0        
-[121] rvest_1.0.3            digest_0.6.29          RcppAnnoy_0.0.19      
-[124] spatstat.data_2.2-0    rmarkdown_2.17         cellranger_1.1.0      
-[127] leiden_0.4.3           uwot_0.1.14            shiny_1.7.2           
-[130] lifecycle_1.0.3        nlme_3.1-159           jsonlite_1.8.2        
-[133] carData_3.0-5          fansi_1.0.3            pillar_1.8.1          
-[136] lattice_0.20-45        ggrastr_1.0.1          fastmap_1.1.0         
-[139] httr_1.4.4             survival_3.4-0         glue_1.6.2            
-[142] png_0.1-7              bit_4.0.4              stringi_1.7.8         
-[145] sass_0.4.2             irlba_2.3.5.1          future.apply_1.9.1    </code></pre>
+ [70] Rcpp_1.0.9             plyr_1.8.8             zlibbioc_1.42.0       
+ [73] RCurl_1.98-1.9         deldir_1.0-6           pbapply_1.6-0         
+ [76] cowplot_1.1.1          zoo_1.8-11             haven_2.5.1           
+ [79] ggrepel_0.9.2          cluster_2.1.4          fs_1.5.2              
+ [82] data.table_1.14.6      scattermore_0.8        lmtest_0.9-40         
+ [85] reprex_2.0.2           RANN_2.6.1             googledrive_2.0.0     
+ [88] whisker_0.4            fitdistrplus_1.1-8     hms_1.1.2             
+ [91] patchwork_1.1.2        mime_0.12              evaluate_0.18         
+ [94] xtable_1.8-4           readxl_1.4.1           gridExtra_2.3         
+ [97] compiler_4.2.1         KernSmooth_2.23-20     crayon_1.5.2          
+[100] htmltools_0.5.3        later_1.3.0            tzdb_0.3.0            
+[103] lubridate_1.9.0        DBI_1.1.3              dbplyr_2.2.1          
+[106] MASS_7.3-58.1          Matrix_1.5-3           car_3.1-1             
+[109] cli_3.4.1              parallel_4.2.1         igraph_1.3.5          
+[112] pkgconfig_2.0.3        sp_1.5-1               plotly_4.10.1         
+[115] spatstat.sparse_3.0-0  xml2_1.3.3             vipor_0.4.5           
+[118] bslib_0.4.1            XVector_0.36.0         rvest_1.0.3           
+[121] digest_0.6.30          RcppAnnoy_0.0.20       spatstat.data_3.0-0   
+[124] rmarkdown_2.18         cellranger_1.1.0       leiden_0.4.3          
+[127] uwot_0.1.14            shiny_1.7.3            lifecycle_1.0.3       
+[130] nlme_3.1-160           jsonlite_1.8.3         carData_3.0-5         
+[133] fansi_1.0.3            pillar_1.8.1           lattice_0.20-45       
+[136] ggrastr_1.0.1          fastmap_1.1.0          httr_1.4.4            
+[139] survival_3.4-0         glue_1.6.2             png_0.1-8             
+[142] bit_4.0.5              stringi_1.7.8          sass_0.4.4            
+[145] irlba_2.3.5.1          future.apply_1.10.0   </code></pre>
 <pre class="r"><code>date()</code></pre>
-<pre><code>[1] &quot;Wed Oct 19 17:31:47 2022&quot;</code></pre>
+<pre><code>[1] &quot;Tue Dec  6 16:09:15 2022&quot;</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -5912,71 +6088,70 @@ attached base packages:
 other attached packages:
  [1] sctransform_0.3.5           viridis_0.6.2              
  [3] viridisLite_0.4.1           pheatmap_1.0.12            
- [5] ggpubr_0.4.0                ggsci_2.9                  
+ [5] ggpubr_0.5.0                ggsci_2.9                  
  [7] runSeurat3_0.1.0            here_1.0.1                 
- [9] magrittr_2.0.3              sp_1.5-0                   
-[11] SeuratObject_4.1.2          Seurat_4.2.0               
-[13] forcats_0.5.2               stringr_1.4.1              
-[15] dplyr_1.0.10                purrr_0.3.5                
-[17] readr_2.1.3                 tidyr_1.2.1                
-[19] tibble_3.1.8                ggplot2_3.3.6              
-[21] tidyverse_1.3.2             SingleCellExperiment_1.18.1
-[23] SummarizedExperiment_1.26.1 Biobase_2.56.0             
-[25] GenomicRanges_1.48.0        GenomeInfoDb_1.32.4        
-[27] IRanges_2.30.1              S4Vectors_0.34.0           
-[29] BiocGenerics_0.42.0         MatrixGenerics_1.8.1       
-[31] matrixStats_0.62.0         
+ [9] magrittr_2.0.3              SeuratObject_4.1.3         
+[11] Seurat_4.3.0                forcats_0.5.2              
+[13] stringr_1.5.0               dplyr_1.0.10               
+[15] purrr_0.3.5                 readr_2.1.3                
+[17] tidyr_1.2.1                 tibble_3.1.8               
+[19] ggplot2_3.4.0               tidyverse_1.3.2            
+[21] SingleCellExperiment_1.18.1 SummarizedExperiment_1.26.1
+[23] Biobase_2.56.0              GenomicRanges_1.48.0       
+[25] GenomeInfoDb_1.32.4         IRanges_2.30.1             
+[27] S4Vectors_0.34.0            BiocGenerics_0.42.0        
+[29] MatrixGenerics_1.8.1        matrixStats_0.63.0         
 
 loaded via a namespace (and not attached):
-  [1] utf8_1.2.2             reticulate_1.26        tidyselect_1.2.0      
-  [4] htmlwidgets_1.5.4      grid_4.2.1             Rtsne_0.16            
-  [7] munsell_0.5.0          codetools_0.2-18       ica_1.0-3             
- [10] future_1.28.0          miniUI_0.1.1.1         withr_2.5.0           
- [13] spatstat.random_2.2-0  colorspace_2.0-3       progressr_0.11.0      
- [16] highr_0.9              knitr_1.40             rstudioapi_0.14       
- [19] ROCR_1.0-11            ggsignif_0.6.3         tensor_1.5            
- [22] listenv_0.8.0          labeling_0.4.2         git2r_0.30.1          
- [25] GenomeInfoDbData_1.2.8 polyclip_1.10-0        bit64_4.0.5           
- [28] farver_2.1.1           rprojroot_2.0.3        parallelly_1.32.1     
- [31] vctrs_0.4.2            generics_0.1.3         xfun_0.33             
- [34] R6_2.5.1               ggbeeswarm_0.6.0       bitops_1.0-7          
- [37] spatstat.utils_2.3-1   cachem_1.0.6           DelayedArray_0.22.0   
- [40] assertthat_0.2.1       vroom_1.6.0            promises_1.2.0.1      
- [43] scales_1.2.1           googlesheets4_1.0.1    beeswarm_0.4.0        
- [46] rgeos_0.5-9            gtable_0.3.1           globals_0.16.1        
- [49] goftest_1.2-3          workflowr_1.7.0        rlang_1.0.6           
- [52] splines_4.2.1          rstatix_0.7.0          lazyeval_0.2.2        
- [55] gargle_1.2.1           spatstat.geom_2.4-0    broom_1.0.1           
- [58] yaml_2.3.5             reshape2_1.4.4         abind_1.4-5           
- [61] modelr_0.1.9           backports_1.4.1        httpuv_1.6.6          
- [64] tools_4.2.1            ellipsis_0.3.2         spatstat.core_2.4-4   
+  [1] utf8_1.2.2             spatstat.explore_3.0-5 reticulate_1.26       
+  [4] tidyselect_1.2.0       htmlwidgets_1.5.4      grid_4.2.1            
+  [7] Rtsne_0.16             munsell_0.5.0          codetools_0.2-18      
+ [10] ica_1.0-3              future_1.29.0          miniUI_0.1.1.1        
+ [13] withr_2.5.0            spatstat.random_3.0-1  colorspace_2.0-3      
+ [16] progressr_0.11.0       highr_0.9              knitr_1.41            
+ [19] rstudioapi_0.14        ROCR_1.0-11            ggsignif_0.6.4        
+ [22] tensor_1.5             listenv_0.8.0          labeling_0.4.2        
+ [25] git2r_0.30.1           GenomeInfoDbData_1.2.8 polyclip_1.10-4       
+ [28] bit64_4.0.5            farver_2.1.1           rprojroot_2.0.3       
+ [31] parallelly_1.32.1      vctrs_0.5.1            generics_0.1.3        
+ [34] xfun_0.35              timechange_0.1.1       R6_2.5.1              
+ [37] ggbeeswarm_0.6.0       bitops_1.0-7           spatstat.utils_3.0-1  
+ [40] cachem_1.0.6           DelayedArray_0.22.0    assertthat_0.2.1      
+ [43] vroom_1.6.0            promises_1.2.0.1       scales_1.2.1          
+ [46] googlesheets4_1.0.1    beeswarm_0.4.0         gtable_0.3.1          
+ [49] globals_0.16.2         goftest_1.2-3          workflowr_1.7.0       
+ [52] rlang_1.0.6            splines_4.2.1          rstatix_0.7.1         
+ [55] lazyeval_0.2.2         gargle_1.2.1           spatstat.geom_3.0-3   
+ [58] broom_1.0.1            yaml_2.3.6             reshape2_1.4.4        
+ [61] abind_1.4-5            modelr_0.1.10          backports_1.4.1       
+ [64] httpuv_1.6.6           tools_4.2.1            ellipsis_0.3.2        
  [67] jquerylib_0.1.4        RColorBrewer_1.1-3     ggridges_0.5.4        
- [70] Rcpp_1.0.9             plyr_1.8.7             zlibbioc_1.42.0       
- [73] RCurl_1.98-1.9         rpart_4.1.16           deldir_1.0-6          
- [76] pbapply_1.5-0          cowplot_1.1.1          zoo_1.8-11            
- [79] haven_2.5.1            ggrepel_0.9.1          cluster_2.1.4         
- [82] fs_1.5.2               data.table_1.14.2      scattermore_0.8       
- [85] lmtest_0.9-40          reprex_2.0.2           RANN_2.6.1            
- [88] googledrive_2.0.0      whisker_0.4            fitdistrplus_1.1-8    
- [91] hms_1.1.2              patchwork_1.1.2        mime_0.12             
- [94] evaluate_0.17          xtable_1.8-4           readxl_1.4.1          
- [97] gridExtra_2.3          compiler_4.2.1         KernSmooth_2.23-20    
-[100] crayon_1.5.2           htmltools_0.5.3        mgcv_1.8-40           
-[103] later_1.3.0            tzdb_0.3.0             lubridate_1.8.0       
-[106] DBI_1.1.3              dbplyr_2.2.1           MASS_7.3-58.1         
-[109] Matrix_1.5-1           car_3.1-0              cli_3.4.1             
-[112] parallel_4.2.1         igraph_1.3.5           pkgconfig_2.0.3       
-[115] plotly_4.10.0          spatstat.sparse_2.1-1  xml2_1.3.3            
-[118] vipor_0.4.5            bslib_0.4.0            XVector_0.36.0        
-[121] rvest_1.0.3            digest_0.6.29          RcppAnnoy_0.0.19      
-[124] spatstat.data_2.2-0    rmarkdown_2.17         cellranger_1.1.0      
-[127] leiden_0.4.3           uwot_0.1.14            shiny_1.7.2           
-[130] lifecycle_1.0.3        nlme_3.1-159           jsonlite_1.8.2        
-[133] carData_3.0-5          fansi_1.0.3            pillar_1.8.1          
-[136] lattice_0.20-45        ggrastr_1.0.1          fastmap_1.1.0         
-[139] httr_1.4.4             survival_3.4-0         glue_1.6.2            
-[142] png_0.1-7              bit_4.0.4              stringi_1.7.8         
-[145] sass_0.4.2             irlba_2.3.5.1          future.apply_1.9.1    </code></pre>
+ [70] Rcpp_1.0.9             plyr_1.8.8             zlibbioc_1.42.0       
+ [73] RCurl_1.98-1.9         deldir_1.0-6           pbapply_1.6-0         
+ [76] cowplot_1.1.1          zoo_1.8-11             haven_2.5.1           
+ [79] ggrepel_0.9.2          cluster_2.1.4          fs_1.5.2              
+ [82] data.table_1.14.6      scattermore_0.8        lmtest_0.9-40         
+ [85] reprex_2.0.2           RANN_2.6.1             googledrive_2.0.0     
+ [88] whisker_0.4            fitdistrplus_1.1-8     hms_1.1.2             
+ [91] patchwork_1.1.2        mime_0.12              evaluate_0.18         
+ [94] xtable_1.8-4           readxl_1.4.1           gridExtra_2.3         
+ [97] compiler_4.2.1         KernSmooth_2.23-20     crayon_1.5.2          
+[100] htmltools_0.5.3        later_1.3.0            tzdb_0.3.0            
+[103] lubridate_1.9.0        DBI_1.1.3              dbplyr_2.2.1          
+[106] MASS_7.3-58.1          Matrix_1.5-3           car_3.1-1             
+[109] cli_3.4.1              parallel_4.2.1         igraph_1.3.5          
+[112] pkgconfig_2.0.3        sp_1.5-1               plotly_4.10.1         
+[115] spatstat.sparse_3.0-0  xml2_1.3.3             vipor_0.4.5           
+[118] bslib_0.4.1            XVector_0.36.0         rvest_1.0.3           
+[121] digest_0.6.30          RcppAnnoy_0.0.20       spatstat.data_3.0-0   
+[124] rmarkdown_2.18         cellranger_1.1.0       leiden_0.4.3          
+[127] uwot_0.1.14            shiny_1.7.3            lifecycle_1.0.3       
+[130] nlme_3.1-160           jsonlite_1.8.3         carData_3.0-5         
+[133] fansi_1.0.3            pillar_1.8.1           lattice_0.20-45       
+[136] ggrastr_1.0.1          fastmap_1.1.0          httr_1.4.4            
+[139] survival_3.4-0         glue_1.6.2             png_0.1-8             
+[142] bit_4.0.5              stringi_1.7.8          sass_0.4.4            
+[145] irlba_2.3.5.1          future.apply_1.10.0   </code></pre>
 </div>
 </div>
 

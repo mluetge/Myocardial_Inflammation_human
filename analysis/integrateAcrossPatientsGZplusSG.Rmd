@@ -75,9 +75,9 @@ DefaultAssay(object = seurat.int) <- "integrated"
 # rerun seurat
 seurat.int <- ScaleData(object = seurat.int, verbose = FALSE)
 seurat.int <- FindVariableFeatures(seurat.int)
-seurat.int <- RunPCA(object = seurat.int, npcs = 20, verbose = FALSE)
-seurat.int <- RunTSNE(object = seurat.int, reduction = "pca", dims = 1:20)
-seurat.int <- RunUMAP(object = seurat.int, reduction = "pca", dims = 1:20)
+seurat.int <- RunPCA(object = seurat.int, npcs = 30, verbose = FALSE)
+seurat.int <- RunTSNE(object = seurat.int, reduction = "pca", dims = 1:30)
+seurat.int <- RunUMAP(object = seurat.int, reduction = "pca", dims = 1:30)
 
 seurat.int <- FindNeighbors(object = seurat.int, reduction = "pca", dims = 1:20,
                             k.param = 100)

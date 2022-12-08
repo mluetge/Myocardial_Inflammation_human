@@ -48,8 +48,10 @@ basedir <- here()
 seurat <- readRDS(file = paste0(basedir, 
                               "/data/humanHeartsPlusGraz_intPatients_merged", 
                               "_seurat.rds"))
-Idents(seurat) <- seurat$seurat_clusters
+Idents(seurat) <- seurat$integrated_snn_res.0.6
 table(seurat$ID)
+
+
 ```
 
 
@@ -70,47 +72,12 @@ seurat$label[which(seurat$integrated_snn_res.0.6 %in% c("6"))] <- "infMacrophage
 seurat$label[which(seurat$integrated_snn_res.0.6 %in% c("12"))] <- "NeuralCells"
 seurat$label[which(seurat$integrated_snn_res.0.6 %in% c("14"))] <- "Adipocytes"
 
-# ## reembedding of cluster 4 (mix of diff cell typpes)
-# seuratSub <- subset(seurat, integrated_snn_res.0.4=="4")
-# 
-# seuratSub <- rerunSeurat3(seuratSub)
-# Tcell <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("0", "3","6", "5", "11"))]
-# endo1 <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("1"))]
-# fibro <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("2"))]
-# peri <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("9", "12"))]
-# Adipo <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("7"))]
-# resmacro <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("4", "13"))]
-# infmacro <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("8"))]
-# LEC <- colnames(seuratSub)[which(seuratSub$RNA_snn_res.0.4 %in% c("10"))]
-# 
-# 
-# seurat$label[which(colnames(seurat) %in% Tcell)] <- "Tcell"
-# seurat$label[which(colnames(seurat) %in% peri)] <- "Perivascular"
-# seurat$label[which(colnames(seurat) %in% endo1)] <- "Endothelial"
-# seurat$label[which(colnames(seurat) %in% fibro)] <- "Fibroblast"
-# seurat$label[which(colnames(seurat) %in% Adipo)] <- "Adipocytes"
-# seurat$label[which(colnames(seurat) %in% resmacro)] <- "resMacrophage"
-# seurat$label[which(colnames(seurat) %in% infmacro)] <- "infMacrophage"
-# seurat$label[which(colnames(seurat) %in% LEC)] <- "LEC"
-# 
-# unique(seurat$integrated_snn_res.0.4)
-# seurat$clust <- as.character(seurat$integrated_snn_res.0.4)
-# seurat$clust[which(seurat$integrated_snn_res.0.6 == "8")] <- "11"
-# seurat$clust[which(colnames(seurat) %in% Tcell)] <- "12"
-# seurat$clust[which(colnames(seurat) %in% peri)] <- "13"
-# seurat$clust[which(colnames(seurat) %in% endo1)] <- "14"
-# seurat$clust[which(colnames(seurat) %in% fibro)] <- "15"
-# seurat$clust[which(colnames(seurat) %in% Adipo)] <- "16"
-# seurat$clust[which(colnames(seurat) %in% resmacro)] <- "17"
-# seurat$clust[which(colnames(seurat) %in% infmacro)] <- "18"
-# seurat$clust[which(colnames(seurat) %in% LEC)] <- "19"
 
 ```
 
 
 ## color vectors
 ```{r colVec}
-
 colPal <- c(pal_igv()(12),
             pal_aaas()(10))[1:length(levels(seurat))]
 colTec <- pal_jama()(length(unique(seurat$technique)))
@@ -122,8 +89,12 @@ colID <- c(pal_jco()(10), pal_npg()(10), pal_futurama()(10),
 colOrig <- pal_aaas()(length(unique(seurat$origin)))
 colIso <- pal_nejm()(length(unique(seurat$isolation)))
 colProc <- pal_aaas()(length(unique(seurat$processing)))
-colLab <- c(pal_futurama()(8), pal_uchicago()(6))[1:length(unique(seurat$label))]
-
+colLab <- c("#1b805d", "#C71000FF", "#344080", "#803467", "#5A9599FF",
+            "#FF6348FF", "#84D7E1FF", "#8A9045FF", "#800000FF", "#767676FF",
+            "#FFA319FF", "#FF95A8FF") 
+names(colLab) <- c("EndoEC", "Tcell","resMacrophage", "Fibroblast",
+                   "infMacrophage", "Perivascular","Cardiomyocyte",
+                   "Endothelial","Adipocytes","NeuralCells","SMC","LEC")
 names(colPal) <- levels(seurat)
 names(colTec) <- unique(seurat$technique)
 names(colSmp) <- unique(seurat$dataset)
@@ -132,7 +103,6 @@ names(colID) <- unique(seurat$ID)
 names(colOrig) <- unique(seurat$origin)
 names(colIso) <- unique(seurat$isolation)
 names(colProc) <- unique(seurat$processing)
-names(colLab) <- unique(seurat$label)
 ```
 
 

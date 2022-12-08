@@ -8,23 +8,10 @@ editor_options:
   chunk_output_type: console
 ---
 
-### Human Cardiac Fibroblasts - optimize protocols:  
-merge cardiac cells from different isolation protocols etc: [link](mergeHumanSamples.html)  
+### Human Cardiac Fibroblasts - final dataset incl GRAZ:  
 merge cardiac cells including samples from Graz: [link](mergeHumanSamplesPlusGraz.html)  
 integrate  cardiac cells including samples from Graz: [link](integrateAcrossPatientsGZplusSG.html)  
 assign labels to integrated data: [link](assignLabelshumanHeartsPlusGrazIntWoHH.html)  
-integrate  cardiac cells including samples from Graz only subset with high Tcell fraction: [link](integrateAcrossPatientsGZplusSG_Subset.html)  
-cw DE genes samples GRAZ and SG grouped by Tcell fraction: [link](DEgenesGZplusSG_Groups.html)  
-vis sel DE genes samples GRAZ and SG grouped by Tcell fraction: [link](visHumanCardiacDEgenesGroups.html)  
-cw DE genes samples GRAZ and SG subset on low Tcell fraction: [link](DEgenesGZplusSG_SubsetLT.html)  
-cw DE genes samples GRAZ and SG subset on high Tcell fraction: [link](DEgenesGZplusSG_SubsetHT.html)  
-vis sel DE genes samples GRAZ and SG on Tcell fraction: [link](visHumanCardiacDEgenesHT.html)  
-cw DE genes iDCM versus other: [link](DEgenes_iDCM.html)  
-visualize data for grand application with ECMO4: [link](Vis_plus_analyse_NormlaHFMyo.html)  
-visualize data for grand application without ECMO4: [link](Vis_plus_analyse_NormlaHFMyo_woECMO4.html)  
-
-### Human Cardiac Fibroblasts - final dataset incl GRAZ:  
-merge cardiac cells from different patients: [link](mergeHumanSamplesPlusGraz.html)  
-assign label on integrated objects: [link](assignLabelshumanHeartsPlusGrazInt.html)  
-
+DE genes T cell groups: [link](DEgenesTcellGrps.html)  
+Project gene signatures: [link](projectSignatures.html)  
 
