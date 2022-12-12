@@ -143,11 +143,10 @@ colID <- c(pal_jco()(10), pal_npg()(10), pal_futurama()(10),
 colOrig <- pal_aaas()(length(unique(seurat$origin)))
 colIso <- pal_nejm()(length(unique(seurat$isolation)))
 colProc <- pal_aaas()(length(unique(seurat$processing)))
-colTgrp <- c("#9f2238", "#48557e", "#71737a")
-colLab <- c("#1b805d", "#C71000FF", "#344080", "#803467", "#5A9599FF",
-            "#FF6348FF", "#84D7E1FF", "#8A9045FF", "#800000FF", "#767676FF",
+colTgrp <- c("#d70700", "#00239a", "#1f7a1f")
+colLab <- c("#c08b65", "#ba4e45", "#d4cc84", "#546f82", "#5c5cdf",
+            "#80396e", "#8d5639", "#779462", "#800000FF", "#d87c15",
             "#FFA319FF", "#FF95A8FF") 
-
 names(colLab) <- c("EndoEC", "Tcell","resMacrophage", "Fibroblast",
                    "infMacrophage", "Perivascular","Cardiomyocyte",
                    "Endothelial","Adipocytes","NeuralCells","SMC","LEC")
@@ -593,7 +592,7 @@ write.table(clustDE_Dat, quote=F, row.names = F,col.names = T, sep= "\t",
 ```{r subset Fibroblast only}
 
 table(seurat$label, seurat$TcellGrp)
-## all grps > 3000 cells --> no need to downsample
+## all grps between 3000 and 5000 cells --> no need to downsample
 
 Idents(seurat) <- seurat$label_plus_TcellGrp
 seuratSub <- subset(seurat, label=="Fibroblast")
@@ -719,8 +718,7 @@ p
 ```{r network, fig.height=8, fig.width=10}
 
 grpVec <- unique(selGO$Grp)
-colTgrpGen <- c("#c96778", "#8391ba")
-names(colTgrpGen) <- grpVec
+colTgrpGen <- colTgrp
 
 lapply(grpVec, function(cl){
   DEgenesSub <- overallDE_ThighLow %>% 

@@ -89,12 +89,13 @@ colID <- c(pal_jco()(10), pal_npg()(10), pal_futurama()(10),
 colOrig <- pal_aaas()(length(unique(seurat$origin)))
 colIso <- pal_nejm()(length(unique(seurat$isolation)))
 colProc <- pal_aaas()(length(unique(seurat$processing)))
-colLab <- c("#1b805d", "#C71000FF", "#344080", "#803467", "#5A9599FF",
-            "#FF6348FF", "#84D7E1FF", "#8A9045FF", "#800000FF", "#767676FF",
+colLab <- c("#c08b65", "#ba4e45", "#d4cc84", "#546f82", "#5c5cdf",
+            "#80396e", "#8d5639", "#779462", "#800000FF", "#d87c15",
             "#FFA319FF", "#FF95A8FF") 
 names(colLab) <- c("EndoEC", "Tcell","resMacrophage", "Fibroblast",
                    "infMacrophage", "Perivascular","Cardiomyocyte",
                    "Endothelial","Adipocytes","NeuralCells","SMC","LEC")
+
 names(colPal) <- levels(seurat)
 names(colTec) <- unique(seurat$technique)
 names(colSmp) <- unique(seurat$dataset)

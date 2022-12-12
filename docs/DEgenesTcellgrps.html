@@ -381,7 +381,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-12-08
+<strong>Last updated:</strong> 2022-12-09
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -419,10 +419,10 @@ changes </a>
 <div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R
-Markdown file created these results, you’ll want to first commit it to
-the Git repo. If you’re still working on the analysis, you can ignore
-this warning. When you’re finished, you can run
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
 <code>wflow_publish</code> to commit the R Markdown file and build the
 HTML.</p>
 </div>
@@ -515,15 +515,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree1e723809868eb6a738ab7c8aa6a0bf244ea60da5targetblank1e72380a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree66c2208fa98ac9c0d814e7688ca5085ca965066ctargetblank66c2208a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/1e723809868eb6a738ab7c8aa6a0bf244ea60da5" target="_blank">1e72380</a>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/66c2208fa98ac9c0d814e7688ca5085ca965066c" target="_blank">66c2208</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree1e723809868eb6a738ab7c8aa6a0bf244ea60da5targetblank1e72380a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree66c2208fa98ac9c0d814e7688ca5085ca965066ctargetblank66c2208a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -533,7 +533,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/1e723809868eb6a738ab7c8aa6a0bf244ea60da5" target="_blank">1e72380</a>.
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/66c2208fa98ac9c0d814e7688ca5085ca965066c" target="_blank">66c2208</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -555,13 +555,9 @@ Ignored files:
     Ignored:    data/humanFibroblast/
     Ignored:    figure/DEgenesGZplusSG_Groups.Rmd/.DS_Store
 
-Untracked files:
-    Untracked:  analysis/DEgenesTcellgrps.Rmd
-    Untracked:  figure/DEgenesTcellgrps.Rmd/
-
 Unstaged changes:
+    Modified:   analysis/DEgenesTcellgrps.Rmd
     Modified:   analysis/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd
-    Modified:   analysis/integrateAcrossPatientsGZplusSG.Rmd
 
 </code></pre>
 <p>
@@ -576,10 +572,74 @@ have uncommitted changes.
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with
-<code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/DEgenesTcellgrps.Rmd</code>) and
+HTML (<code>docs/DEgenesTcellgrps.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/analysis/DEgenesTcellgrps.Rmd" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+<td>
+compare T cell groups and project gene signatures
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mluetge/humanCardiacFibroblasts/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/DEgenesTcellgrps.html" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+<td>
+compare T cell groups and project gene signatures
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -694,11 +754,10 @@ colID &lt;- c(pal_jco()(10), pal_npg()(10), pal_futurama()(10),
 colOrig &lt;- pal_aaas()(length(unique(seurat$origin)))
 colIso &lt;- pal_nejm()(length(unique(seurat$isolation)))
 colProc &lt;- pal_aaas()(length(unique(seurat$processing)))
-colTgrp &lt;- c(&quot;#9f2238&quot;, &quot;#48557e&quot;, &quot;#71737a&quot;)
-colLab &lt;- c(&quot;#1b805d&quot;, &quot;#C71000FF&quot;, &quot;#344080&quot;, &quot;#803467&quot;, &quot;#5A9599FF&quot;,
-            &quot;#FF6348FF&quot;, &quot;#84D7E1FF&quot;, &quot;#8A9045FF&quot;, &quot;#800000FF&quot;, &quot;#767676FF&quot;,
+colTgrp &lt;- c(&quot;#d70700&quot;, &quot;#00239a&quot;, &quot;#1f7a1f&quot;)
+colLab &lt;- c(&quot;#c08b65&quot;, &quot;#ba4e45&quot;, &quot;#d4cc84&quot;, &quot;#546f82&quot;, &quot;#5c5cdf&quot;,
+            &quot;#80396e&quot;, &quot;#8d5639&quot;, &quot;#779462&quot;, &quot;#800000FF&quot;, &quot;#d87c15&quot;,
             &quot;#FFA319FF&quot;, &quot;#FF95A8FF&quot;) 
-
 names(colLab) &lt;- c(&quot;EndoEC&quot;, &quot;Tcell&quot;,&quot;resMacrophage&quot;, &quot;Fibroblast&quot;,
                    &quot;infMacrophage&quot;, &quot;Perivascular&quot;,&quot;Cardiomyocyte&quot;,
                    &quot;Endothelial&quot;,&quot;Adipocytes&quot;,&quot;NeuralCells&quot;,&quot;SMC&quot;,&quot;LEC&quot;)
@@ -723,10 +782,84 @@ names(colProc) &lt;- unique(seurat$processing)</code></pre>
   xlab(&quot;UMAP1&quot;) +
   ylab(&quot;UMAP2&quot;)</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20cluster-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-cluster-1">
+Past versions of "vis cluster-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-cluster-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis cluster-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>DimPlot(seurat, reduction = &quot;umap&quot;, cols=colPal,
         shuffle = T)+
   theme_void()</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20cluster-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-cluster-2">
+Past versions of "vis cluster-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-cluster-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis cluster-2.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="label" class="section level3">
 <h3>label</h3>
@@ -737,10 +870,84 @@ names(colProc) &lt;- unique(seurat$processing)</code></pre>
   xlab(&quot;UMAP1&quot;) +
   ylab(&quot;UMAP2&quot;)</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20label-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-label-1">
+Past versions of "vis label-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-label-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis label-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>DimPlot(seurat, reduction = &quot;umap&quot;, group.by = &quot;label&quot;, cols=colLab,
         shuffle = T)+
   theme_void()</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20label-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-label-2">
+Past versions of "vis label-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-label-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis label-2.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="id" class="section level3">
 <h3>ID</h3>
@@ -751,10 +958,84 @@ names(colProc) &lt;- unique(seurat$processing)</code></pre>
   xlab(&quot;UMAP1&quot;) +
   ylab(&quot;UMAP2&quot;)</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20ID-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-ID-1">
+Past versions of "vis ID-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-ID-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis ID-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>DimPlot(seurat, reduction = &quot;umap&quot;, group.by = &quot;ID&quot;, cols=colID,
         shuffle = T)+
   theme_void()</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20ID-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-ID-2">
+Past versions of "vis ID-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-ID-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis ID-2.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cond" class="section level3">
 <h3>cond</h3>
@@ -765,6 +1046,43 @@ names(colProc) &lt;- unique(seurat$processing)</code></pre>
   xlab(&quot;UMAP1&quot;) +
   ylab(&quot;UMAP2&quot;)</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20cond-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-cond-1">
+Past versions of "vis cond-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-cond-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis cond-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="t-cell-grp" class="section level3">
 <h3>T cell grp</h3>
@@ -775,10 +1093,84 @@ names(colProc) &lt;- unique(seurat$processing)</code></pre>
   xlab(&quot;UMAP1&quot;) +
   ylab(&quot;UMAP2&quot;)</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20T%20cell%20group-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-T-cell-group-1">
+Past versions of "vis T cell group-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-T-cell-group-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis T cell group-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>DimPlot(seurat, reduction = &quot;umap&quot;, group.by = &quot;TcellGrp&quot;, cols=colTgrp,
         shuffle = T)+
   theme_void()</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20T%20cell%20group-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-T-cell-group-2">
+Past versions of "vis T cell group-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-T-cell-group-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis T cell group-2.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="label-split-by-t-cell-grp" class="section level3">
 <h3>label split by T cell Grp</h3>
@@ -786,6 +1178,43 @@ names(colProc) &lt;- unique(seurat$processing)</code></pre>
         split.by = &quot;TcellGrp&quot;, shuffle = T)+
   theme_void()</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/vis%20label%20split%20seq-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vis-label-split-seq-1">
+Past versions of "vis label split seq-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-vis-label-split-seq-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/vis label split seq-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="overall-de-genes" class="section level2 tabset">
@@ -1043,46 +1472,453 @@ write.table(clustDE_Dat, quote=F, row.names = F,col.names = T, sep= &quot;\t&quo
 <div id="endoec" class="section level4">
 <h4>EndoEC</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE EndoEC-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-EndoEC-1">
+Past versions of "avgHeat cwDE EndoEC-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-EndoEC-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE EndoEC-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="tcell" class="section level4">
 <h4>Tcell</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Tcell-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-Tcell-1">
+Past versions of "avgHeat cwDE Tcell-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-Tcell-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Tcell-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="resmacrophage" class="section level4">
 <h4>resMacrophage</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE resMacrophage-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-resMacrophage-1">
+Past versions of "avgHeat cwDE resMacrophage-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-resMacrophage-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE resMacrophage-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="fibroblast" class="section level4">
 <h4>Fibroblast</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Fibroblast-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-Fibroblast-1">
+Past versions of "avgHeat cwDE Fibroblast-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-Fibroblast-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Fibroblast-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="infmacrophage" class="section level4">
 <h4>infMacrophage</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE infMacrophage-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-infMacrophage-1">
+Past versions of "avgHeat cwDE infMacrophage-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-infMacrophage-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE infMacrophage-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="perivascular" class="section level4">
 <h4>Perivascular</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Perivascular-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-Perivascular-1">
+Past versions of "avgHeat cwDE Perivascular-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-Perivascular-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Perivascular-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cardiomyocyte" class="section level4">
 <h4>Cardiomyocyte</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Cardiomyocyte-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-Cardiomyocyte-1">
+Past versions of "avgHeat cwDE Cardiomyocyte-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-Cardiomyocyte-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Cardiomyocyte-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="endothelial" class="section level4">
 <h4>Endothelial</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Endothelial-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-Endothelial-1">
+Past versions of "avgHeat cwDE Endothelial-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-Endothelial-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Endothelial-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="adipocytes" class="section level4">
 <h4>Adipocytes</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Adipocytes-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-Adipocytes-1">
+Past versions of "avgHeat cwDE Adipocytes-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-Adipocytes-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Adipocytes-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="neuralcells" class="section level4">
 <h4>NeuralCells</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE NeuralCells-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-NeuralCells-1">
+Past versions of "avgHeat cwDE NeuralCells-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-NeuralCells-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE NeuralCells-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="smc" class="section level4">
 <h4>SMC</h4>
 <p><img src="figure/DEgenesTcellgrps.Rmd/avgHeat cwDE SMC-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-avgHeat-cwDE-SMC-1">
+Past versions of "avgHeat cwDE SMC-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-avgHeat-cwDE-SMC-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/figure/DEgenesTcellgrps.Rmd/avgHeat cwDE SMC-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1132,7 +1968,7 @@ write.table(clustDE_Dat, quote=F, row.names = F,col.names = T, sep= &quot;\t&quo
   resMacrophage      1493      724      430
   SMC                 484      682      509
   Tcell              4409      728      231</code></pre>
-<pre class="r"><code>## all grps &gt; 3000 cells --&gt; no need to downsample
+<pre class="r"><code>## all grps between 3000 and 5000 cells --&gt; no need to downsample
 
 Idents(seurat) &lt;- seurat$label_plus_TcellGrp
 seuratSub &lt;- subset(seurat, label==&quot;Fibroblast&quot;)</code></pre>
@@ -1238,16 +2074,89 @@ p
 })</code></pre>
 <pre><code>[[1]]</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/barplot-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-barplot-1">
+Past versions of barplot-1.png
+</button>
+</p>
+<div id="fig-barplot-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/barplot-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre><code>
 [[2]]</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/barplot-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-barplot-2">
+Past versions of barplot-2.png
+</button>
+</p>
+<div id="fig-barplot-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/barplot-2.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vis-enrichment-analysis-go-terms-network"
 class="section level4">
 <h4>vis enrichment analysis GO terms network</h4>
 <pre class="r"><code>grpVec &lt;- unique(selGO$Grp)
-colTgrpGen &lt;- c(&quot;#c96778&quot;, &quot;#8391ba&quot;)
-names(colTgrpGen) &lt;- grpVec
+colTgrpGen &lt;- colTgrp
 
 lapply(grpVec, function(cl){
   DEgenesSub &lt;- overallDE_ThighLow %&gt;% 
@@ -1274,9 +2183,83 @@ lapply(grpVec, function(cl){
 })</code></pre>
 <pre><code>[[1]]</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/network-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-network-1">
+Past versions of network-1.png
+</button>
+</p>
+<div id="fig-network-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/network-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre><code>
 [[2]]</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/network-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-network-2">
+Past versions of network-2.png
+</button>
+</p>
+<div id="fig-network-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/network-2.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vis-enrichment-analysis-go-terms-combined-network"
 class="section level4">
@@ -1304,6 +2287,43 @@ ck &lt;- setReadable(ck, OrgDb = org.Hs.eg.db)
 cnetplot(ck, showCategory = 10, shadowtext=&quot;none&quot;) +
   scale_fill_manual(values = colTgrp)</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/combined%20network-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-combined-network-1">
+Past versions of "combined network-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-combined-network-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/combined network-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vis-enrichment-analysis-go-terms-heatmap"
 class="section level4">
@@ -1339,6 +2359,43 @@ pheatmap(geneIDmat, scale=&quot;none&quot; ,treeheight_row = 0, cluster_rows = F
          cellwidth=15, cellheight=10,
          main = &quot;log2FC T cell high vs T cell low&quot;)</code></pre>
 <p><img src="figure/DEgenesTcellgrps.Rmd/heatmap%20GO%20terms-1.png" width="3360" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-heatmap-GO-terms-1">
+Past versions of "heatmap GO terms-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-heatmap-GO-terms-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/DEgenesTcellgrps.Rmd/heatmap GO terms-1.png" target="_blank">66c2208</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="t-cell-high-vs-t-cell-int-1" class="section level3">
@@ -1525,42 +2582,42 @@ loaded via a namespace (and not attached):
  [64] modelr_0.1.10          cellranger_1.1.0       rprojroot_2.0.3       
  [67] polyclip_1.10-4        lmtest_0.9-40          Matrix_1.5-3          
  [70] aplot_0.1.9            carData_3.0-5          zoo_1.8-11            
- [73] reprex_2.0.2           ggridges_0.5.4         googlesheets4_1.0.1   
- [76] png_0.1-8              bitops_1.0-7           KernSmooth_2.23-20    
- [79] Biostrings_2.64.1      blob_1.2.3             workflowr_1.7.0       
- [82] qvalue_2.28.0          parallelly_1.32.1      spatstat.random_3.0-1 
- [85] rstatix_0.7.1          gridGraphics_0.5-1     ggsignif_0.6.4        
- [88] scales_1.2.1           memoise_2.0.1          plyr_1.8.8            
- [91] ica_1.0-3              zlibbioc_1.42.0        scatterpie_0.1.8      
- [94] compiler_4.2.1         RColorBrewer_1.1-3     fitdistrplus_1.1-8    
- [97] cli_3.4.1              XVector_0.36.0         listenv_0.8.0         
-[100] patchwork_1.1.2        pbapply_1.6-0          MASS_7.3-58.1         
-[103] tidyselect_1.2.0       stringi_1.7.8          highr_0.9             
-[106] yaml_2.3.6             GOSemSim_2.22.0        ggrepel_0.9.2         
-[109] grid_4.2.1             sass_0.4.4             fastmatch_1.1-3       
-[112] tools_4.2.1            timechange_0.1.1       future.apply_1.10.0   
-[115] parallel_4.2.1         rstudioapi_0.14        git2r_0.30.1          
-[118] gridExtra_2.3          farver_2.1.1           Rtsne_0.16            
-[121] ggraph_2.1.0           digest_0.6.30          shiny_1.7.3           
-[124] Rcpp_1.0.9             car_3.1-1              broom_1.0.1           
-[127] later_1.3.0            RcppAnnoy_0.0.20       httr_1.4.4            
-[130] colorspace_2.0-3       rvest_1.0.3            fs_1.5.2              
-[133] tensor_1.5             reticulate_1.26        splines_4.2.1         
-[136] uwot_0.1.14            yulab.utils_0.0.5      tidytree_0.4.1        
-[139] spatstat.utils_3.0-1   graphlayouts_0.8.4     sp_1.5-1              
-[142] ggplotify_0.1.0        plotly_4.10.1          xtable_1.8-4          
-[145] jsonlite_1.8.3         ggtree_3.4.4           tidygraph_1.2.2       
-[148] ggfun_0.0.9            R6_2.5.1               pillar_1.8.1          
-[151] htmltools_0.5.3        mime_0.12              glue_1.6.2            
-[154] fastmap_1.1.0          BiocParallel_1.30.4    codetools_0.2-18      
-[157] fgsea_1.22.0           utf8_1.2.2             lattice_0.20-45       
-[160] bslib_0.4.1            spatstat.sparse_3.0-0  leiden_0.4.3          
-[163] GO.db_3.15.0           limma_3.52.4           survival_3.4-0        
-[166] rmarkdown_2.18         munsell_0.5.0          DO.db_2.9             
-[169] GenomeInfoDbData_1.2.8 haven_2.5.1            reshape2_1.4.4        
-[172] gtable_0.3.1          </code></pre>
+ [73] reprex_2.0.2           whisker_0.4            ggridges_0.5.4        
+ [76] googlesheets4_1.0.1    png_0.1-8              bitops_1.0-7          
+ [79] KernSmooth_2.23-20     Biostrings_2.64.1      blob_1.2.3            
+ [82] workflowr_1.7.0        qvalue_2.28.0          parallelly_1.32.1     
+ [85] spatstat.random_3.0-1  rstatix_0.7.1          gridGraphics_0.5-1    
+ [88] ggsignif_0.6.4         scales_1.2.1           memoise_2.0.1         
+ [91] plyr_1.8.8             ica_1.0-3              zlibbioc_1.42.0       
+ [94] scatterpie_0.1.8       compiler_4.2.1         RColorBrewer_1.1-3    
+ [97] fitdistrplus_1.1-8     cli_3.4.1              XVector_0.36.0        
+[100] listenv_0.8.0          patchwork_1.1.2        pbapply_1.6-0         
+[103] MASS_7.3-58.1          tidyselect_1.2.0       stringi_1.7.8         
+[106] highr_0.9              yaml_2.3.6             GOSemSim_2.22.0       
+[109] ggrepel_0.9.2          grid_4.2.1             sass_0.4.4            
+[112] fastmatch_1.1-3        tools_4.2.1            timechange_0.1.1      
+[115] future.apply_1.10.0    parallel_4.2.1         rstudioapi_0.14       
+[118] git2r_0.30.1           gridExtra_2.3          farver_2.1.1          
+[121] Rtsne_0.16             ggraph_2.1.0           digest_0.6.30         
+[124] shiny_1.7.3            Rcpp_1.0.9             car_3.1-1             
+[127] broom_1.0.1            later_1.3.0            RcppAnnoy_0.0.20      
+[130] httr_1.4.4             colorspace_2.0-3       rvest_1.0.3           
+[133] fs_1.5.2               tensor_1.5             reticulate_1.26       
+[136] splines_4.2.1          uwot_0.1.14            yulab.utils_0.0.5     
+[139] tidytree_0.4.1         spatstat.utils_3.0-1   graphlayouts_0.8.4    
+[142] sp_1.5-1               ggplotify_0.1.0        plotly_4.10.1         
+[145] xtable_1.8-4           jsonlite_1.8.3         ggtree_3.4.4          
+[148] tidygraph_1.2.2        ggfun_0.0.9            R6_2.5.1              
+[151] pillar_1.8.1           htmltools_0.5.3        mime_0.12             
+[154] glue_1.6.2             fastmap_1.1.0          BiocParallel_1.30.4   
+[157] codetools_0.2-18       fgsea_1.22.0           utf8_1.2.2            
+[160] lattice_0.20-45        bslib_0.4.1            spatstat.sparse_3.0-0 
+[163] leiden_0.4.3           GO.db_3.15.0           limma_3.52.4          
+[166] survival_3.4-0         rmarkdown_2.18         munsell_0.5.0         
+[169] DO.db_2.9              GenomeInfoDbData_1.2.8 haven_2.5.1           
+[172] reshape2_1.4.4         gtable_0.3.1          </code></pre>
 <pre class="r"><code>date()</code></pre>
-<pre><code>[1] &quot;Thu Dec  8 08:57:34 2022&quot;</code></pre>
+<pre><code>[1] &quot;Fri Dec  9 11:42:08 2022&quot;</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1629,40 +2686,40 @@ loaded via a namespace (and not attached):
  [64] modelr_0.1.10          cellranger_1.1.0       rprojroot_2.0.3       
  [67] polyclip_1.10-4        lmtest_0.9-40          Matrix_1.5-3          
  [70] aplot_0.1.9            carData_3.0-5          zoo_1.8-11            
- [73] reprex_2.0.2           ggridges_0.5.4         googlesheets4_1.0.1   
- [76] png_0.1-8              bitops_1.0-7           KernSmooth_2.23-20    
- [79] Biostrings_2.64.1      blob_1.2.3             workflowr_1.7.0       
- [82] qvalue_2.28.0          parallelly_1.32.1      spatstat.random_3.0-1 
- [85] rstatix_0.7.1          gridGraphics_0.5-1     ggsignif_0.6.4        
- [88] scales_1.2.1           memoise_2.0.1          plyr_1.8.8            
- [91] ica_1.0-3              zlibbioc_1.42.0        scatterpie_0.1.8      
- [94] compiler_4.2.1         RColorBrewer_1.1-3     fitdistrplus_1.1-8    
- [97] cli_3.4.1              XVector_0.36.0         listenv_0.8.0         
-[100] patchwork_1.1.2        pbapply_1.6-0          MASS_7.3-58.1         
-[103] tidyselect_1.2.0       stringi_1.7.8          highr_0.9             
-[106] yaml_2.3.6             GOSemSim_2.22.0        ggrepel_0.9.2         
-[109] grid_4.2.1             sass_0.4.4             fastmatch_1.1-3       
-[112] tools_4.2.1            timechange_0.1.1       future.apply_1.10.0   
-[115] parallel_4.2.1         rstudioapi_0.14        git2r_0.30.1          
-[118] gridExtra_2.3          farver_2.1.1           Rtsne_0.16            
-[121] ggraph_2.1.0           digest_0.6.30          shiny_1.7.3           
-[124] Rcpp_1.0.9             car_3.1-1              broom_1.0.1           
-[127] later_1.3.0            RcppAnnoy_0.0.20       httr_1.4.4            
-[130] colorspace_2.0-3       rvest_1.0.3            fs_1.5.2              
-[133] tensor_1.5             reticulate_1.26        splines_4.2.1         
-[136] uwot_0.1.14            yulab.utils_0.0.5      tidytree_0.4.1        
-[139] spatstat.utils_3.0-1   graphlayouts_0.8.4     sp_1.5-1              
-[142] ggplotify_0.1.0        plotly_4.10.1          xtable_1.8-4          
-[145] jsonlite_1.8.3         ggtree_3.4.4           tidygraph_1.2.2       
-[148] ggfun_0.0.9            R6_2.5.1               pillar_1.8.1          
-[151] htmltools_0.5.3        mime_0.12              glue_1.6.2            
-[154] fastmap_1.1.0          BiocParallel_1.30.4    codetools_0.2-18      
-[157] fgsea_1.22.0           utf8_1.2.2             lattice_0.20-45       
-[160] bslib_0.4.1            spatstat.sparse_3.0-0  leiden_0.4.3          
-[163] GO.db_3.15.0           limma_3.52.4           survival_3.4-0        
-[166] rmarkdown_2.18         munsell_0.5.0          DO.db_2.9             
-[169] GenomeInfoDbData_1.2.8 haven_2.5.1            reshape2_1.4.4        
-[172] gtable_0.3.1          </code></pre>
+ [73] reprex_2.0.2           whisker_0.4            ggridges_0.5.4        
+ [76] googlesheets4_1.0.1    png_0.1-8              bitops_1.0-7          
+ [79] KernSmooth_2.23-20     Biostrings_2.64.1      blob_1.2.3            
+ [82] workflowr_1.7.0        qvalue_2.28.0          parallelly_1.32.1     
+ [85] spatstat.random_3.0-1  rstatix_0.7.1          gridGraphics_0.5-1    
+ [88] ggsignif_0.6.4         scales_1.2.1           memoise_2.0.1         
+ [91] plyr_1.8.8             ica_1.0-3              zlibbioc_1.42.0       
+ [94] scatterpie_0.1.8       compiler_4.2.1         RColorBrewer_1.1-3    
+ [97] fitdistrplus_1.1-8     cli_3.4.1              XVector_0.36.0        
+[100] listenv_0.8.0          patchwork_1.1.2        pbapply_1.6-0         
+[103] MASS_7.3-58.1          tidyselect_1.2.0       stringi_1.7.8         
+[106] highr_0.9              yaml_2.3.6             GOSemSim_2.22.0       
+[109] ggrepel_0.9.2          grid_4.2.1             sass_0.4.4            
+[112] fastmatch_1.1-3        tools_4.2.1            timechange_0.1.1      
+[115] future.apply_1.10.0    parallel_4.2.1         rstudioapi_0.14       
+[118] git2r_0.30.1           gridExtra_2.3          farver_2.1.1          
+[121] Rtsne_0.16             ggraph_2.1.0           digest_0.6.30         
+[124] shiny_1.7.3            Rcpp_1.0.9             car_3.1-1             
+[127] broom_1.0.1            later_1.3.0            RcppAnnoy_0.0.20      
+[130] httr_1.4.4             colorspace_2.0-3       rvest_1.0.3           
+[133] fs_1.5.2               tensor_1.5             reticulate_1.26       
+[136] splines_4.2.1          uwot_0.1.14            yulab.utils_0.0.5     
+[139] tidytree_0.4.1         spatstat.utils_3.0-1   graphlayouts_0.8.4    
+[142] sp_1.5-1               ggplotify_0.1.0        plotly_4.10.1         
+[145] xtable_1.8-4           jsonlite_1.8.3         ggtree_3.4.4          
+[148] tidygraph_1.2.2        ggfun_0.0.9            R6_2.5.1              
+[151] pillar_1.8.1           htmltools_0.5.3        mime_0.12             
+[154] glue_1.6.2             fastmap_1.1.0          BiocParallel_1.30.4   
+[157] codetools_0.2-18       fgsea_1.22.0           utf8_1.2.2            
+[160] lattice_0.20-45        bslib_0.4.1            spatstat.sparse_3.0-0 
+[163] leiden_0.4.3           GO.db_3.15.0           limma_3.52.4          
+[166] survival_3.4-0         rmarkdown_2.18         munsell_0.5.0         
+[169] DO.db_2.9              GenomeInfoDbData_1.2.8 haven_2.5.1           
+[172] reshape2_1.4.4         gtable_0.3.1          </code></pre>
 </div>
 </div>
 
