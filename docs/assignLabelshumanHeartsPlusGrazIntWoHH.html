@@ -361,7 +361,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -372,8 +372,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -386,9 +386,9 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>humanCardiacFibroblasts/</code>
@@ -411,21 +411,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -516,15 +513,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree66c2208fa98ac9c0d814e7688ca5085ca965066ctargetblank66c2208a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree307a2ca1303cc372cc4fda9bb1a98e79fe8d29bdtargetblank307a2caa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/66c2208fa98ac9c0d814e7688ca5085ca965066c" target="_blank">66c2208</a>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd" target="_blank">307a2ca</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree66c2208fa98ac9c0d814e7688ca5085ca965066ctargetblank66c2208a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree307a2ca1303cc372cc4fda9bb1a98e79fe8d29bdtargetblank307a2caa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -534,7 +531,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/66c2208fa98ac9c0d814e7688ca5085ca965066c" target="_blank">66c2208</a>.
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd" target="_blank">307a2ca</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -552,36 +549,10 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/figure/
     Ignored:    data/GSEA/
     Ignored:    data/humanFibroblast/
     Ignored:    figure/DEgenesGZplusSG_Groups.Rmd/.DS_Store
-
-Unstaged changes:
-    Modified:   analysis/DEgenesTcellgrps.Rmd
-    Modified:   analysis/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd
-    Modified:   analysis/projectSignatures.Rmd
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Adipocytes-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Adipocytes-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Cardiomyocyte-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Cardiomyocyte-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE EndoEC-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE EndoEC-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Endothelial-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Endothelial-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Fibroblast-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Fibroblast-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE NeuralCells-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE NeuralCells-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Perivascular-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Perivascular-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE SMC-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE SMC-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Tcell-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE Tcell-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE infMacrophage-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE infMacrophage-1.png
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE resMacrophage-1.pdf
-    Modified:   figure/DEgenesTcellgrps.Rmd/avgHeat cwDE resMacrophage-1.png
 
 </code></pre>
 <p>
@@ -628,6 +599,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/analysis/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+<td>
+update pat ID SG29
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mluetge/humanCardiacFibroblasts/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/assignLabelshumanHeartsPlusGrazIntWoHH.html" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+<td>
+update pat ID SG29
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -984,6 +989,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis label-1.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis label-1.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -1045,6 +1061,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis label-2.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis label-2.png" target="_blank">66c2208</a>
@@ -1254,6 +1281,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis ID-1.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis ID-1.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -1315,6 +1353,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis ID-2.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis ID-2.png" target="_blank">66c2208</a>
@@ -4163,6 +4212,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/cnt tables per pat-1.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/cnt tables per pat-1.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -4231,6 +4291,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/cnt tables per pat-2.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/cnt tables per pat-2.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -4276,7 +4347,7 @@ seurat$TcellGrp &lt;- IDtoTcell$TcellGrp
 table(seurat$TcellGrp)</code></pre>
 <pre><code>
 TcellHigh  TcellInt  TcellLow 
-    15696     16878     11540 </code></pre>
+    15696     18132     10286 </code></pre>
 <pre class="r"><code>table(seurat$TcellGrp, seurat$ID)</code></pre>
 <pre><code>           
              GZ1 GZ14 GZ15 GZ16 GZ17 GZ18  GZ2 GZ20  GZ3  GZ4  GZ5  GZ6 SG21
@@ -4286,8 +4357,8 @@ TcellHigh  TcellInt  TcellLow
            
             SG24 SG25 SG28 SG29_1 SG29_2 SG31 SG32 SG33 SG34 SG35
   TcellHigh    0 3131    0      0   1242    0    0 6286    0    0
-  TcellInt  2381    0    0      0      0    0 1428    0  620 2363
-  TcellLow     0    0 1545   1254      0 1192    0    0    0    0</code></pre>
+  TcellInt  2381    0    0   1254      0    0 1428    0  620 2363
+  TcellLow     0    0 1545      0      0 1192    0    0    0    0</code></pre>
 </div>
 <div id="vis-marker-for-celltype-assignment" class="section level2">
 <h2>vis marker for celltype assignment</h2>
@@ -4395,6 +4466,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis sel marker-2.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vis sel marker-2.png" target="_blank">66c2208</a>
@@ -4604,6 +4686,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-1.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/1e723809868eb6a738ab7c8aa6a0bf244ea60da5/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-1.png" target="_blank">1e72380</a>
 </td>
 <td>
@@ -4653,6 +4746,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-2.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/1e723809868eb6a738ab7c8aa6a0bf244ea60da5/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-2.png" target="_blank">1e72380</a>
 </td>
 <td>
@@ -4700,6 +4804,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-3.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-3.png" target="_blank">66c2208</a>
@@ -4811,6 +4926,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-5.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-5.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -4871,6 +4997,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-6.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-6.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -4929,6 +5066,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-7.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/1e723809868eb6a738ab7c8aa6a0bf244ea60da5/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-7.png" target="_blank">1e72380</a>
@@ -5078,6 +5226,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-10.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-10.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -5136,6 +5295,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-11.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/1e723809868eb6a738ab7c8aa6a0bf244ea60da5/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-11.png" target="_blank">1e72380</a>
@@ -5245,6 +5415,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-13.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/1e723809868eb6a738ab7c8aa6a0bf244ea60da5/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-13.png" target="_blank">1e72380</a>
 </td>
 <td>
@@ -5294,6 +5475,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-14.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/1e723809868eb6a738ab7c8aa6a0bf244ea60da5/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-14.png" target="_blank">1e72380</a>
 </td>
 <td>
@@ -5341,6 +5533,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-15.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-15.png" target="_blank">66c2208</a>
@@ -5452,6 +5655,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-17.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-17.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -5512,6 +5726,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-18.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-18.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -5570,6 +5795,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-19.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/1e723809868eb6a738ab7c8aa6a0bf244ea60da5/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-19.png" target="_blank">1e72380</a>
@@ -5719,6 +5955,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-22.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-22.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -5777,6 +6024,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-23.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/1e723809868eb6a738ab7c8aa6a0bf244ea60da5/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt sel marker-23.png" target="_blank">1e72380</a>
@@ -6399,6 +6657,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-1.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-1.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -6446,6 +6715,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-2.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-2.png" target="_blank">66c2208</a>
@@ -6497,6 +6777,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-3.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-3.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -6544,6 +6835,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-4.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-4.png" target="_blank">66c2208</a>
@@ -6605,6 +6907,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-5.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-5.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -6652,6 +6965,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-6.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-6.png" target="_blank">66c2208</a>
@@ -6703,6 +7027,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-7.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-7.png" target="_blank">66c2208</a>
 </td>
 <td>
@@ -6750,6 +7085,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-8.png" target="_blank">307a2ca</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/66c2208fa98ac9c0d814e7688ca5085ca965066c/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-8.png" target="_blank">66c2208</a>
@@ -6895,7 +7241,7 @@ loaded via a namespace (and not attached):
 [142] bit_4.0.5              stringi_1.7.8          sass_0.4.4            
 [145] irlba_2.3.5.1          future.apply_1.10.0   </code></pre>
 <pre class="r"><code>date()</code></pre>
-<pre><code>[1] &quot;Mon Dec 12 14:28:40 2022&quot;</code></pre>
+<pre><code>[1] &quot;Mon Dec 12 16:37:57 2022&quot;</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

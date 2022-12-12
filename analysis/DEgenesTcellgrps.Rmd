@@ -592,10 +592,12 @@ write.table(clustDE_Dat, quote=F, row.names = F,col.names = T, sep= "\t",
 ```{r subset Fibroblast only}
 
 table(seurat$label, seurat$TcellGrp)
-## all grps between 3000 and 5000 cells --> no need to downsample
+## all grps between 2500 and 5000 cells --> no need to downsample
 
 Idents(seurat) <- seurat$label_plus_TcellGrp
 seuratSub <- subset(seurat, label=="Fibroblast")
+
+table(seuratSub$label, seuratSub$TcellGrp)
 
 ```
 
@@ -660,16 +662,16 @@ grpVec <- unique(seuratSub2$TcellGrp)
 GOcons <- lapply(grpVec, function(cl){
   DEgenesSub <- overallDE_ThighLow %>% 
     filter(cluster == cl) %>% mutate(ENS=gsub("\\..*$", "", gene)) %>% 
-    slice_min(., p_val_adj, n=250)
+    slice_min(., p_val, n=250)
   egoSS <- enrichGO(gene      = unique(DEgenesSub$ENS),
                 OrgDb         = org.Hs.eg.db,
                 keyType       = 'ENSEMBL',
                 ont           = "BP",
                 pAdjustMethod = "BH",
                 pvalueCutoff  = 0.05,
-                qvalueCutoff  = 0.05)
+                qvalueCutoff  = 0.1)
   egoSS <- setReadable(egoSS, OrgDb = org.Hs.eg.db)
-  egoSSres <- egoSS@result %>% filter(p.adjust < 0.05) %>% 
+  egoSSres <- egoSS@result %>% filter(qvalue < 0.1) %>% 
     mutate(subset=cl)
 })
 
@@ -723,21 +725,21 @@ colTgrpGen <- colTgrp
 lapply(grpVec, function(cl){
   DEgenesSub <- overallDE_ThighLow %>% 
     filter(cluster == cl) %>% mutate(ENS=gsub("\\..*$", "", gene)) %>% 
-    slice_min(., p_val_adj, n=250)
+    slice_min(., p_val, n=250)
   egoSS <- enrichGO(gene      = unique(DEgenesSub$ENS),
                 OrgDb         = org.Hs.eg.db,
                 keyType       = 'ENSEMBL',
                 ont           = "BP",
                 pAdjustMethod = "BH",
-                pvalueCutoff  = 0.05,
-                qvalueCutoff  = 0.05)
+                pvalueCutoff  = 0.5,
+                qvalueCutoff  = 0.1)
   egoSS <- setReadable(egoSS, OrgDb = org.Hs.eg.db)
-  egoSSres <- egoSS@result %>% filter(p.adjust < 0.05) %>% 
+  egoSSres <- egoSS@result %>% filter(qvalue < 0.1) %>% 
     filter(ID %in% selGO$GOterm)
   egoSS@result <- egoSSres
   colNode <- colTgrp[cl]
   colGene <- colTgrpGen[cl]
-  p <- cnetplot(egoSS, showCategory=10, node_label="all", 
+  p <- cnetplot(egoSS, showCategory=100, node_label="all", 
         color_category=colNode, 
         color_gene=colGene,
         shadowtext="none") 
@@ -754,7 +756,7 @@ grpVec <- unique(selGO$Grp)
 orgMarkerList <- lapply(grpVec, function(grp){
   selMarker <- overallDE_ThighLow %>% filter(cluster == grp) %>%
     mutate(EnsID=gsub("\\..*$", "", gene)) %>% 
-    slice_min(., p_val_adj, n=250)
+    slice_min(., p_val, n=250)
   out <- selMarker$EnsID
 })
 names(orgMarkerList) <- grpVec
@@ -764,7 +766,7 @@ ck <- compareCluster(geneCluster = orgMarkerList,
                      OrgDb = org.Hs.eg.db,
                      keyType = 'ENSEMBL',
                      ont = "BP",
-                     pvalueCutoff  = 0.1,
+                     pvalueCutoff  = 0.5,
                      qvalueCutoff  = 0.1
 )
 ck <- setReadable(ck, OrgDb = org.Hs.eg.db)
