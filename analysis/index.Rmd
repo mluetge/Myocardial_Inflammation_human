@@ -8,7 +8,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-### Human Cardiac Fibroblasts - final dataset incl GRAZ:  
+### Human Cardiac Biopsies:  
 merge cardiac cells including samples from Graz: [link](mergeHumanSamplesPlusGraz.html)  
 integrate  cardiac cells including samples from Graz: [link](integrateAcrossPatientsGZplusSG.html)  
 assign labels to integrated data: [link](assignLabelshumanHeartsPlusGrazIntWoHH.html)  
