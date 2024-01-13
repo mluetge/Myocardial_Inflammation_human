@@ -1,0 +1,117 @@
+---
+title: "create SCE objects for browser"
+author: ""
+date: ""
+output: 
+  html_document:
+    keep_md: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, echo = FALSE}
+options(width = 100)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, dev = c("png", "pdf"))
+seed <- 1234
+```
+
+# Load packages
+
+```{r load-packages, warning = FALSE}
+suppressPackageStartupMessages({
+  library(scater)
+  library(dplyr)
+  library(reshape2)
+  library(Matrix)
+  library(purrr)
+  library(scran)
+  library(Seurat)
+  library(tidyverse)
+  library(here)
+})
+```
+
+
+## load input data
+```{r input data}
+basedir <- here()
+seurat <- readRDS(file = paste0(basedir, 
+                              "/data/humanHeartsPlusGraz_intPatients_merged", 
+                              "labeled_woHH_seurat.rds"))
+Idents(seurat) <- seurat$label
+
+
+```
+
+
+# adjust label and metadata slots
+```{r adjust label}
+
+seurat@assays$integrated <- NULL
+
+selCol <- c("label","ID","TcellGrp")
+sce <- as.SingleCellExperiment(seurat)
+colData(sce) <- colData(sce)[,selCol]
+remove(seurat)
+
+```
+
+
+## reduce size of sce objects
+```{r reduce size}
+sce@assays@data$scaledata <- NULL
+
+```
+
+
+## vis label
+```{r merge}
+
+## set color vectors
+colLab <- c("#c08b65", "#ba4e45", "#d4cc84", "#546f82", "#5c5cdf",
+            "#80396e", "#8d5639", "#779462", "#800000FF", "#d87c15",
+            "#FFA319FF", "#FF95A8FF") 
+names(colLab) <- c("EndoEC", "Tcell","resMacrophage", "Fibroblast",
+                   "infMacrophage", "Perivascular","Cardiomyocyte",
+                   "Endothelial","Adipocytes","NeuralCells","SMC","LEC")
+
+
+## plot UMAPs
+p_tsne <- scater::plotReducedDim(sce, dimred="UMAP",
+                                 colour_by="label") +
+  ggplot2::scale_colour_manual(values = colLab, name = "label") 
+p_tsne 
+
+
+## test objects for App functions
+# p_vln <- scater::plotExpression(sceTotal, features = "ENSMUSG00000071005.Ccl19",
+#                                      x= "label",
+#                                      colour_by = "label")  +
+#          ggplot2::scale_colour_manual(values = colLab)
+# p_vln
+#  
+# p_tsne <- scater::plotReducedDim(sceTotal, dimred="UMAP",
+#                                        colour_by="ENSMUSG00000071005.Ccl19") +
+#        ggplot2::guides(fill=ggplot2::guide_legend(title="ENSMUSG00000071005.Ccl19"))
+# p_tsne
+
+```
+
+
+## save sce objects
+```{r save sce objects}
+
+saveRDS(sce, file = paste0(basedir,
+                              "/data/figshare/humanHeart_sce.rds"))
+
+```
+
+
+## session info
+```{r session info}
+sessionInfo()
+date()
+```
+
+

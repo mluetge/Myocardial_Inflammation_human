@@ -420,7 +420,7 @@ genesDat <- data.frame(EnsID=rownames(seurat)) %>%
   mutate(gene=gsub(".*\\.", "", EnsID))
 selGenes <- data.frame(gene=c("CD2", "TNNT2", "PECAM1", "NRG1", "PROX1",
                               "PDGFRA", "RGS5", "MYH11", "C1QA", "NRXN1",
-                              "PLIN1")) %>% 
+                              "PLIN1", "BMP4", "BMPR1A", "BMPR2")) %>% 
   left_join(., genesDat, by="gene")
 
 pList <- sapply(selGenes$EnsID, function(x){

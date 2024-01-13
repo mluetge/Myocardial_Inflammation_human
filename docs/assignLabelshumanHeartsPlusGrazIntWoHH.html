@@ -15,7 +15,7 @@
 
 <title>assign labels</title>
 
-<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
@@ -361,7 +361,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -372,8 +372,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -382,13 +382,13 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-12-12
+<strong>Last updated:</strong> 2023-08-31
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>humanCardiacFibroblasts/</code>
@@ -400,7 +400,7 @@ title="This is the local directory in which the code in this file was executed."
 This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
 analysis was created with <a
   href="https://github.com/workflowr/workflowr">workflowr</a> (version
-1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
 that were applied when the results were created. The <em>Past
 versions</em> tab lists the development history.
 </p>
@@ -411,18 +411,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -513,15 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree307a2ca1303cc372cc4fda9bb1a98e79fe8d29bdtargetblank307a2caa">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree61f9e3b145499642896c64891576395c25313dc2targetblank61f9e3ba">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd" target="_blank">307a2ca</a>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/61f9e3b145499642896c64891576395c25313dc2" target="_blank">61f9e3b</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree307a2ca1303cc372cc4fda9bb1a98e79fe8d29bdtargetblank307a2caa"
+id="strongRepositoryversionstrongahrefhttpsgithubcommluetgehumanCardiacFibroblaststree61f9e3b145499642896c64891576395c25313dc2targetblank61f9e3ba"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +534,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd" target="_blank">307a2ca</a>.
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/tree/61f9e3b145499642896c64891576395c25313dc2" target="_blank">61f9e3b</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -549,10 +552,15 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/figure/
     Ignored:    data/GSEA/
+    Ignored:    data/grantApplication/
     Ignored:    data/humanFibroblast/
     Ignored:    figure/DEgenesGZplusSG_Groups.Rmd/.DS_Store
+
+Unstaged changes:
+    Modified:   analysis/assignLabelshumanHeartsPlusGrazInt.Rmd
+    Modified:   analysis/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd
+    Modified:   analysis/projectSignatures.Rmd
 
 </code></pre>
 <p>
@@ -599,6 +607,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mluetge/humanCardiacFibroblasts/61f9e3b145499642896c64891576395c25313dc2/docs/assignLabelshumanHeartsPlusGrazIntWoHH.html" target="_blank">61f9e3b</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+<td>
+update assignment t cell grp
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -4649,7 +4674,7 @@ mluetge
   mutate(gene=gsub(&quot;.*\\.&quot;, &quot;&quot;, EnsID))
 selGenes &lt;- data.frame(gene=c(&quot;CD2&quot;, &quot;TNNT2&quot;, &quot;PECAM1&quot;, &quot;NRG1&quot;, &quot;PROX1&quot;,
                               &quot;PDGFRA&quot;, &quot;RGS5&quot;, &quot;MYH11&quot;, &quot;C1QA&quot;, &quot;NRXN1&quot;,
-                              &quot;PLIN1&quot;)) %&gt;% 
+                              &quot;PLIN1&quot;, &quot;BMP4&quot;, &quot;BMPR1A&quot;, &quot;BMPR2&quot;)) %&gt;% 
   left_join(., genesDat, by=&quot;gene&quot;)
 
 pList &lt;- sapply(selGenes$EnsID, function(x){
@@ -5381,15 +5406,6 @@ mluetge
 </table>
 </div>
 </div>
-<pre class="r"><code>pList &lt;- sapply(selGenes$EnsID, function(x){
-  p &lt;- VlnPlot(object = seurat, features = x,
-               group.by = &quot;label&quot;,
-               cols = colLab, pt.size = 0.3
-               ) + 
-    theme(legend.position = &quot;none&quot;)
-    
-  plot(p)
-})</code></pre>
 <p><img src="figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt%20sel%20marker-13.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-13">
@@ -5581,6 +5597,15 @@ mluetge
 </table>
 </div>
 </div>
+<pre class="r"><code>pList &lt;- sapply(selGenes$EnsID, function(x){
+  p &lt;- VlnPlot(object = seurat, features = x,
+               group.by = &quot;label&quot;,
+               cols = colLab, pt.size = 0.3
+               ) + 
+    theme(legend.position = &quot;none&quot;)
+    
+  plot(p)
+})</code></pre>
 <p><img src="figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt%20sel%20marker-16.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-vlnplt-sel-marker-16">
@@ -6110,6 +6135,7 @@ mluetge
 </table>
 </div>
 </div>
+<p><img src="figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt%20sel%20marker-25.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt%20sel%20marker-26.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt%20sel%20marker-27.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt%20sel%20marker-28.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt%20sel%20marker-29.png" width="672" style="display: block; margin: auto;" /><img src="figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/vlnplt%20sel%20marker-30.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="feature-plots-bmps" class="section level2">
 <h2>Feature plots BMPs</h2>
@@ -6657,6 +6683,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/61f9e3b145499642896c64891576395c25313dc2/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-1.png" target="_blank">61f9e3b</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-1.png" target="_blank">307a2ca</a>
 </td>
 <td>
@@ -6715,6 +6752,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/61f9e3b145499642896c64891576395c25313dc2/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-2.png" target="_blank">61f9e3b</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-2.png" target="_blank">307a2ca</a>
@@ -6777,6 +6825,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/61f9e3b145499642896c64891576395c25313dc2/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-3.png" target="_blank">61f9e3b</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-3.png" target="_blank">307a2ca</a>
 </td>
 <td>
@@ -6835,6 +6894,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/61f9e3b145499642896c64891576395c25313dc2/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-4.png" target="_blank">61f9e3b</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-4.png" target="_blank">307a2ca</a>
@@ -6907,6 +6977,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/61f9e3b145499642896c64891576395c25313dc2/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-5.png" target="_blank">61f9e3b</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-5.png" target="_blank">307a2ca</a>
 </td>
 <td>
@@ -6965,6 +7046,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/61f9e3b145499642896c64891576395c25313dc2/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-6.png" target="_blank">61f9e3b</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-6.png" target="_blank">307a2ca</a>
@@ -7027,6 +7119,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/61f9e3b145499642896c64891576395c25313dc2/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-7.png" target="_blank">61f9e3b</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-7.png" target="_blank">307a2ca</a>
 </td>
 <td>
@@ -7085,6 +7188,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/61f9e3b145499642896c64891576395c25313dc2/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-8.png" target="_blank">61f9e3b</a>
+</td>
+<td>
+mluetge
+</td>
+<td>
+2022-12-12
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mluetge/humanCardiacFibroblasts/blob/307a2ca1303cc372cc4fda9bb1a98e79fe8d29bd/docs/figure/assignLabelshumanHeartsPlusGrazIntWoHH.Rmd/feautreplots BMPs split-8.png" target="_blank">307a2ca</a>
@@ -7158,90 +7272,90 @@ write.table(logNormExpres,
 <div id="session-info" class="section level2">
 <h2>session info</h2>
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.2.1 (2022-06-23)
-Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Big Sur ... 10.16
+<pre><code>R version 4.3.0 (2023-04-21)
+Platform: x86_64-apple-darwin20 (64-bit)
+Running under: macOS Ventura 13.4.1
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
 
 locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: Europe/Berlin
+tzcode source: internal
 
 attached base packages:
 [1] stats4    stats     graphics  grDevices utils     datasets  methods  
 [8] base     
 
 other attached packages:
- [1] sctransform_0.3.5           viridis_0.6.2              
- [3] viridisLite_0.4.1           pheatmap_1.0.12            
- [5] ggpubr_0.5.0                ggsci_2.9                  
+ [1] sctransform_0.3.5           viridis_0.6.4              
+ [3] viridisLite_0.4.2           pheatmap_1.0.12            
+ [5] ggpubr_0.6.0                ggsci_3.0.0                
  [7] runSeurat3_0.1.0            here_1.0.1                 
  [9] magrittr_2.0.3              SeuratObject_4.1.3         
-[11] Seurat_4.3.0                forcats_0.5.2              
-[13] stringr_1.5.0               dplyr_1.0.10               
-[15] purrr_0.3.5                 readr_2.1.3                
-[17] tidyr_1.2.1                 tibble_3.1.8               
-[19] ggplot2_3.4.0               tidyverse_1.3.2            
-[21] SingleCellExperiment_1.18.1 SummarizedExperiment_1.26.1
-[23] Biobase_2.56.0              GenomicRanges_1.48.0       
-[25] GenomeInfoDb_1.32.4         IRanges_2.30.1             
-[27] S4Vectors_0.34.0            BiocGenerics_0.42.0        
-[29] MatrixGenerics_1.8.1        matrixStats_0.63.0         
+[11] Seurat_4.3.0.1              lubridate_1.9.2            
+[13] forcats_1.0.0               stringr_1.5.0              
+[15] dplyr_1.1.2                 purrr_1.0.2                
+[17] readr_2.1.4                 tidyr_1.3.0                
+[19] tibble_3.2.1                ggplot2_3.4.3              
+[21] tidyverse_2.0.0             SingleCellExperiment_1.22.0
+[23] SummarizedExperiment_1.30.2 Biobase_2.60.0             
+[25] GenomicRanges_1.52.0        GenomeInfoDb_1.36.2        
+[27] IRanges_2.34.1              S4Vectors_0.38.1           
+[29] BiocGenerics_0.46.0         MatrixGenerics_1.12.3      
+[31] matrixStats_1.0.0          
 
 loaded via a namespace (and not attached):
-  [1] utf8_1.2.2             spatstat.explore_3.0-5 reticulate_1.26       
-  [4] tidyselect_1.2.0       htmlwidgets_1.5.4      grid_4.2.1            
-  [7] Rtsne_0.16             munsell_0.5.0          codetools_0.2-18      
- [10] ica_1.0-3              future_1.29.0          miniUI_0.1.1.1        
- [13] withr_2.5.0            spatstat.random_3.0-1  colorspace_2.0-3      
- [16] progressr_0.11.0       highr_0.9              knitr_1.41            
- [19] rstudioapi_0.14        ROCR_1.0-11            ggsignif_0.6.4        
- [22] tensor_1.5             listenv_0.8.0          labeling_0.4.2        
- [25] git2r_0.30.1           GenomeInfoDbData_1.2.8 polyclip_1.10-4       
- [28] bit64_4.0.5            farver_2.1.1           rprojroot_2.0.3       
- [31] parallelly_1.32.1      vctrs_0.5.1            generics_0.1.3        
- [34] xfun_0.35              timechange_0.1.1       R6_2.5.1              
- [37] ggbeeswarm_0.6.0       bitops_1.0-7           spatstat.utils_3.0-1  
- [40] cachem_1.0.6           DelayedArray_0.22.0    assertthat_0.2.1      
- [43] vroom_1.6.0            promises_1.2.0.1       scales_1.2.1          
- [46] googlesheets4_1.0.1    beeswarm_0.4.0         gtable_0.3.1          
- [49] globals_0.16.2         goftest_1.2-3          workflowr_1.7.0       
- [52] rlang_1.0.6            splines_4.2.1          rstatix_0.7.1         
- [55] lazyeval_0.2.2         gargle_1.2.1           spatstat.geom_3.0-3   
- [58] broom_1.0.1            yaml_2.3.6             reshape2_1.4.4        
- [61] abind_1.4-5            modelr_0.1.10          backports_1.4.1       
- [64] httpuv_1.6.6           tools_4.2.1            ellipsis_0.3.2        
- [67] jquerylib_0.1.4        RColorBrewer_1.1-3     ggridges_0.5.4        
- [70] Rcpp_1.0.9             plyr_1.8.8             zlibbioc_1.42.0       
- [73] RCurl_1.98-1.9         deldir_1.0-6           pbapply_1.6-0         
- [76] cowplot_1.1.1          zoo_1.8-11             haven_2.5.1           
- [79] ggrepel_0.9.2          cluster_2.1.4          fs_1.5.2              
- [82] data.table_1.14.6      scattermore_0.8        lmtest_0.9-40         
- [85] reprex_2.0.2           RANN_2.6.1             googledrive_2.0.0     
- [88] whisker_0.4            fitdistrplus_1.1-8     hms_1.1.2             
- [91] patchwork_1.1.2        mime_0.12              evaluate_0.18         
- [94] xtable_1.8-4           readxl_1.4.1           gridExtra_2.3         
- [97] compiler_4.2.1         KernSmooth_2.23-20     crayon_1.5.2          
-[100] htmltools_0.5.3        later_1.3.0            tzdb_0.3.0            
-[103] lubridate_1.9.0        DBI_1.1.3              dbplyr_2.2.1          
-[106] MASS_7.3-58.1          Matrix_1.5-3           car_3.1-1             
-[109] cli_3.4.1              parallel_4.2.1         igraph_1.3.5          
-[112] pkgconfig_2.0.3        sp_1.5-1               plotly_4.10.1         
-[115] spatstat.sparse_3.0-0  xml2_1.3.3             vipor_0.4.5           
-[118] bslib_0.4.1            XVector_0.36.0         rvest_1.0.3           
-[121] digest_0.6.30          RcppAnnoy_0.0.20       spatstat.data_3.0-0   
-[124] rmarkdown_2.18         cellranger_1.1.0       leiden_0.4.3          
-[127] uwot_0.1.14            shiny_1.7.3            lifecycle_1.0.3       
-[130] nlme_3.1-160           jsonlite_1.8.3         carData_3.0-5         
-[133] fansi_1.0.3            pillar_1.8.1           lattice_0.20-45       
-[136] ggrastr_1.0.1          fastmap_1.1.0          httr_1.4.4            
-[139] survival_3.4-0         glue_1.6.2             png_0.1-8             
-[142] bit_4.0.5              stringi_1.7.8          sass_0.4.4            
-[145] irlba_2.3.5.1          future.apply_1.10.0   </code></pre>
+  [1] RcppAnnoy_0.0.21        splines_4.3.0           later_1.3.1            
+  [4] bitops_1.0-7            polyclip_1.10-4         lifecycle_1.0.3        
+  [7] rstatix_0.7.2           rprojroot_2.0.3         globals_0.16.2         
+ [10] lattice_0.21-8          vroom_1.6.3             MASS_7.3-60            
+ [13] backports_1.4.1         plotly_4.10.2           sass_0.4.7             
+ [16] rmarkdown_2.24          jquerylib_0.1.4         yaml_2.3.7             
+ [19] httpuv_1.6.11           sp_2.0-0                spatstat.sparse_3.0-2  
+ [22] reticulate_1.31         cowplot_1.1.1           pbapply_1.7-2          
+ [25] RColorBrewer_1.1-3      abind_1.4-5             zlibbioc_1.46.0        
+ [28] Rtsne_0.16              RCurl_1.98-1.12         git2r_0.32.0           
+ [31] GenomeInfoDbData_1.2.10 ggrepel_0.9.3           irlba_2.3.5.1          
+ [34] listenv_0.9.0           spatstat.utils_3.0-3    goftest_1.2-3          
+ [37] spatstat.random_3.1-5   fitdistrplus_1.1-11     parallelly_1.36.0      
+ [40] leiden_0.4.3            codetools_0.2-19        DelayedArray_0.26.7    
+ [43] tidyselect_1.2.0        farver_2.1.1            spatstat.explore_3.2-1 
+ [46] jsonlite_1.8.7          ellipsis_0.3.2          progressr_0.14.0       
+ [49] ggridges_0.5.4          survival_3.5-7          tools_4.3.0            
+ [52] ica_1.0-3               Rcpp_1.0.11             glue_1.6.2             
+ [55] gridExtra_2.3           xfun_0.40               withr_2.5.0            
+ [58] fastmap_1.1.1           fansi_1.0.4             digest_0.6.33          
+ [61] timechange_0.2.0        R6_2.5.1                mime_0.12              
+ [64] colorspace_2.1-0        scattermore_1.2         tensor_1.5             
+ [67] spatstat.data_3.0-1     utf8_1.2.3              generics_0.1.3         
+ [70] data.table_1.14.8       httr_1.4.7              htmlwidgets_1.6.2      
+ [73] S4Arrays_1.0.5          whisker_0.4.1           uwot_0.1.16            
+ [76] pkgconfig_2.0.3         gtable_0.3.4            workflowr_1.7.1        
+ [79] lmtest_0.9-40           XVector_0.40.0          htmltools_0.5.6        
+ [82] carData_3.0-5           scales_1.2.1            png_0.1-8              
+ [85] knitr_1.43              rstudioapi_0.15.0       tzdb_0.4.0             
+ [88] reshape2_1.4.4          nlme_3.1-163            cachem_1.0.8           
+ [91] zoo_1.8-12              KernSmooth_2.23-22      vipor_0.4.5            
+ [94] parallel_4.3.0          miniUI_0.1.1.1          ggrastr_1.0.2          
+ [97] pillar_1.9.0            grid_4.3.0              vctrs_0.6.3            
+[100] RANN_2.6.1              promises_1.2.1          car_3.1-2              
+[103] xtable_1.8-4            cluster_2.1.4           beeswarm_0.4.0         
+[106] evaluate_0.21           cli_3.6.1               compiler_4.3.0         
+[109] rlang_1.1.1             crayon_1.5.2            future.apply_1.11.0    
+[112] ggsignif_0.6.4          labeling_0.4.3          ggbeeswarm_0.7.2       
+[115] plyr_1.8.8              fs_1.6.3                stringi_1.7.12         
+[118] deldir_1.0-9            munsell_0.5.0           lazyeval_0.2.2         
+[121] spatstat.geom_3.2-4     Matrix_1.6-1            hms_1.1.3              
+[124] patchwork_1.1.3         bit64_4.0.5             future_1.33.0          
+[127] shiny_1.7.5             highr_0.10              ROCR_1.0-11            
+[130] igraph_1.5.1            broom_1.0.5             bslib_0.5.1            
+[133] bit_4.0.5              </code></pre>
 <pre class="r"><code>date()</code></pre>
-<pre><code>[1] &quot;Mon Dec 12 16:37:57 2022&quot;</code></pre>
+<pre><code>[1] &quot;Thu Aug 31 09:37:56 2023&quot;</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -7251,88 +7365,88 @@ Session information
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.2.1 (2022-06-23)
-Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Big Sur ... 10.16
+<pre><code>R version 4.3.0 (2023-04-21)
+Platform: x86_64-apple-darwin20 (64-bit)
+Running under: macOS Ventura 13.4.1
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
 
 locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: Europe/Berlin
+tzcode source: internal
 
 attached base packages:
 [1] stats4    stats     graphics  grDevices utils     datasets  methods  
 [8] base     
 
 other attached packages:
- [1] sctransform_0.3.5           viridis_0.6.2              
- [3] viridisLite_0.4.1           pheatmap_1.0.12            
- [5] ggpubr_0.5.0                ggsci_2.9                  
+ [1] sctransform_0.3.5           viridis_0.6.4              
+ [3] viridisLite_0.4.2           pheatmap_1.0.12            
+ [5] ggpubr_0.6.0                ggsci_3.0.0                
  [7] runSeurat3_0.1.0            here_1.0.1                 
  [9] magrittr_2.0.3              SeuratObject_4.1.3         
-[11] Seurat_4.3.0                forcats_0.5.2              
-[13] stringr_1.5.0               dplyr_1.0.10               
-[15] purrr_0.3.5                 readr_2.1.3                
-[17] tidyr_1.2.1                 tibble_3.1.8               
-[19] ggplot2_3.4.0               tidyverse_1.3.2            
-[21] SingleCellExperiment_1.18.1 SummarizedExperiment_1.26.1
-[23] Biobase_2.56.0              GenomicRanges_1.48.0       
-[25] GenomeInfoDb_1.32.4         IRanges_2.30.1             
-[27] S4Vectors_0.34.0            BiocGenerics_0.42.0        
-[29] MatrixGenerics_1.8.1        matrixStats_0.63.0         
+[11] Seurat_4.3.0.1              lubridate_1.9.2            
+[13] forcats_1.0.0               stringr_1.5.0              
+[15] dplyr_1.1.2                 purrr_1.0.2                
+[17] readr_2.1.4                 tidyr_1.3.0                
+[19] tibble_3.2.1                ggplot2_3.4.3              
+[21] tidyverse_2.0.0             SingleCellExperiment_1.22.0
+[23] SummarizedExperiment_1.30.2 Biobase_2.60.0             
+[25] GenomicRanges_1.52.0        GenomeInfoDb_1.36.2        
+[27] IRanges_2.34.1              S4Vectors_0.38.1           
+[29] BiocGenerics_0.46.0         MatrixGenerics_1.12.3      
+[31] matrixStats_1.0.0          
 
 loaded via a namespace (and not attached):
-  [1] utf8_1.2.2             spatstat.explore_3.0-5 reticulate_1.26       
-  [4] tidyselect_1.2.0       htmlwidgets_1.5.4      grid_4.2.1            
-  [7] Rtsne_0.16             munsell_0.5.0          codetools_0.2-18      
- [10] ica_1.0-3              future_1.29.0          miniUI_0.1.1.1        
- [13] withr_2.5.0            spatstat.random_3.0-1  colorspace_2.0-3      
- [16] progressr_0.11.0       highr_0.9              knitr_1.41            
- [19] rstudioapi_0.14        ROCR_1.0-11            ggsignif_0.6.4        
- [22] tensor_1.5             listenv_0.8.0          labeling_0.4.2        
- [25] git2r_0.30.1           GenomeInfoDbData_1.2.8 polyclip_1.10-4       
- [28] bit64_4.0.5            farver_2.1.1           rprojroot_2.0.3       
- [31] parallelly_1.32.1      vctrs_0.5.1            generics_0.1.3        
- [34] xfun_0.35              timechange_0.1.1       R6_2.5.1              
- [37] ggbeeswarm_0.6.0       bitops_1.0-7           spatstat.utils_3.0-1  
- [40] cachem_1.0.6           DelayedArray_0.22.0    assertthat_0.2.1      
- [43] vroom_1.6.0            promises_1.2.0.1       scales_1.2.1          
- [46] googlesheets4_1.0.1    beeswarm_0.4.0         gtable_0.3.1          
- [49] globals_0.16.2         goftest_1.2-3          workflowr_1.7.0       
- [52] rlang_1.0.6            splines_4.2.1          rstatix_0.7.1         
- [55] lazyeval_0.2.2         gargle_1.2.1           spatstat.geom_3.0-3   
- [58] broom_1.0.1            yaml_2.3.6             reshape2_1.4.4        
- [61] abind_1.4-5            modelr_0.1.10          backports_1.4.1       
- [64] httpuv_1.6.6           tools_4.2.1            ellipsis_0.3.2        
- [67] jquerylib_0.1.4        RColorBrewer_1.1-3     ggridges_0.5.4        
- [70] Rcpp_1.0.9             plyr_1.8.8             zlibbioc_1.42.0       
- [73] RCurl_1.98-1.9         deldir_1.0-6           pbapply_1.6-0         
- [76] cowplot_1.1.1          zoo_1.8-11             haven_2.5.1           
- [79] ggrepel_0.9.2          cluster_2.1.4          fs_1.5.2              
- [82] data.table_1.14.6      scattermore_0.8        lmtest_0.9-40         
- [85] reprex_2.0.2           RANN_2.6.1             googledrive_2.0.0     
- [88] whisker_0.4            fitdistrplus_1.1-8     hms_1.1.2             
- [91] patchwork_1.1.2        mime_0.12              evaluate_0.18         
- [94] xtable_1.8-4           readxl_1.4.1           gridExtra_2.3         
- [97] compiler_4.2.1         KernSmooth_2.23-20     crayon_1.5.2          
-[100] htmltools_0.5.3        later_1.3.0            tzdb_0.3.0            
-[103] lubridate_1.9.0        DBI_1.1.3              dbplyr_2.2.1          
-[106] MASS_7.3-58.1          Matrix_1.5-3           car_3.1-1             
-[109] cli_3.4.1              parallel_4.2.1         igraph_1.3.5          
-[112] pkgconfig_2.0.3        sp_1.5-1               plotly_4.10.1         
-[115] spatstat.sparse_3.0-0  xml2_1.3.3             vipor_0.4.5           
-[118] bslib_0.4.1            XVector_0.36.0         rvest_1.0.3           
-[121] digest_0.6.30          RcppAnnoy_0.0.20       spatstat.data_3.0-0   
-[124] rmarkdown_2.18         cellranger_1.1.0       leiden_0.4.3          
-[127] uwot_0.1.14            shiny_1.7.3            lifecycle_1.0.3       
-[130] nlme_3.1-160           jsonlite_1.8.3         carData_3.0-5         
-[133] fansi_1.0.3            pillar_1.8.1           lattice_0.20-45       
-[136] ggrastr_1.0.1          fastmap_1.1.0          httr_1.4.4            
-[139] survival_3.4-0         glue_1.6.2             png_0.1-8             
-[142] bit_4.0.5              stringi_1.7.8          sass_0.4.4            
-[145] irlba_2.3.5.1          future.apply_1.10.0   </code></pre>
+  [1] RcppAnnoy_0.0.21        splines_4.3.0           later_1.3.1            
+  [4] bitops_1.0-7            polyclip_1.10-4         lifecycle_1.0.3        
+  [7] rstatix_0.7.2           rprojroot_2.0.3         globals_0.16.2         
+ [10] lattice_0.21-8          vroom_1.6.3             MASS_7.3-60            
+ [13] backports_1.4.1         plotly_4.10.2           sass_0.4.7             
+ [16] rmarkdown_2.24          jquerylib_0.1.4         yaml_2.3.7             
+ [19] httpuv_1.6.11           sp_2.0-0                spatstat.sparse_3.0-2  
+ [22] reticulate_1.31         cowplot_1.1.1           pbapply_1.7-2          
+ [25] RColorBrewer_1.1-3      abind_1.4-5             zlibbioc_1.46.0        
+ [28] Rtsne_0.16              RCurl_1.98-1.12         git2r_0.32.0           
+ [31] GenomeInfoDbData_1.2.10 ggrepel_0.9.3           irlba_2.3.5.1          
+ [34] listenv_0.9.0           spatstat.utils_3.0-3    goftest_1.2-3          
+ [37] spatstat.random_3.1-5   fitdistrplus_1.1-11     parallelly_1.36.0      
+ [40] leiden_0.4.3            codetools_0.2-19        DelayedArray_0.26.7    
+ [43] tidyselect_1.2.0        farver_2.1.1            spatstat.explore_3.2-1 
+ [46] jsonlite_1.8.7          ellipsis_0.3.2          progressr_0.14.0       
+ [49] ggridges_0.5.4          survival_3.5-7          tools_4.3.0            
+ [52] ica_1.0-3               Rcpp_1.0.11             glue_1.6.2             
+ [55] gridExtra_2.3           xfun_0.40               withr_2.5.0            
+ [58] fastmap_1.1.1           fansi_1.0.4             digest_0.6.33          
+ [61] timechange_0.2.0        R6_2.5.1                mime_0.12              
+ [64] colorspace_2.1-0        scattermore_1.2         tensor_1.5             
+ [67] spatstat.data_3.0-1     utf8_1.2.3              generics_0.1.3         
+ [70] data.table_1.14.8       httr_1.4.7              htmlwidgets_1.6.2      
+ [73] S4Arrays_1.0.5          whisker_0.4.1           uwot_0.1.16            
+ [76] pkgconfig_2.0.3         gtable_0.3.4            workflowr_1.7.1        
+ [79] lmtest_0.9-40           XVector_0.40.0          htmltools_0.5.6        
+ [82] carData_3.0-5           scales_1.2.1            png_0.1-8              
+ [85] knitr_1.43              rstudioapi_0.15.0       tzdb_0.4.0             
+ [88] reshape2_1.4.4          nlme_3.1-163            cachem_1.0.8           
+ [91] zoo_1.8-12              KernSmooth_2.23-22      vipor_0.4.5            
+ [94] parallel_4.3.0          miniUI_0.1.1.1          ggrastr_1.0.2          
+ [97] pillar_1.9.0            grid_4.3.0              vctrs_0.6.3            
+[100] RANN_2.6.1              promises_1.2.1          car_3.1-2              
+[103] xtable_1.8-4            cluster_2.1.4           beeswarm_0.4.0         
+[106] evaluate_0.21           cli_3.6.1               compiler_4.3.0         
+[109] rlang_1.1.1             crayon_1.5.2            future.apply_1.11.0    
+[112] ggsignif_0.6.4          labeling_0.4.3          ggbeeswarm_0.7.2       
+[115] plyr_1.8.8              fs_1.6.3                stringi_1.7.12         
+[118] deldir_1.0-9            munsell_0.5.0           lazyeval_0.2.2         
+[121] spatstat.geom_3.2-4     Matrix_1.6-1            hms_1.1.3              
+[124] patchwork_1.1.3         bit64_4.0.5             future_1.33.0          
+[127] shiny_1.7.5             highr_0.10              ROCR_1.0-11            
+[130] igraph_1.5.1            broom_1.0.5             bslib_0.5.1            
+[133] bit_4.0.5              </code></pre>
 </div>
 </div>
 

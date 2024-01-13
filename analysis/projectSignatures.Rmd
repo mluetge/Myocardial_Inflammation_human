@@ -524,6 +524,19 @@ pOut <- avgHeatmap(seurat = seurat, selGenes = signDat,
                      cr=F, condCol=T)
 
 
+seurat <- subset(seurat, TcellGrp %in% c("TcellHigh", "TcellLow"))
+
+gapVecCol <- seq(2, length(unique(seurat$label2_plus_grp)), by=2)
+gapVecDat <- signDat %>% group_by(signature) %>% summarise(cnt=n())
+gapVecRow <- cumsum(gapVecDat$cnt)
+
+pOut <- avgHeatmap(seurat = seurat, selGenes = signDat,
+                     colVecIdent = colLab2, colVecCond=colTgrp,
+                     ordVec=levels(seurat),
+                     gapVecR=gapVecRow, gapVecC=gapVecCol,cc=FALSE,
+                     cr=F, condCol=T)
+
+
 
 ```
 
